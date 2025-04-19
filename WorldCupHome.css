@@ -1,0 +1,170 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    font-family: "Inter", sans-serif;
+}
+
+body {
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    background-color: #F1F3F8;
+}
+
+.Header_container{
+    height: 200px;
+    background-color: #000000;
+    width: 100%;
+}
+
+
+.container_geral{
+    width: 1100px;
+}
+
+.video_inicio {
+    padding-top: 90px;
+    padding-bottom: 40px;
+}
+
+.conteudo_Principal {
+    width: 65%;
+}
+
+.conteudo_Principal div img {
+    width: 100%;
+    border-radius: 20px;
+  box-shadow: 0 1.5px 3px rgba(0, 0, 0, 0.8);
+} 
+
+
+.imagem_principal_container {
+    position: relative;
+
+}
+
+
+.conteudo_imagem {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    bottom: 0;
+    color: white;
+    padding: 25px;
+    gap: 5px;
+}
+
+.conteudo_imagem h1 {
+    font-size: 18px;
+}
+
+.conteudo_imagem p {
+    font-size: 12px;
+}
+
+.conteudo_imagem button {
+    width: 80px;
+    height: 25px;
+    color: #C066C1;
+    background-color: #0D0E0F;
+    border: 1px solid  #C066C1;
+    border-radius: 40px;
+    cursor: pointer;
+}
+
+.fifa_logo {
+  margin: 20px 0px;
+  box-shadow: 0 2.5px 8px rgba(0, 0, 0, 0.8);
+}
+
+
+
+.conteudo_Principal h2 {
+    font-weight: 300;
+    color: #3C3C3C;
+    
+}
+
+
+
+.conteudo_div {
+    display: flex;
+    gap: 50px;
+    
+}
+
+.card_container{
+    gap: 50px;
+    display: flex;
+
+}
+
+
+.card {
+    height: 250px;
+    background-color: white;
+    width: 47%;
+    border-radius: 30px;
+}
+
+
+.Conteudo_secundario {
+    
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(255, 255, 255);
+    width: 30%;
+    max-height: 100%;
+    border-radius: 20px;
+    border: 3px solid #DBDDE9;
+}
+
+
+.Conteudo_secundario div {
+
+}
+
+.Conteudo_secundario h1 {
+    padding: 10px;
+    font-weight: 600;
+    font-size: 26px;
+    color: #1A313C;
+    border-bottom: 2px solid #DBDDE9;
+}
+
+
+.Conteudo_secundario h2 {
+    padding: 10px;
+    font-weight: normal;
+    font-size: 26px;
+    color: #1A313C;
+    
+
+}
+
+.Conteudo_secundario img {
+    width: 12%;
+
+}
+
+.titulos_area {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.titulos_area div {
+    gap: 10px;
+    display: flex;
+    align-items: center;
+    padding: 0 15px;
+}
+
+.titulos_area p {
+    font-weight: 700;
+    color: #1A313C;
+
+}
+
