@@ -145,7 +145,8 @@ body {
 }
 
 .Conteudo_secundario img {
-    width: 12%;
+    width: 35px;
+    height: 40px;
 
 }
 
@@ -160,6 +161,13 @@ body {
     display: flex;
     align-items: center;
     padding: 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.titulos_area div-section {
+    border-bottom: 2px solid #DBDDE9;
+    padding: 10px;
 }
 
 .titulos_area p {
