@@ -1,0 +1,46 @@
+body {
+    background-color: white;
+}
+
+.container_geral video {
+    margin-top: 30px;
+    border-radius: 10px;
+    width: 100%;
+}
+
+.container_geral img {
+    padding-top: 20px;
+    width: 40%;
+}
+
+
+.conteudo_texto h1 {
+    text-align: center;
+}
+
+.conteudo_texto h3 {
+    align-self: flex-start;
+    font-weight: bold;
+}
+
+.conteudo_texto h2 {
+    color: #4C4C4C;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.conteudo_texto {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+}
+
+.titulos {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
