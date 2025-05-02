@@ -38,9 +38,9 @@
                 <div class="copas_container">
                     <ul class="copas">
                         <li><a href="../WorldCupHome.html"><img id="logo_26" src="../images/logo_26.png" alt=""></a></li>
-                        <li><a href="./Estat.html?selecao=argentina"><img src="../images/argentina_pais.png" alt="">2022</a></li>
-                        <li><a href="./Estat.html?selecao=franca"><img src="../images/franca_pais.png" alt="">2018</a></li>
-                        <li><a href="./Estat.html?selecao=alemanha"><img src="../images/alemanha_pais.png" alt="">2014</a></li>
+                        <li><a href="./Geral.html?selecao=argentina"><img src="../images/argentina_pais.png" alt="">2022</a></li>
+                        <li><a href="./Geral.html?selecao=franca"><img src="../images/franca_pais.png" alt="">2018</a></li>
+                        <li><a href="./Geral.html?selecao=alemanha"><img src="../images/alemanha_pais.png" alt="">2014</a></li>
                         <li><a href="copaDetalhe/index.html?selecao=2010"><img src="../images/espanha_pais.png" alt="">2010</a></li>
                         <li><a href="copaDetalhe/index.html?selecao=2006"><img src="../images/italia_pais.png" alt="">2006</a></li>
                         <li><a href="copaDetalhe/index.html?selecao=2002"><img src="../images/brasil_pais.png" alt="">2002</a></li>
@@ -87,8 +87,8 @@
                     <p id="descricao">Argentina bate França nos pênaltis, conquista o tri e eterniza Messi como o gênio de uma geração</p>
                 </div>
                 <div class="vencedor_botao">
-                    <button class="inativo"><a href="./geral.html?selecao=argentina">Geral</a> </button>
-                    <button class="ativado"><a href="">Estat.</a></button>
+                    <button class="inativo"><a class="link-dinamico" data-page="geral.html">Geral</a> </button>
+                    <button class="ativado"><a class="link-dinamico" data-page="estat.html">Estat.</a></button>
                     <button class="inativo"><a href="">Sobre</a> </button>
                 </div>
             </div>
@@ -228,6 +228,15 @@ let divMinutosPorGol = document.querySelector("#minutosPorGol");
 
 const params = new URLSearchParams(window.location.search);
 const selecao = params.get('selecao'); 
+
+
+
+if (selecao) {
+    document.querySelectorAll('.link-dinamico').forEach(link => {
+      const page = link.getAttribute('data-page');
+      link.href = `${page}?selecao=${selecao}`;
+    });
+  }
 
 fetch("informacoes.json").then((response) => {
     response.json().then((dados) => {

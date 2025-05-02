@@ -134,10 +134,14 @@ body {
     margin-top: 50px;
     gap: 50px;
     display: flex;
+    width: 75%;
 }
 
 .conteudo_Principal {
-    width: 65%;
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    flex-direction: column;
 }
 
 .vencedor_walpaper {
@@ -190,10 +194,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: 20px;
-}
-
-#descricao {
-    font-family: "inter";
+    width: 100%;
 }
 
 .vencedor_detalhe {
@@ -213,11 +214,20 @@ body {
     font-size: 26px;
 }
 
-.imagem_principal_container {
-    position: relative;
-
+.imagem_principal {
+    width: 100%;
+    border-radius: 10px;
 }
 
+
+
+.imagem_principal_container {
+    position: relative;
+}
+
+.placar_final {
+    width: 100%;
+}
 
 .conteudo_imagem {
     position: absolute;

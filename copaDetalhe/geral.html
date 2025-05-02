@@ -35,9 +35,9 @@
                 <div class="copas_container">
                     <ul class="copas">
                         <li><img id="logo_26" src="../images/logo_26.png" alt=""></li>
-                        <li><a href="copaDetalhe/index.html?selecao=2022"><img src="../images/argentina_pais.png" alt="">2022</a></li>
-                        <li><a href="copaDetalhe/index.html?selecao=2018"><img src="../images/franca_pais.png" alt="">2018</a></li>
-                        <li><a href="copaDetalhe/index.html?selecao=2014"><img src="../images/alemanha_pais.png" alt="">2014</a></li>
+                        <li><a href="./Geral.html?selecao=argentina"><img src="../images/argentina_pais.png" alt="">2022</a></li>
+                        <li><a href="./Geral.html?selecao=franca"><img src="../images/franca_pais.png" alt="">2018</a></li>
+                        <li><a href="./Geral.html?selecao=alemanha"><img src="../images/alemanha_pais.png" alt="">2014</a></li>
                         <li><a href="copaDetalhe/index.html?selecao=2010"><img src="../images/espanha_pais.png" alt="">2010</a></li>
                         <li><a href="copaDetalhe/index.html?selecao=2006"><img src="../images/italia_pais.png" alt="">2006</a></li>
                         <li><a href="copaDetalhe/index.html?selecao=2002"><img src="../images/brasil_pais.png" alt="">2002</a></li>
@@ -66,28 +66,29 @@
 
     <div class="vencedor">
         <div class="vencedor_walpaper">
-            <img class="vencedor_walpaper_img" src="../images/ArgentinaWalpaper1.png" alt="">
+
+            <img class="vencedor_walpaper_img" id="walpaper1" src="" alt="">
+            <img style="display: none;" class="vencedor_walpaper_img" id="walpaper2" src="" alt="">
+
             <div style="color: white;" id="selecao_vencedora">
                 <div class="vencedor_detalhe">
-                    <img  src="../images/ArgentinaSelecao.png" alt="">
+                    <img id="selecao" src="" alt="">
                     <div>
                         <h1>VENCEDOR</h1>
-                        <p>ARGENTINA</p>
+                        <p id="vencedor">ARGENTINA</p>
                     </div>
                 </div>
                 <div class="vencedor_descrição">
-                    <p>Argentina bate França nos pênaltis, conquista o tri e eterniza Messi como o gênio de uma geração</p>
+                    <p id="descricao">Argentina bate França nos pênaltis, conquista o tri e eterniza Messi como o gênio de uma geração</p>
                 </div>
                 <div class="vencedor_botao">
-                    <button class="ativado">Geral</button>
-                    <button class="inativo"><a href="./Estat.html?selecao=argentina" >Estat.</a></button>
-                    <button class="inativo">Sobre</button>
+                    <button class="ativado"><a class="link-dinamico" data-page="geral.html">Geral</a> </button>
+                    <button class="inativo"><a class="link-dinamico" data-page="estat.html" >Estat.</a></button>
+                    <button class="inativo"><a href="">Sobre</a> </button>
                 </div>
             </div>
       
         </div>
-       
-        
     </div>
 
     <!-- CONTEUDO -->
@@ -96,18 +97,18 @@
             <div class="conteudo_div" >
                 <div  class="conteudo_Principal">
                         <div class="imagem_principal_container">
-                            <img class="imagem_principal"  src="../images/messiBanner.png" alt="">
+                            <img id="Banner" class="imagem_principal"  src="../images/2018Banner.png" alt="">
                             <div class="conteudo_imagem">
                                 <a href="https://www.youtube.com/watch?v=2Gg4OQo7-zA&t=160s" class="botao">Destaque</a>
-                                <h1>Todos os gols da argentina na copa de 2022</h1>
-                                <p>Veja todos os golos marcados pela argentina na campanha vitoriosa de 2022</p>
+                                <h1 id="BannerTitle">Todos os gols d antoine griezmann</h1>
+                                <p id="BannerDesc">Veja todos os golos marcados pela argentina na campanha vitoriosa de 2022</p>
                             </div>
                     </div>
-                    
-                </div>
                     <div>
-                        <img src="../images/placar.png" alt="">
-                    </div>
+                        <img id="placar" class="placar_final" src="../images/placar2014.png" alt="">
+                    </div>  
+                </div>
+                   
             </div>
 
                 <div class="Conteudo_secundario">
@@ -222,6 +223,79 @@
 </html>
 
 <script>
+
+
+
+let divVencedor = document.querySelector("#vencedor");
+let divwalpaper2 = document.querySelector("#walpaper2")
+let divwalpaper1 = document.querySelector("#walpaper1")
+let divDescricao = document.querySelector("#descricao");
+let divselecao = document.querySelector("#selecao");
+let divplacar =  document.querySelector("#placar")
+let divBanner = document.querySelector("#Banner")
+let divBannerTitle =  document.querySelector("#BannerTitle")
+let BannerDesc = document.querySelector("#BannerDesc")
+
+const params = new URLSearchParams(window.location.search);
+const selecao = params.get('selecao'); 
+
+if (selecao) {
+    document.querySelectorAll('.link-dinamico').forEach(link => {
+      const page = link.getAttribute('data-page');
+      link.href = `${page}?selecao=${selecao}`;
+    });
+  }
+
+fetch("informacoes.json").then((response) => {
+    response.json().then((dados) => {
+        if (dados[selecao]) {
+            const infoSelecao = dados[selecao];
+
+            
+            divVencedor.innerHTML =  infoSelecao.vencedor;    
+            divDescricao.innerHTML = infoSelecao.descricao;
+            BannerTitle.innerHTML = infoSelecao.BannerTitle
+            BannerDesc.innerHTML = infoSelecao.BannerDesc
+
+            divwalpaper2.src = infoSelecao.walpaper2;
+            divwalpaper1.src = infoSelecao.walpaper1;
+            divselecao.src = infoSelecao.selecao;
+            divplacar.src = infoSelecao.placar;
+            divBanner.src = infoSelecao.Banner;
+
+        }
+            else {
+                divJogos.innerHTML = "Seleção não encontrada.";
+                divVencedor.innerHTML = "";    
+                divFinal.innerHTML = "";
+                divQualificacao.innerHTML = "";
+                divTotalGols.innerHTML = "";
+                divGolsPorJogo.innerHTML = "";
+                divMinutosPorGol.innerHTML = "";
+        }
+    });
+});
+
+
+
+let walpaper1 = document.getElementById('walpaper1');
+let walpaper2 = document.getElementById('walpaper2');
+
+let contador = 0;
+
+function alternarWalpapers() {
+  if (contador % 2 === 0) {
+    walpaper1.style.display = 'none';
+    walpaper2.style.display = 'block';
+  } else {
+    walpaper1.style.display = 'block';
+    walpaper2.style.display = 'none';
+  }
+  contador++;
+}
+
+setInterval(alternarWalpapers, 10000);
+
     const contaner_copas = document.querySelector('.copas_container');
     document.getElementById('left').onclick = () => contaner_copas.scrollBy({ left: -600, behavior: 'smooth' });
     document.getElementById('right').onclick = () => contaner_copas.scrollBy({ left: 600, behavior: 'smooth' });
