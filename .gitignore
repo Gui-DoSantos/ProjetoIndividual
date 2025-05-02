@@ -1,3 +1,4 @@
 **/videos/
 **/images/
 *.json
+*node_modules

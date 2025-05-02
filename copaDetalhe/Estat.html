@@ -9,6 +9,10 @@
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.6.6/css/flag-icons.min.css">
     <link rel="stylesheet" href="Estat.css">
+    <link rel="stylesheet" href="Header.css">
+    <link rel="stylesheet" href="Footer.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>   
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels"></script>
 </head>
 <body >
 
@@ -33,7 +37,7 @@
     
                 <div class="copas_container">
                     <ul class="copas">
-                        <li><img id="logo_26" src="../images/logo_26.png" alt=""></li>
+                        <li><a href="../WorldCupHome.html"><img id="logo_26" src="../images/logo_26.png" alt=""></a></li>
                         <li><a href="./Estat.html?selecao=argentina"><img src="../images/argentina_pais.png" alt="">2022</a></li>
                         <li><a href="./Estat.html?selecao=franca"><img src="../images/franca_pais.png" alt="">2018</a></li>
                         <li><a href="./Estat.html?selecao=alemanha"><img src="../images/alemanha_pais.png" alt="">2014</a></li>
@@ -83,9 +87,9 @@
                     <p id="descricao">Argentina bate França nos pênaltis, conquista o tri e eterniza Messi como o gênio de uma geração</p>
                 </div>
                 <div class="vencedor_botao">
-                    <button class="inativo">Geral</button>
-                    <button class="ativado">Estat.</button>
-                    <button class="inativo">Sobre</button>
+                    <button class="inativo"><a href="./geral.html?selecao=argentina">Geral</a> </button>
+                    <button class="ativado"><a href="">Estat.</a></button>
+                    <button class="inativo"><a href="">Sobre</a> </button>
                 </div>
             </div>
       
@@ -115,7 +119,7 @@
                             </div>
                         <div>
                             <h2 id="qualificacao"></h2>
-                            <p>fase de qualificacao</p>
+                            <p>fase de qualificação</p>
                         </div>
                        </div>
                     </div>
@@ -127,7 +131,7 @@
                                 <p>Total gols</p>
                             </div>
                             <div>
-                                <img src="../images/Campo.png" alt="">
+                                <img src="../images/gols.png" alt="">
                              </div>
                        </div>
                        <div  class="dados_espaco2">
@@ -141,11 +145,38 @@
                         </div>
                        </div>
                     </div>
-
+                </div>
+                <div class="estatisticas">
+                    <h2>Estastisticas seleções</h2>
+                    <div class="container_graficos">
+                        <div class="comparativo_Grafico">
+                            <canvas id="comparativoChart"></canvas>
+                        </div>
+                        <div class="graficos_juntos">
+                            <div class="classificacao_grafico">
+                                <canvas class="caixa1" id="classificacao"></canvas>
+                                <canvas class="caixa2"  id="posse"></canvas>
+                            </div>
+                           
+                
+                        </div>
+                    </div>
+                </div>
+                <div class="estatisticas2">
+                    <h2>Estastisticas jogadores</h2>
+                    <div class="container_graficos">
+                        <div class="comparativo_Grafico">
+                            <canvas id="comparativo2Chart"></canvas>
+                        </div>
+                        <div class="graficos_juntos">
+                            <div class="classificacao_grafico">
+                                <canvas class="caixa1" id="defesas"></canvas>
+                                <canvas class="caixa2" id="drible"></canvas>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-
-
         </div>
 
         <!-- FOOTER -->
@@ -216,18 +247,463 @@ fetch("informacoes.json").then((response) => {
             divwalpaper2.src = infoSelecao.walpaper2;
             divwalpaper1.src = infoSelecao.walpaper1;
             divselecao.src = infoSelecao.selecao;
-        } else {
 
-            divJogos.innerHTML = "Seleção não encontrada.";
-            divVencedor.innerHTML = "";    
-            divFinal.innerHTML = "";
-            divQualificacao.innerHTML = "";
-            divTotalGols.innerHTML = "";
-            divGolsPorJogo.innerHTML = "";
-            divMinutosPorGol.innerHTML = "";
+            //  comparação
+            const comparacao = infoSelecao.comparacao;
+            const selecoesComparadas = Object.keys(comparacao); // Brasil, França, Alemanha, Itália
+
+            const Gol = selecoesComparadas.map(selecao => comparacao[selecao].Gol);
+            const assistencias = selecoesComparadas.map(selecao => comparacao[selecao].Assistencias);
+                
+            const selecoes = Object.keys(comparacao);
+
+            const posseDeBola = selecoes.map(selecao => parseFloat(comparacao[selecao].Posse));
+            // jogadores
+
+            const jogadores = infoSelecao.jogadores;
+            const JogadoresComparados = Object.keys(jogadores); 
+            
+            const jogadoresNome = Object.keys(jogadores);
+
+            const Gols = JogadoresComparados.map(selecao => jogadores[selecao].Gols);
+            const Assistencias = JogadoresComparados.map(selecao => jogadores[selecao].Assistencias);
+            const drible = JogadoresComparados.map(selecao => jogadores[selecao].Drible);
+
+
+            // goleiros
+
+            const goleiros = infoSelecao.goleiros;
+            const goleirosComparados = Object.keys(goleiros); 
+
+            const defesas = JogadoresComparados.map(selecao => jogadores[selecao].Gols);
+
+            // qualificacao
+            const qualificacao = parseInt(infoSelecao.qualificacao);
+            const final = parseInt(infoSelecao.final);
+
+            
+                
+                
+
+const coresJogadores = ["#4E65B1", "#4CA1CF", "#FFCE56", "#4BC0C0"];
+const coresSelecao = ["#198D0E","#4E65B1", "#AF3334", "#7A7A7A", "#4BC0C0"];
+
+
+
+// GRAFICO DE COLUNA SELEÇÂO "G/A"
+
+
+new Chart(document.getElementById('comparativoChart'), {
+    type: 'bar',
+    data: {
+        labels: selecoesComparadas,
+        datasets: [
+            {
+                label: 'Gols',
+                data: Gol,
+                backgroundColor: '#E95A5F',
+                borderWidth: 1
+            },
+            {
+                label: 'Assistências',
+                data: assistencias,
+                backgroundColor: '#BB276C',
+                borderWidth: 1
+            }
+        ]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            title: {
+                display: true,
+                text: '       G/A das seleções',
+                align: 'start',
+                font: {
+                    size: 24,
+                    family: "'Champions-sans', sans-serif"
+                },
+                color: '#333'
+                
+            },legend: {
+            labels: {
+                boxWidth: 15,  
+                boxHeight: 15,  
+                font: {
+                    size: 14
+                },
+                color: '#000'
+            }
+        }
+    },
+    scales: {
+        y: {
+            beginAtZero: true,
+            title: {
+                display: true,
+                text: 'G/A',
+                font: {
+                    size: 12
+                },
+},
+            grid: {
+                display: true
+            }
+        },
+        x: {
+            ticks: {
+                font: {
+                    size: 14
+                },
+                color: '#242525'
+            },
+            grid: {
+                display: false
+            }
+        }
+    }
+}
+});
+
+
+// GRAFICO DE BARRA "QUALIFICAÇÂO" SELEÇÂO
+
+new Chart(document.getElementById('classificacao'), {
+    type: 'bar',
+    data: {
+        labels: ['Qualificação', 'Final'],
+        datasets: [
+            {
+                label: 'Classificação x Final',
+                data: [qualificacao, final],
+                backgroundColor: ['#68DEE3', '#2B87B3'],
+                borderWidth: 1
+            },
+            
+        ]
+    },
+    options: {
+        indexAxis: 'y',
+        responsive: true,
+        plugins: {
+            legend: {
+                display: false
+            },
+            title: {
+                display: true,
+                text: 'Comparação: Qualificação vs Final',
+                align: 'start',
+                font: {
+                    size: 24,
+                    family: "'Champions-sans', sans-serif" 
+                },
+                color: '#000000',
+                padding: {
+                    top: 10,
+                    bottom: 10
+                }
+            },
+            
+        },
+    scales: {
+        x: {
+        beginAtZero: true,
+            ticks: {
+                font: {
+                    size: 20,
+                    family: "'Champions-sans', sans-serif" 
+                },
+            },
+        },
+        y: {
+            ticks: {
+                font: {
+                    size: 26,
+                    family: "'inter', sans-serif" 
+                },
+                color: '#464646'
+            },
+            grid:  { 
+                display: false 
+            }
+        }
+    }
+}
+});
+
+// GRAFICO DE ROSCA "POSSE" SELEÇÂO
+
+        
+new Chart(document.getElementById('posse'), {
+    type: 'doughnut',
+    data: {
+        labels: selecoes.map(nome => nome.charAt(0).toUpperCase() + nome.slice(1)),
+        datasets: [{
+            label: 'Posse de Bola (%)',
+            data: posseDeBola,
+            backgroundColor: coresSelecao,
+            borderColor: '#F8F9FC', // Cor da borda entre os setores (ex: branco)
+            borderWidth: 2,
+        }]
+    },
+    options: {
+        responsive: true,
+        cutout: '50%', 
+        rotation: -70,
+            plugins: {
+            title: {
+                display: true,
+                text: 'Posse de bola em %',
+                align: 'start',
+                font: {
+                    size: 16,
+                    family: "'inter', sans-serif" 
+                },
+                color: '#464646',
+            },
+        legend: {
+                position: 'right',
+                align: 'center',
+                labels: {
+               font: {
+                    size: 14, 
+                    family: "'inter', sans-serif" 
+                },
+            color: '#131313',
+            boxWidth: 5,
+                borderWidth: 0,
+                padding: 20, 
+            }
+                },
+    datalabels: {
+            display: true,
+                color: '#464646',
+                font: {
+                weight: 'bold',
+                    size: 14
+                },
+                    formatter: function(value) {
+                        return value + '%';
+                    },
+                    anchor: 'center',
+                    align: 'center',  
+                    color: '#ffffff', 
+            }
+    }
+},
+    plugins: [ChartDataLabels] 
+});
+
+
+
+    //  GRAFICO DE COLUNA JOGADORES "G/A"
+
+new Chart(document.getElementById('comparativo2Chart'), {
+    type: 'bar',
+        data: {
+            labels: JogadoresComparados,
+            datasets: [
+                {
+                    label: 'Gols',
+                    data: Gols,
+                    backgroundColor: '#E95A5F',
+                    borderWidth: 1, 
+                },
+                {
+                label: 'Assistências',
+                        data: Assistencias,
+                        backgroundColor: '#BB276C',
+                        borderWidth: 1
+                    }
+                ]
+            },
+            options: {
+                plugins: {
+                    legend: {
+            position: 'top',
+            align: 'center',
+            labels: {
+            font: {
+                size: 16, 
+                family: "'inter', sans-serif" 
+            },
+                color: '#464646',
+                boxWidth: 15,
+                boxHeight: 15,
+                padding: 20, 
+            }
+        },
+        title: {
+                display: true,
+                text: '     G/A dos jogadores',
+                align: 'start',
+                font: {
+                    size: 22, 
+                    family: "'Champions-sans', sans-serif",
+                    weight: 'bold', 
+                },
+                color: '#2A2828', 
+                padding: { top: 10, bottom: 10 }
+            }
+        },
+        responsive: true,
+        scales: {
+            y: {                         
+            beginAtZero: true,
+                title: {
+                display: true,
+                    text: 'G/A'
+        },
+                     grid:  {
+                            display: true
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                    },
+                    ticks: {
+                font: {
+                size: 16, 
+            family: "'inter', sans-serif",
+        color: "#252626"
+},
+        color: '#474747' 
+            }
+        },  
+    },      
+}
+});
+
+    new Chart(document.getElementById('defesas'), {
+    type: 'bar',
+    data: {
+        labels: goleirosComparados,
+        datasets: [
+            {
+                
+                label: 'Defesas',
+                data: defesas,
+                backgroundColor: '#36A2EB',
+                borderColor: '#36A2EB',
+                borderWidth: 1
+            }
+        ]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                display: false
+            },
+            title: {
+                display: true,
+                text: 'Defesas dos Goleiros',
+                align: 'start',
+                font: {
+                    size: 26, 
+                    family: "'Champions-sans', sans-serif", 
+                },
+                color: '#474747', 
+                padding: { top: 10, bottom: 10 } 
+            }
+        },
+        scales: {
+            y: {
+                beginAtZero: true,
+                grid: {
+                    display: true
+                }
+            },
+            x: {
+                grid: {
+                    display: false
+                },
+                ticks: {
+                    font: {
+                        size: 20,
+                        family: "'inter', sans-serif"
+                    },
+                    color: '#474747'
+                }
+            }
+        }
+    }
+});
+
+//  GRAFICO DE DONAUTS JOGADORES "DIBLE"
+                 
+new Chart(document.getElementById('drible'), {
+    type: 'doughnut',
+    data: {
+        labels: jogadoresNome.map(nome => nome.charAt(0).toUpperCase() + nome.slice(1)),
+        datasets: [{
+            label: 'Dible',
+            data: drible,
+            backgroundColor: coresJogadores, 
+            borderColor: '#F8F9FC', // Cor da borda entre os setores (ex: branco)
+        }]
+    },
+    options: {
+        responsive: true,
+        cutout: '0%', 
+        rotation: -70,
+        plugins: {
+            title: {
+                display: true,
+                text: 'Dibles completos %',
+                align: 'start',
+                font: {
+                    size: 22,
+                    family: "'Champions-sans', sans-serif" 
+                },
+                color: '#464646',
+            },
+    legend: {
+        position: 'right',
+            align: 'center',
+            labels: {
+            font: {
+                size: 14, // Tamanho da fonte da legenda em pixels
+                family: "'inter', sans-serif" 
+            },
+            color: '#131313',
+            boxWidth: 5, 
+            borderWidth: 0, 
+            padding: 20,  
+            }
+            },
+            datalabels: {
+                display: true,
+                color: '#464646',
+                font: {
+                    weight: 'bold',
+                    size: 14
+                },
+            formatter: function(value) {
+            return value + '%'; 
+    },
+                anchor: 'center',
+            align: 'center',  
+            color: '#ffffff',
+        }
+    }
+},
+plugins: [ChartDataLabels] 
+});
+} 
+            else {
+                divJogos.innerHTML = "Seleção não encontrada.";
+                divVencedor.innerHTML = "";    
+                divFinal.innerHTML = "";
+                divQualificacao.innerHTML = "";
+                divTotalGols.innerHTML = "";
+                divGolsPorJogo.innerHTML = "";
+                divMinutosPorGol.innerHTML = "";
         }
     });
 });
+
 
 
 let walpaper1 = document.getElementById('walpaper1');
@@ -247,8 +723,6 @@ function alternarWalpapers() {
 }
 
 setInterval(alternarWalpapers, 10000);
-
-
 
     const contaner_copas = document.querySelector('.copas_container');
     document.getElementById('left').onclick = () => contaner_copas.scrollBy({ left: -600, behavior: 'smooth' });

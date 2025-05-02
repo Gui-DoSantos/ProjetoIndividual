@@ -19,122 +19,13 @@ body {
 }
 
 
-/* HEADER */
-
-.Header_container{
-    height: 160px;
-    background-color: #000000;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.material-icons {
-    border: 2px solid #CCCDD1;
-    border-radius: 20px;
-}
-
-
-
-.header_div {
-    width: 70%;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.header_1 {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.header_1 {
-    padding-bottom: 20px;
-}
-
-
-
-.globall_logo {
-    width: 200px;
-}
-
-.person_header {
-    width: 30px;
-}
-
-
-
-.arrow {
-    cursor: pointer;
-    color: white;
-    user-select: none;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.copas_container {
-    overflow-x: auto;
-    white-space: nowrap;
-    scroll-behavior: smooth;
-    width: 100%;
-}
-
-.copas_container::-webkit-scrollbar {
-    display: none; 
-  }
-
-
-.copas {
-    display: flex;
-    gap: 0px;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-.copas li {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: white;
-    min-width: 120px;
-    padding: 10px;
-    border-left: 1px solid #333;
-    gap: 5px;
-}
-
-.copas li a {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    color: white;
-}
-
-.copas li img {
-    width: 50px;
-    height: 30px;
-    margin-bottom: 5px;
-}
-
-#logo_26 {
-    width: 40px;
-    height: 60px;
-}
-
-
 /* CONTEUDO GERAL */
 
 .container_geral{
     margin-top: 50px;
     gap: 50px;
     display: flex;
-    width: 55%;
+    width: 76%;
     justify-content: center;
 }
 
@@ -148,7 +39,15 @@ body {
     position: relative;
 }
 
+.inativo a {
+    text-decoration: none;
+    color: white;
+}
 
+.ativado a {
+    color: black;
+    text-decoration: none;
+}
 
 .vencedor_detalhe h1 { 
     color: #BFBFBF  ;
@@ -163,7 +62,7 @@ body {
 
 
 .vencedor_walpaper_img{
-    width: 70%;
+    width: 65%;
     transition: opacity 1s ease;
     
 }
@@ -181,7 +80,6 @@ body {
 .conteudo_div {
     display: flex;
     flex-direction: column;
-    gap: 20px;
    width: 100%;
 }
 
@@ -224,7 +122,7 @@ body {
 }
 
 .dados1 {
-    width: 400px;
+    width: 550px;
     padding: 25px;
     background-color: #F8F9FC;
     border-radius: 5px;
@@ -284,79 +182,62 @@ body {
     font-size: 18px;
 }
 
-/* Footer */
+/* Estastisticas */
 
-
-.footer_container{
-    height: 100%;
-    background-color: #000000;
+.estatisticas {
+    margin-top: 40px;
     width: 100%;
+}
+
+.caixa1 {
+    width: 50% !important; 
+    height: 78% !important; 
+    border-radius: 10px;
+    border: 2px solid #DBDDE9;
+    box-shadow: 0px 1px 0 rgba(0, 0, 0, 0.25);
+    padding: 0px 20px;
+    background-color: #F8F9FC;
+}
+
+.caixa2 {
+    width: 48% !important; 
+    height: 78% !important;
+    border-radius: 10px;
+    border: 2px solid #DBDDE9;
+    box-shadow: 0px 1px 0 rgba(0, 0, 0, 0.25);
+    padding: 0px 20px;
+    background-color: #F8F9FC;
+}
+
+.container_graficos {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
+    margin-top: 20px
+}
+
+.comparativo_Grafico  {
+    width: 100%;
+    border-radius: 6px;
+    border-radius: 10px;
+    border: 1px solid #DBDDE9;
+    box-shadow: 0px 1px 0 rgba(0, 0, 0, 0.25);
+    background-color: #F8F9FC;
+}
+
+.graficos_juntos {
+    display: flex;
+}
+
+.graficos_juntos {
+    width: 100%;
+}
+
+.classificacao_grafico {
     margin-top: 50px;
-}
-
-.footer_div {
-    width: 70%;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    color: #EBEBEB;
-    gap: 30px;
-}
-.redes_sociais {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    padding-top: 40px;
-}
-
-.footer_div p {
-    font-size: 14px;
-    color: #d7d7d7;
-}
-
-.redes_sociais p {
-    font-size: 20px;
-    color: white;
-}
-
-.redes_sociais ul {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    list-style: none;
-    gap: 20px;
-}
-
-.redes_sociais ul li img {
-    width: 20px;
-}
-
-.politicas ul {
-    padding-left: 50px;
-    list-style: none;
-    display: flex;
-    gap: 180px;
-}
-
-.direitos {
-    width: 90%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-
-.taca img {
     width: 100%;
-}
+    justify-content: space-between;
 
-.footer_final {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 }
-
