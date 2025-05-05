@@ -34,7 +34,7 @@
     
                 <div class="copas_container">
                     <ul class="copas">
-                        <li><img id="logo_26" src="../images/logo_26.png" alt=""></li>
+                        <li><a href="/WorldCupHome.html"><img id="logo_26" src="../images/logo_26.png" alt=""></a></li>
                         <li><a href="./Geral.html?selecao=argentina"><img src="../images/argentina_pais.png" alt="">2022</a></li>
                         <li><a href="./Geral.html?selecao=franca"><img src="../images/franca_pais.png" alt="">2018</a></li>
                         <li><a href="./Geral.html?selecao=alemanha"><img src="../images/alemanha_pais.png" alt="">2014</a></li>
@@ -83,8 +83,8 @@
                 </div>
                 <div class="vencedor_botao">
                     <button class="ativado"><a class="link-dinamico" data-page="geral.html">Geral</a> </button>
-                    <button class="inativo"><a class="link-dinamico" data-page="estat.html" >Estat.</a></button>
-                    <button class="inativo"><a href="">Sobre</a> </button>
+                    <button class="inativo"><a class="link-dinamico" data-page="estat.html">Estat.</a></button>
+                    <button class="inativo"><a class="link-dinamico" data-page="Sobre.html">Sobre</a></button>
                 </div>
             </div>
       
@@ -211,10 +211,11 @@
                 </div>
                 <div class="footer_final">
                     <div class="direitos">
-                        <p>© 2025 GLOBALL. Todos os direitos reservados. Este site é destinado exclusivamente a fins educacionais e não possui qualquer finalidade comercial ou lucrativa. Todo o conteúdo apresentado tem caráter informativo e acadêmico. O uso deste site implica na aceitação dos Termos de Uso e da Política de Privacidade. Caso identifique qualquer uso indevido de conteúdo, entre em contato para que possamos providenciar a remoção imediata.</p>
+                        <p>© 2025 GLOBALL. Todos os direitos reservados. Este site é destinado exclusivamente a fins educacionais e não possui qualquer finalidade comercial ou lucrativa.
+                            feito por Guilherme dias SPTech</p>
                     </div>
                     <div class="taca">
-                        <img src="./images/taca_copa.png" alt="">
+                        <img src="../images/taca_copa.png" alt="">
                     </div>  
                 </div>
             </div>
@@ -235,6 +236,7 @@ let divplacar =  document.querySelector("#placar")
 let divBanner = document.querySelector("#Banner")
 let divBannerTitle =  document.querySelector("#BannerTitle")
 let BannerDesc = document.querySelector("#BannerDesc")
+
 
 const params = new URLSearchParams(window.location.search);
 const selecao = params.get('selecao'); 

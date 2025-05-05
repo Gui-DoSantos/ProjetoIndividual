@@ -3,12 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <title>Detalhes da Seleção</title>
-    <link rel="stylesheet" href="/WorldCupHome.css">
+    <link rel="stylesheet" href="Footer.css">
+    <link rel="stylesheet" href="Header.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.6.6/css/flag-icons.min.css">
-    <link rel="stylesheet" href="/copadetalhe.css">
+    <link rel="stylesheet" href="sobre.css">
 </head>
 <body>
 
@@ -32,9 +33,9 @@
                 <div class="copas_container">
                     <ul class="copas">
                         <li><a href="/WorldCupHome.html"><img id="logo_26" src="../images/logo_26.png" alt=""></a></li>
-                        <li><a href="index.html?selecao=2022"><img src="../images/argentina_pais.png" alt="">2022</a></li>
-                        <li><a href="index.html?selecao=2018"><img src="../images/franca_pais.png" alt="">2018</a></li>
-                        <li><a href="index.html?selecao=2014"><img src="../images/alemanha_pais.png" alt="">2014</a></li>
+                        <li><a href="./Geral.html?selecao=argentina"><img src="../images/argentina_pais.png" alt="">2022</a></li>
+                        <li><a href="./Geral.html?selecao=franca"><img src="../images/franca_pais.png" alt="">2018</a></li>
+                        <li><a href="./Geral.html?selecao=alemanha"><img src="../images/alemanha_pais.png" alt="">2014</a></li>
                         <li><a href="index.html?selecao=2010"><img src="../images/espanha_pais.png" alt="">2010</a></li>
                         <li><a href="index.html?selecao=2006"><img src="../images/italia_pais.png" alt="">2006</a></li>
                         <li><a href="index.html?selecao=2002"><img src="../images/brasil_pais.png" alt="">2002</a></li>
@@ -61,28 +62,89 @@
         </div>
     </div>
     <!-- CONTEUDO -->
+
+    <div class="vencedor">
+        <div class="vencedor_walpaper">
+
+            <img class="vencedor_walpaper_img" id="walpaper1" src="" alt="">
+            <img style="display: none;" class="vencedor_walpaper_img" id="walpaper2" src="" alt="">
+
+            <div style="color: white;" id="selecao_vencedora">
+                <div class="vencedor_detalhe">
+                    <img id="selecao" src="" alt="">
+                    <div>
+                        <h1>VENCEDOR</h1>
+                        <p id="vencedor">ARGENTINA</p>
+                    </div>
+                </div>
+                <div class="vencedor_descrição">
+                    <p id="descricao">Argentina bate França nos pênaltis, conquista o tri e eterniza Messi como o gênio de uma geração</p>
+                </div>
+                <div class="vencedor_botao">
+                    <button class="inativo"><a class="link-dinamico" data-page="geral.html">Geral</a> </button>
+                    <button class="inativo"><a class="link-dinamico" data-page="estat.html" >Estat.</a></button>
+                    <button class="ativado"><a href="">Sobre</a> </button>
+                </div>
+            </div>
+      
+        </div>
+    </div>
+
+
      <div class="container_geral">
         
         <div class="div_texto">
-            <video id="video" controls>
-                <source id="videoSource" type="video/mp4">
+            <video  id="VideoSeleção" controls>
+                <source id="videotag" type="video/mp4">
                 Seu navegador não suporta o elemento de vídeo.
             </video>
             <div class="conteudo_texto">
-                <img src="" id="placar" alt="">
                 <div class="titulos">
-                    <h1 id="titulo">Carregando título...</h1>
-                    <h2 id="titulo2">Carregando título...</h1>
-                   
+                    <img id="SobrePlacar"  alt="">
+                    <h1 id="SobreTitulo">Carregando título...</h1>
+                    <h2 id="SobreDescricao">Carregando título...</h1>
+                       
                 </div>
-                <h3 id="titulo3">Carregando título...</h1>
-                <p id="descricao"></p>
+                <div class="conteudo_div">
+                    <div class="caixa_elementos">
+                        <h3 id="ResumoTitulo">Carregando título...</h1>
+                            <p id="SobreResumo">A final entre Argentina e França, no Estádio de Lusail, foi uma ópera de emoções. Gols, viradas e redenção se entrelaçaram num enredo digno de lenda. O placar marcou 3 a 3 após prorrogação, e nos pênaltis, a Argentina selou o destino: campeã do mundo pela terceira vez, unindo as glórias de 1978 e 1986 a um novo capítulo de eternidade. No coração desse épico estava Lionel Messi — o menino que nasceu em Rosario, Santa Fe, e que o mundo viu crescer entre dribles e silêncios. Em 2022, ele não apenas jogou futebol: ele escreveu poesia com os pés. Carregando o peso de uma nação e as expectativas do planeta, Messi transcendeu a lógica e alcançou o inalcançável. A conquista da Copa não foi apenas a realização de um sonho — foi a coroação celestial de um escolhido. Messi não venceu: ele foi elevado. Subiu aos céus do esporte onde vivem os deuses, onde o tempo não apaga nomes, onde o jogo se transforma em eternidade. Sua silhueta, erguendo a taça com os olhos marejados e o coração em paz, é agora uma lembrança gravada nas constelações do futebol — não como um símbolo, mas como uma verdade sagrada: o gênio tocou o infinito.</p>
+                            <img id="SobreIMG1"alt="">
             
+                    </div>
+                    <div class="caixa_elementos">
+                        <h3 id="PrimeiroTitulo">Carregando título...</h1>
+                            <p id="SobrePrimeiro">A final entre Argentina e França, no Estádio de Lusail, foi uma ópera de emoções. Gols, viradas e redenção se entrelaçaram num enredo digno de lenda. O placar marcou 3 a 3 após prorrogação, e nos pênaltis, a Argentina selou o destino: campeã do mundo pela terceira vez, unindo as glórias de 1978 e 1986 a um novo capítulo de eternidade. No coração desse épico estava Lionel Messi — o menino que nasceu em Rosario, Santa Fe, e que o mundo viu crescer entre dribles e silêncios. Em 2022, ele não apenas jogou futebol: ele escreveu poesia com os pés. Carregando o peso de uma nação e as expectativas do planeta, Messi transcendeu a lógica e alcançou o inalcançável. A conquista da Copa não foi apenas a realização de um sonho — foi a coroação celestial de um escolhido. Messi não venceu: ele foi elevado. Subiu aos céus do esporte onde vivem os deuses, onde o tempo não apaga nomes, onde o jogo se transforma em eternidade. Sua silhueta, erguendo a taça com os olhos marejados e o coração em paz, é agora uma lembrança gravada nas constelações do futebol — não como um símbolo, mas como uma verdade sagrada: o gênio tocou o infinito.</p>
+                            <img id="SobreIMG2" alt="">
+                    </div>
+                   
+    
+                    <div class="caixa_elementos">
+                        <h3 id="SegundoTitulo">Carregando título...</h1>
+                            <p id="SobreSegundo">A final entre Argentina e França, no Estádio de Lusail, foi uma ópera de emoções. Gols, viradas e redenção se entrelaçaram num enredo digno de lenda. O placar marcou 3 a 3 após prorrogação, e nos pênaltis, a Argentina selou o destino: campeã do mundo pela terceira vez, unindo as glórias de 1978 e 1986 a um novo capítulo de eternidade. No coração desse épico estava Lionel Messi — o menino que nasceu em Rosario, Santa Fe, e que o mundo viu crescer entre dribles e silêncios. Em 2022, ele não apenas jogou futebol: ele escreveu poesia com os pés. Carregando o peso de uma nação e as expectativas do planeta, Messi transcendeu a lógica e alcançou o inalcançável. A conquista da Copa não foi apenas a realização de um sonho — foi a coroação celestial de um escolhido. Messi não venceu: ele foi elevado. Subiu aos céus do esporte onde vivem os deuses, onde o tempo não apaga nomes, onde o jogo se transforma em eternidade. Sua silhueta, erguendo a taça com os olhos marejados e o coração em paz, é agora uma lembrança gravada nas constelações do futebol — não como um símbolo, mas como uma verdade sagrada: o gênio tocou o infinito.</p>
+                            <img id="SobreIMG3" alt="">
+                    </div>
+    
+                    <div class="caixa_elementos">
+                        <h3 id="FinalTitulo">Carregando título...</h1>
+                            <p id="SobreFinal">A final entre Argentina e França, no Estádio de Lusail, foi uma ópera de emoções. Gols, viradas e redenção se entrelaçaram num enredo digno de lenda. O placar marcou 3 a 3 após prorrogação, e nos pênaltis, a Argentina selou o destino: campeã do mundo pela terceira vez, unindo as glórias de 1978 e 1986 a um novo capítulo de eternidade. No coração desse épico estava Lionel Messi — o menino que nasceu em Rosario, Santa Fe, e que o mundo viu crescer entre dribles e silêncios. Em 2022, ele não apenas jogou futebol: ele escreveu poesia com os pés. Carregando o peso de uma nação e as expectativas do planeta, Messi transcendeu a lógica e alcançou o inalcançável. A conquista da Copa não foi apenas a realização de um sonho — foi a coroação celestial de um escolhido. Messi não venceu: ele foi elevado. Subiu aos céus do esporte onde vivem os deuses, onde o tempo não apaga nomes, onde o jogo se transforma em eternidade. Sua silhueta, erguendo a taça com os olhos marejados e o coração em paz, é agora uma lembrança gravada nas constelações do futebol — não como um símbolo, mas como uma verdade sagrada: o gênio tocou o infinito.</p>
+                            <img id="SobreIMG4" alt="">
+                    </div>
+                </div>
+                
+
+        
+
+
+
+
             </div>
         </div>
         
         
      </div>
+
+     
     
      <div class="footer_container">
         <div class="footer_div">
@@ -105,7 +167,8 @@
             </div>
             <div class="footer_final">
                 <div class="direitos">
-                    <p>© 2025 GLOBALL. Todos os direitos reservados. Este site é destinado exclusivamente a fins educacionais e não possui qualquer finalidade comercial ou lucrativa. Todo o conteúdo apresentado tem caráter informativo e acadêmico. O uso deste site implica na aceitação dos Termos de Uso e da Política de Privacidade. Caso identifique qualquer uso indevido de conteúdo, entre em contato para que possamos providenciar a remoção imediata.</p>
+                    <p>© 2025 GLOBALL. Todos os direitos reservados. Este site é destinado exclusivamente a fins educacionais e não possui qualquer finalidade comercial ou lucrativa.
+                        feito por Guilherme dias SPTech</p>
                 </div>
                 <div class="taca">
                     <img src="../images/taca_copa.png" alt="">
@@ -118,56 +181,107 @@
 </body>
 </html>
 <script>
-    const params = new URLSearchParams(window.location.search);
-    const selecao = params.get('selecao');
 
-    fetch('../dados.json') 
-        .then(response => response.json())
-        .then(data => {
-            console.log('Dados carregados:', data);
+    
+let divVencedor = document.querySelector("#vencedor");
+let divwalpaper2 = document.querySelector("#walpaper2")
+let divwalpaper1 = document.querySelector("#walpaper1")
+let divDescricao = document.querySelector("#descricao");
+let divselecao = document.querySelector("#selecao");
+let divSobreTitulo = document.querySelector("#SobreTitulo");
+let divSobreDescricao = document.querySelector("#SobreDescricao");
+let divResumoTitulo = document.querySelector("#ResumoTitulo");
+let divSobreResumo = document.querySelector("#SobreResumo");
+let divPrimeiroTitulo = document.querySelector("#PrimeiroTitulo");
+let divSobrePrimeiro = document.querySelector("#SobrePrimeiro");
+let divSegundoTitulo = document.querySelector("#SegundoTitulo");
+let divSobreSegundo = document.querySelector("#SobreSegundo");
+let divFinalTitulo = document.querySelector("#FinalTitulo");
+let divSobreFinal = document.querySelector("#SobreFinal");
+let divSobreIMG1  = document.querySelector("#SobreIMG1");
+let divSobreIMG2  = document.querySelector("#SobreIMG2");
+let divSobreIMG3  = document.querySelector("#SobreIMG3");
+let divSobreIMG4  = document.querySelector("#SobreIMG4");
+let divSobrePlacar = document.querySelector("#SobrePlacar")
+let divVideo = document.querySelector("#VideoSeleção")
+let videotag = document.querySelector("#videotag");
+
+const params = new URLSearchParams(window.location.search);
+const selecao = params.get('selecao'); 
+
+if (selecao) {
+    document.querySelectorAll('.link-dinamico').forEach(link => {
+      const page = link.getAttribute('data-page');
+      link.href = `${page}?selecao=${selecao}`;
+    });
+  }
+
+fetch("informacoes.json").then((response) => {
+    response.json().then((dados) => {
+        if (dados[selecao]) {
+            const infoSelecao = dados[selecao];
+
+
+
             
-            const info = data.worldcup[selecao];
-            const tituloElemento = document.getElementById('titulo');
-            const descricaoElemento = document.getElementById('descricao');
-            const videoElemento = document.getElementById('video');
-            const videoSource = document.getElementById('videoSource');
-            const placarElemento = document.getElementById('placar')
-            const titulo2Elemento = document.getElementById('titulo2')
-            const titulo3Elemento = document.getElementById('titulo3')
+            divVencedor.innerHTML =  infoSelecao.vencedor;    
+            divDescricao.innerHTML = infoSelecao.descricao;
+            divSobreTitulo.innerHTML = infoSelecao.SobreTitulo;
+            divSobreDescricao.innerHTML = infoSelecao.SobreDescricao;
+            divResumoTitulo.innerHTML = infoSelecao.ResumoTitulo;
+            divSobreResumo.innerHTML = infoSelecao.SobreResumo;
+            divPrimeiroTitulo.innerHTML = infoSelecao.PrimeiroTitulo;
+            divSobrePrimeiro.innerHTML = infoSelecao.SobrePrimeiro;
+            divSegundoTitulo.innerHTML = infoSelecao.SegundoTitulo;
+            divSobreSegundo.innerHTML = infoSelecao.SobreSegundo;
+            divFinalTitulo.innerHTML = infoSelecao.FinalTitulo;
+            divSobreFinal.innerHTML = infoSelecao.SobreFinal;
+            
+            divwalpaper2.src = infoSelecao.walpaper2;
+            divwalpaper1.src = infoSelecao.walpaper1;
+            divselecao.src = infoSelecao.selecao;
+            divSobreIMG1.src = infoSelecao.SobreIMG1
+            divSobreIMG2.src = infoSelecao.SobreIMG2
+            divSobreIMG3.src = infoSelecao.SobreIMG3
+            divSobreIMG4.src = infoSelecao.SobreIMG4
+            divSobrePlacar.src = infoSelecao.SobrePlacar
 
-            if (info && info.titulo3) {
-    titulo3Elemento.textContent = info.titulo3;
+           
+
+            videotag.src = infoSelecao.Video;
+            divVideo.load();
+        }
+            else {
+                divJogos.innerHTML = "Seleção não encontrada.";
+                divVencedor.innerHTML = "";    
+                divFinal.innerHTML = "";
+                divQualificacao.innerHTML = "";
+                divTotalGols.innerHTML = "";
+                divGolsPorJogo.innerHTML = "";
+                divMinutosPorGol.innerHTML = "";
+        }
+    });
+});
+
+
+
+
+let walpaper1 = document.getElementById('walpaper1');
+let walpaper2 = document.getElementById('walpaper2');
+
+let contador = 0;
+
+function alternarWalpapers() {
+  if (contador % 2 === 0) {
+    walpaper1.style.display = 'none';
+    walpaper2.style.display = 'block';
+  } else {
+    walpaper1.style.display = 'block';
+    walpaper2.style.display = 'none';
+  }
+  contador++;
 }
 
-            if (info && info.titulo2) {
-    titulo2Elemento.textContent = info.titulo2;
-}
+setInterval(alternarWalpapers, 10000);
 
-            if (info && info.placar) {
-    placarElemento.src = info.placar;
-}
-
-            if (info && info.descricao) {
-    descricaoElemento.textContent = info.descricao;
-}
-
-            if (info && info.titulo) {
-                tituloElemento.textContent = info.titulo;
-            } else {
-                tituloElemento.textContent = 'Seleção não encontrada';
-            }
-
-            if (info && info.video) {
-                videoSource.src = info.video;
-                videoElemento.load(); 
-            }
-        })
-        .catch(err => {
-            console.error('Erro ao carregar o JSON:', err);
-            document.getElementById('titulo').textContent = 'Erro ao carregar os dados';
-        });
-
-        const contaner_copas = document.querySelector('.copas_container');
-    document.getElementById('left').onclick = () => contaner_copas.scrollBy({ left: -600, behavior: 'smooth' });
-    document.getElementById('right').onclick = () => contaner_copas.scrollBy({ left: 600, behavior: 'smooth' });
 </script>
