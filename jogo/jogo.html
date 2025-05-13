@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Disputa de Pênaltis</title>
+  <link rel="stylesheet" href="jogo.css">
+  <style>
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+  <h2>Disputa de Pênaltis</h2>
+  <p id="turnoInfo">Sua vez de chutar</p>
+  <p>Use as setas do teclado: ← esquerda | ↓ centro | → direita</p>
+  <div id="div_i"></div>
+  <p id="placar">Você: 0 | Computador: 0</p>
+  <button id="imagem1-btn">Imagem 1</button>
+  <button id="imagem2-btn">Imagem 2</button>
+  <button id="imagem3-btn">Imagem 3</button>
+
+  <!-- INICIO -->
+<img src="./defesas_azul/inicio.png" id="imagem23" class="image hidden" alt="Imagem 1">
+  <img src="./defesas_img/inicio.png" id="imagem24" class="image hidden" alt="Imagem 2">
+
+
+  <!-- DEFESAS Verde -->
+  <img src="./defesas_img/direita.png" id="imagem1" class="image hidden" alt="Imagem 1">
+  <img src="./defesas_img/esquerda.png" id="imagem2" class="image hidden" alt="Imagem 2">
+  <img src="./defesas_img/inicio.png" id="imagem3" class="image hidden" alt="Imagem 3">
+  <img src="./defesas_img/agarrou.png" id="imagem4" class="image hidden" alt="Imagem 4">
+
+  <!-- GOLS verde -->
+  <img src="./gols_img/direita.png" id="imagem5" class="image hidden" alt="Imagem 5">
+  <img src="./gols_img/esquerda.png" id="imagem6" class="image hidden" alt="Imagem 6">
+  <img src="./gols_img/meio_direita.png" id="imagem7" class="image hidden" alt="Imagem 7">
+  <img src="./gols_img/meio_esquerda.png" id="imagem8" class="image hidden" alt="Imagem 8">
+  <img src="./gols_img/esquerda_meio.png" id="imagem17" class="image hidden" alt="Imagem 7">
+  <img src="./gols_img/direita_meio.png" id="imagem18" class="image hidden" alt="Imagem 8">
+    <img src="./gols_img/erro.png" id="imagem21" class="image hidden" alt="Imagem 8">
+
+    <!-- Defesas azul -->
+  <img src="./defesas_azul/direita.png" id="imagem9" class="image hidden" alt="Imagem 9">
+  <img src="./defesas_azul/esquerda.png" id="imagem10" class="image hidden" alt="Imagem 10">
+  <img src="./defesas_azul/inicio.png" id="imagem11" class="image hidden" alt="Imagem 11">
+  <img src="./defesas_azul/agarrou.png" id="imagem12" class="image hidden" alt="Imagem 12">
+
+      <!-- gols azul -->
+  <img src="./gols_azul/direita.png" id="imagem13" class="image hidden" alt="Imagem 13">
+  <img src="./gols_azul/esquerda.png" id="imagem14" class="image hidden" alt="Imagem 14">
+  <img src="./gols_azul/meia_direita.png" id="imagem15" class="image hidden" alt="Imagem 15">
+  <img src="./gols_azul/meia_esquerda.png" id="imagem16" class="image hidden" alt="Imagem 16">
+   <img src="./gols_img/esquerda_meio.png" id="imagem19" class="image hidden" alt="Imagem 7">
+  <img src="./gols_img/direita_meio.png" id="imagem20" class="image hidden" alt="Imagem 8">
+    <img src="./gols_img/erro.png" id="imagem22" class="image hidden" alt="Imagem 8">
+
+
+  <button id="botaoReiniciar" onclick="reiniciarJogo()" style="display:none;">Reiniciar Jogo</button>
+
+  <script>
+      imagem24.classList.remove('hidden');
+    var suaPontuacao = 0;
+    var computadorPontuacao = 0;
+    var rodada = 1;
+    var suaVezDeChutar = true;
+    var emPreparacao = false; 
+
+          
+
+  document.addEventListener('keydown', (event) => {
+  if (event.code === 'Space') {
+    inicio();
+  }
+});
+    document.addEventListener('keydown', (event) => {
+      var ladoJogada = 0;
+      if (event.key === 'ArrowLeft') {
+        ladoJogada = 3;
+      } 
+      else if (event.key === 'ArrowDown') {
+        ladoJogada = 1;
+      } 
+      else if (event.key === 'ArrowRight') {
+        ladoJogada = 2;
+      } 
+
+      if (ladoJogada !== 0) penalti(ladoJogada);
+    });
+
+  
+
+    function esconderTodasImagens() {
+      document.querySelectorAll('img.image').forEach(img => img.classList.add('hidden'));
+    }
+
+    function inicio() {
+
+      if (suaVezDeChutar === true) {
+
+      imagem24.classList.remove('hidden');
+        imagem1.classList.add('hidden');
+          imagem2.classList.add('hidden');
+          imagem3.classList.add('hidden');
+          imagem4.classList.add('hidden');
+          imagem5.classList.add('hidden');
+          imagem6.classList.add('hidden');
+          imagem7.classList.add('hidden');
+          imagem8.classList.add('hidden');
+          imagem9.classList.add('hidden');
+          imagem10.classList.add('hidden');
+          imagem11.classList.add('hidden');
+          imagem12.classList.add('hidden');
+          imagem13.classList.add('hidden');
+          imagem14.classList.add('hidden');
+          imagem15.classList.add('hidden');
+          imagem16.classList.add('hidden');
+           imagem17.classList.add('hidden');
+          imagem18.classList.add('hidden');
+           imagem19.classList.add('hidden');
+          imagem20.classList.add('hidden');
+           imagem21.classList.add('hidden');
+          imagem22.classList.add('hidden');
+      } else if (suaVezDeChutar === false) {
+         imagem23.classList.remove('hidden');
+        imagem1.classList.add('hidden');
+          imagem2.classList.add('hidden');
+          imagem3.classList.add('hidden');
+          imagem4.classList.add('hidden');
+          imagem5.classList.add('hidden');
+          imagem6.classList.add('hidden');
+          imagem7.classList.add('hidden');
+          imagem8.classList.add('hidden');
+          imagem9.classList.add('hidden');
+          imagem10.classList.add('hidden');
+          imagem11.classList.add('hidden');
+          imagem12.classList.add('hidden');
+          imagem13.classList.add('hidden');
+          imagem14.classList.add('hidden');
+          imagem15.classList.add('hidden');
+          imagem16.classList.add('hidden');
+           imagem17.classList.add('hidden');
+          imagem18.classList.add('hidden');
+           imagem19.classList.add('hidden');
+          imagem20.classList.add('hidden');
+           imagem21.classList.add('hidden');
+          imagem22.classList.add('hidden');
+      }
+    }
+
+  function penalti(ladoJogada) {
+      esconderTodasImagens();
+      var erro = Math.floor(Math.random() * 10 + 1);
+      var aleatorio = Math.floor(Math.random() * 3 + 1); 
+      var chuteMsg = '';
+      var defendeMsg = '';
+      var lado = ''
+
+      if (suaVezDeChutar == true) {
+        
+
+        if (aleatorio == 1) {
+          lado = 'meio'
+        } else if (aleatorio == 3) {
+          lado = 'esquerda'
+        } else if  (aleatorio == 2) {
+          lado = 'direita'
+        }
+        
+
+          imagem1.classList.add('hidden');
+          imagem2.classList.add('hidden');
+          imagem3.classList.add('hidden');
+          imagem4.classList.add('hidden');
+          imagem5.classList.add('hidden');
+          imagem6.classList.add('hidden');
+          imagem7.classList.add('hidden');
+          imagem8.classList.add('hidden');
+          imagem9.classList.add('hidden');
+          imagem10.classList.add('hidden');
+          imagem11.classList.add('hidden');
+          imagem12.classList.add('hidden');
+          imagem13.classList.add('hidden');
+          imagem14.classList.add('hidden');
+          imagem15.classList.add('hidden');
+          imagem16.classList.add('hidden');
+           imagem17.classList.add('hidden');
+          imagem18.classList.add('hidden');
+           imagem19.classList.add('hidden');
+          imagem20.classList.add('hidden');
+           imagem21.classList.add('hidden');
+          imagem22.classList.add('hidden');
+           imagem23.classList.add('hidden');
+          imagem24.classList.add('hidden');
+       
+
+
+        if (erro == 1) {
+          div_i.innerHTML = `${chuteMsg}<br>Você errou o gol!`;
+              imagem21.classList.remove('hidden');
+        } else if (ladoJogada == 1 && aleatorio == 1) {
+          div_i.innerHTML = `O goleiro pegou, voce chutou no meio e o goleiro ficou no meio`;
+          imagem4.classList.remove('hidden');
+        } else if (ladoJogada == 1 && aleatorio == 3) {
+          div_i.innerHTML = `gol, voce chutou no meio e o goleiro foi  na esquerda `;
+               imagem8.classList.remove('hidden');
+          suaPontuacao++;
+        } else if (ladoJogada == 1 && aleatorio == 2) {
+          div_i.innerHTML = `gol, voce chutou no meio e o goleiro foi  na direita `;
+               imagem7.classList.remove('hidden');
+          suaPontuacao++;
+        }  else if (ladoJogada == 2 && aleatorio == 2) {
+          div_i.innerHTML = `O goleiro pegou, voce chutou na direita e o goleiro foi na direita`;
+               imagem1.classList.remove('hidden');
+        } else if (ladoJogada == 2 && aleatorio == 3) {
+          div_i.innerHTML = `gol, voce chutou na direita e o goleiro foi na esquerda `;
+          suaPontuacao++;
+          imagem5.classList.remove('hidden');
+        } else if (ladoJogada == 2 && aleatorio == 1) {
+          div_i.innerHTML = `gol, voce chutou na direita e o goleiro ficou no meio`;
+          suaPontuacao++;
+          imagem18.classList.remove('hidden');
+        }  else if (ladoJogada == 3 && aleatorio == 3) {
+          div_i.innerHTML = `O goleiro pegou, voce chutou na esquerda e o goleiro foi na esquerda`;
+               imagem2.classList.remove('hidden');
+        } else if (ladoJogada == 3 && aleatorio == 2) {
+          div_i.innerHTML = `gol, voce chutou na esquerda e o goleiro foi  na direita `;
+          suaPontuacao++;
+          imagem6.classList.remove('hidden');
+        } else if (ladoJogada == 3 && aleatorio == 1) {
+          div_i.innerHTML = `gol, voce chutou na esquerda e o goleiro ficou no meio`;
+          imagem17.classList.remove('hidden');
+          suaPontuacao++;
+        } 
+
+      } else {
+        var compChute = aleatorio; 
+
+        if (erro === 1) {
+          div_i.innerHTML = `Computador errou o gol!`;
+              imagem22.classList.remove('hidden');
+        } else if (compChute == 1 && ladoJogada == 1) {
+          div_i.innerHTML = `Voce pegou!! o computador chutou no meio e voce ficou no meio`;
+           imagem12.classList.remove('hidden');
+        } else if (compChute == 1 && ladoJogada == 2) {
+          div_i.innerHTML = `O computador acertou, voce pulou na direta e ele chutou no meio`;
+          computadorPontuacao++;
+           imagem15.classList.remove('hidden');
+        }else if (compChute == 1 && ladoJogada == 3) {
+          div_i.innerHTML = `O computador acertou, voce pulou esquerda e ele chutou no meio`;
+          computadorPontuacao++;
+           imagem16.classList.remove('hidden');
+        } else if (compChute == 2 && ladoJogada == 2) {
+          div_i.innerHTML = `Voce pegou!! o computador chutou na direita e voce foi na direita`;
+           imagem9.classList.remove('hidden');
+        }else if (compChute == 2 && ladoJogada == 3) {
+          div_i.innerHTML = `O computador acertou, voce pulou esquerda e ele chutou na direita`;
+          computadorPontuacao++;
+           imagem13.classList.remove('hidden');
+        }else if (compChute == 2 && ladoJogada == 1) {
+          div_i.innerHTML = `O computador acertou, voce ficou no meio e ele chutou na direita`;
+          computadorPontuacao++;
+           imagem15.classList.remove('hidden');
+        } else if (compChute == 3 && ladoJogada == 3) {
+          div_i.innerHTML = `Voce pegou!! o computador chutou na esquerda e voce foi na esquerda`;
+           imagem10.classList.remove('hidden');
+        } else if (compChute == 3 && ladoJogada == 1) {
+          div_i.innerHTML = `O computador acertou, voce ficou no meio e ele chutou na esquerda`;
+          computadorPontuacao++;
+           imagem16.classList.remove('hidden');
+        }else if (compChute == 3 && ladoJogada == 2) {
+          div_i.innerHTML = `O computador acertou, voce pulou na direita e ele chutou na esquerda`;
+          computadorPontuacao++;
+           imagem14.classList.remove('hidden');
+        }
+         
+      }
+      
+    
+      rodada++;
+      if (suaVezDeChutar === true) {
+        suaVezDeChutar = false;
+      } else {
+        suaVezDeChutar = true;
+      }
+
+      placar.innerHTML = `Você: ${suaPontuacao} | Computador: ${computadorPontuacao}`;
+
+      if (rodada <= 10) {
+        if (suaVezDeChutar === true) {
+          turnoInfo.innerHTML = "Sua vez de chutar";
+        } else {
+          turnoInfo.innerHTML = "Sua vez de defender";
+        }
+      } else {
+        var chutesExtra = (rodada - 1) - 10;
+        if (chutesExtra % 2 === 0) {
+          if (suaPontuacao > computadorPontuacao) {
+            turnoInfo.innerHTML = "Você venceu na morte súbita!";
+            botaoReiniciar.style.display = 'inline';
+          } else if (computadorPontuacao > suaPontuacao) {
+            turnoInfo.innerHTML = "Computador venceu na morte súbita!";
+            botaoReiniciar.style.display = 'inline';
+          } else {
+            turnoInfo.innerHTML = "Morte súbita: continua";
+          }
+        } else {
+          if (suaVezDeChutar === true) {
+            turnoInfo.innerHTML = "Morte súbita: sua vez de chutar";
+          } else {
+            turnoInfo.innerHTML = "Morte súbita: sua vez de defender";
+          }
+        }
+      }
+    }
+
+    function reiniciarJogo() {
+      suaPontuacao = 0;
+      computadorPontuacao = 0;
+      rodada = 1;
+      suaVezDeChutar = true;
+      div_i.innerHTML = '';
+      placar.innerHTML = `Você: 0 | Computador: 0`;
+      turnoInfo.innerHTML = `Sua vez de chutar`;
+      botaoReiniciar.style.display = 'none';
+      esconderTodasImagens();
+    }
+  </script>
+</body>
+</html>
