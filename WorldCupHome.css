@@ -83,6 +83,7 @@ body {
 
 .copas {
     display: flex;
+    justify-content: center;
     gap: 0px;
     list-style: none;
     padding: 0;
