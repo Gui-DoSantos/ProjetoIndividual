@@ -1,0 +1,311 @@
+{
+    "argentina": {
+      "vencedor": "ARGENTINA", 
+      "selecao": "./assets/images/ArgentinaSelecao.png",
+      "descricao": "Argentina bate França nos pênaltis, conquista o tri e eterniza Messi como o gênio de uma geração" ,
+      "jogos": "64",
+      "final": "32",
+      "qualificacao": "206",
+      "TotalGols": "172",
+      "GolsJogo": "2.69",
+      "MinutosGol": "33.5",
+      "Banner": "./assets/images/2022Banner.png",
+      "BannerTitle": "Todos os gols do brasil na copa do mundo de 2022",
+      "BannerDesc": "Veja todos os gols marcados pelo Brasil durante a campanha emocionante na Copa do Mundo de 2022",
+      "placar": "./assets/images/2022placar.png",
+      "Video": "./assets/videos/final2022.mp4",
+      "SobreTitulo": "Argentina bate França nos pênaltis, conquista o tri e eterniza Messi como o gênio de uma geração",
+      "SobreDescricao": "Craque se despede das Copas com dois gols em decisão histórica; Mbappé desperta no segundo tempo e marca três vezes",
+      "SobrePlacar": "./assets/images/2022SobrePlacar.png",
+      "ResumoTitulo": "Copa do Mundo 2022: O Espetáculo Inédito, as Surpresas Impossíveis e a Jornada de Messi ao trono dos imortais",
+      "SobreResumo": "A Copa do Mundo de 2022 foi um capítulo à parte na história do futebol — não apenas um torneio, mas um espetáculo inesquecível. Disputada no Catar, essa edição foi marcada por muitas “primeiras vezes”: foi a primeira realizada no Oriente Médio, a primeira disputada entre novembro e dezembro para fugir do verão escaldante da região, e a primeira com um investimento bilionário que transformou cidades inteiras em palcos futuristas. Com estádios ultramodernos, sistemas de ar-condicionado nos gramados e uma organização que dividiu opiniões, o Catar entrou para a história, para o bem ou para o debate. <br> <br> Trinta e duas seleções desembarcaram em solo árabe — era a última Copa nesse formato; a partir de 2026, o torneio passará a contar com 48 equipes. Entre gigantes do futebol e zebras destemidas, o mundo testemunhou uma competição de tirar o fôlego. Na fase de grupos, o roteiro fugiu do previsível: a Alemanha, tetracampeã mundial, foi eliminada precocemente após derrota surpreendente para o Japão; a Inglaterra, cheia de jovens talentos, sucumbiu diante da frieza da França; e a Bélgica, tida como favorita, nem chegou ao mata-mata. <br> <br> O Brasil, sempre gigante, tinha brilho e elenco para sonhar alto. Na prorrogação contra a Croácia, <strong> Neymar voltou ao auge e costurou a defesa como se fosse 2015 </strong>  — mas o futebol é feito de nuances: a Croácia empatou e levou tudo aos pênaltis, deixando mais uma cicatriz na trajetória brasileira. Em contrapartida, o Marrocos escreveu um conto de fadas ao derrotar Espanha e Portugal, tornando-se a primeira seleção africana a alcançar uma semifinal de Copa do Mundo, unindo um continente e emocionando o planeta. <br> <br> Por fim, a narrativa mais épica foi a da Argentina. Após a estreia desastrosa contra a Arábia Saudita, os hermanos renasceram das cinzas como uma fênix. Guiados por Lionel Scaloni, formaram uma família dentro de campo, e no centro dela estava Lionel Messi — <strong>  o profeta, o mito vivo, o gênio que buscava, aos 35 anos, o único troféu que faltava à sua carreira celestial. </strong> ",
+      "SobreIMG1": "./assets/images/2022Sobre1.png",
+      "PrimeiroTitulo": "O Domínio Albiceleste: Quando a Argentina Dançou no Palco de Lusail e a França Desapareceu",
+      "SobrePrimeiro": "A final no Estádio de Lusail começou como uma obra-prima em movimento. Desde o apito inicial, a Argentina impôs seu ritmo com autoridade e beleza. A França, surpreendida pela intensidade e organização dos sul-americanos, parecia perdida — uma visitante desorientada em um palco teoricamente neutro, mas que pulsava em azul e branco. <br> <br> Aos 23 minutos, Di María arrancou em velocidade e foi derrubado na área: pênalti. Messi, com a frieza de quem já dialogou com o destino, deslocou Lloris e abriu o placar. O estádio explodiu em catarse. Mas a Argentina não se acomodou — queria mais. E encontrou. Aos 36, num contra-ataque fulminante, Alexis Mac Allister serviu Di María com precisão cirúrgica. O camisa 11 concluiu com classe, ampliando o marcador. O 2 a 0 parecia incontestável.  A França, atônita, ainda não havia finalizado ao gol. <br> <br> E Mbappé, o grande astro francês, simplesmente não apareceu: foi engolido pela marcação e pela atmosfera. Sumido em campo, tornava-se o símbolo da apatia francesa — uma ironia amarga para quem, meses antes, havia dito que o futebol sul-americano era menos competitivo por falta de enfrentamentos de alto nível. O domínio argentino era total: psicológico, tático, quase espiritual. Naqueles primeiros 45 minutos, o futebol parecia resolvido. <br> <br> A Argentina não apenas vencia — ela encantava. O primeiro tempo foi a mais pura expressão de harmonia: um time coeso, uma estrela em estado de graça, uma torcida em transe. Naquele instante, a final já parecia ter dono.",
+      "SobreIMG2": "./assets/images/2022Sobre2.png",
+      "SegundoTitulo": "O Choque de Titãs: A Virada de Mbappé e a Imortalização de Messi na Final de Lusail",
+      "SobreSegundo": "No segundo tempo da grande final, a Argentina entregou a posse de bola à França, mas os franceses vagavam em campo como sombras de si mesmos. O domínio era albiceleste: De Paul finalizou, Julián Álvarez arriscou, Messi bateu travado — e o relógio corria a favor dos sul-americanos. A primeira finalização francesa só veio aos 25 minutos, com Mbappé, que isolou. O título parecia <br> <br> Mas o futebol, esse dramaturgo de coração impiedoso, ainda guardava um ato inesperado. E então, ele acordou. Mbappé, até então um espectro em campo, emergiu como um monstro adormecido. Aos 34’, Kolo Muani foi derrubado na área. Pênalti. Com a frieza dos predestinados, o camisa 10 francês cobrou firme, certeiro. 2 a 1. A centelha se acendeu. A França renasceu das cinzas. Dois minutos depois, em um relâmpago, Coman desarmou Messi. Rabiot tocou. Mbappé tabelou com Thuram. E, num golpe seco, de primeira, igualou o placar. 2 a 2. Em apenas 97 segundos, <strong>  O MUNDO VIROU DE CABEÇA PRA BAIXO. <BR>  </strong>  <br> A Argentina, que tocava a taça com as mãos, agora tremia. O drama estava completo. E o gênio francês, antes invisível, era agora um furacão. Nos acréscimos, a França cresceu. Dibu Martínez operou um milagre diante de Kolo Muani, e Messi ainda tentou de fora da área. O apito final levou o jogo à prorrogação — e a tensão à estratosfera. <br> <br> <strong>  ⏱️ Prorrogação – Gênio e Destino Na prorrogação </strong>  <br> <br> Messi voltou a brilhar. Não com lampejos — com luz constante. Aos 109 minutos, aproveitou rebote de Lloris e empurrou para as redes. Três a dois. Era o destino escrevendo com letra 10. Mas o futebol, mestre em enredos épicos, ainda não havia escrito sua última linha. Kolo Muani, incansável, arrancou novamente e cavou outro pênalti. Mbappé, agora em estado de graça, marcou seu terceiro gol — <strong>  HAT-TRICK </strong> em final de Copa do Mundo.   Um feito histórico. O 3 a 3 entrava para os livros como um dos maiores jogos de todos os tempos. <br> <br> <strong> 🎯 Pênaltis –  O Juízo Final </strong>  <br> <br> O mundo prendeu a respiração. Era mais do que futebol — era a eternidade esperando por seu herói. Mbappé abriu a série e marcou. Messi caminhou lentamente, carregando não só uma nação, mas as dores de 2014. Seus olhos estavam serenos, mas sua alma ardia com 17 anos de entrega. Um toque sutil. Gol. Ainda não era o fim — mas o início do alívio. Então, veio Coman. E Dibu Martínez, em seu transe místico, voou como uma sombra viva e defendeu. Tchouaméni, pressionado pelo peso do momento, errou. A Argentina tinha a vantagem. Dybala e Paredes não falharam. Kolo Muani ainda converteu <br> E então, o silêncio. Montiel, o lateral discreto, teve a honra e o fardo do último ato. <br> <br> Correu. <br> <br> Bateu.<br> <br> <strong> GOL. <br></strong>  <br> Explodiu Lusail. <br> <br> A Argentina era campeã do mundo. E no meio do delírio, Lionel Messi caiu de joelhos. Não era apenas um título. Era o fim de um ciclo que começou com a dor no Maracanã. Foram anos de críticas, de fardos, de esperas. E ele seguiu — calado, resiliente. Agora, o tempo lhe devolvia tudo. Ele chorou. Chorou como um menino que, depois de tudo, finalmente volta pra casa. Os companheiros o ergueram. Mas o mundo sabia: aquele momento era dele. Era a redenção do gênio. O craque que já tinha tudo — menos a Copa — agora tinha o mundo a seus pés. Naquela noite, Messi não apenas venceu. Ele se libertou. E se eternizou.",
+      "SobreIMG3": "./assets/images/2022Sobre3.png",
+      "FinalTitulo": "\"The Little Boy from Rosario, Santa Fe, Has Just Pitched Up in Heaven, The Greatest Of All Time\" <br> - Peter Drury",
+      "SobreFinal": "A final entre Argentina e França, no Estádio de Lusail, foi uma ópera de emoções. Gols, viradas e redenção se entrelaçaram num enredo digno de lenda. O placar marcou 3 a 3 após prorrogação, e nos pênaltis, a Argentina selou o destino: campeã do mundo pela terceira vez, unindo as glórias de 1978 e 1986 a um novo capítulo de eternidade. <br> <br> No coração desse épico estava Lionel Messi — o menino que nasceu em Rosario, Santa Fe, e que o mundo viu crescer entre dribles e silêncios. Em 2022, ele não apenas jogou futebol: ele escreveu poesia com os pés. Carregando o peso de uma nação e as expectativas do planeta, Messi transcendeu a lógica e alcançou o inalcançável. <br><br> A conquista da Copa não foi apenas a realização de um sonho — foi a ascensão de Messi a um reino imortal. Ele não venceu: ele alcançou os deuses. Subiu à prateleira onde repousam as lendas, ao lado de Pelé e Maradona, onde o futebol se torna uma divindade e o tempo não ousa apagar a memória dos que tocam o infinito. <br> Messi, erguendo a taça, agora brilha como uma constelação eterna não como um símbolo, mas como uma verdade sagrada: <strong> O GÊNIO TOCOU O INFINITO </strong>",
+      "SobreIMG4": "./assets/images/2022Sobre4.png",
+      "comparacao": {
+          "Brasil": {
+            "Gol": "48",
+            "Assistencias": "31",
+            "Posse": "56,2"
+          },
+          "França": {
+            "Gol": "34",
+            "Assistencias": "23",
+            "Posse": "51.8"
+          },
+          "Alemanha": {
+            "Gol": "42",
+            "Assistencias": "13",
+            "Posse": "60.3"
+          },
+          "Italia": {
+            "Gol": "13",
+            "Assistencias": "13",
+            "Posse": "44.5"
+          },
+          "Argentina": {
+            "Gol": "42",
+            "Assistencias": "18",
+            "Posse": "60.4"
+          }
+        },
+
+      "jogadores": {
+          "Neymar": {
+            "Gols": 8,
+            "Assistencias": 8,
+            "Drible": 73
+          },
+          "Lionel Messi": {
+            "Gols": 14,
+            "Assistencias": 6,
+            "Drible": 65
+          },
+          "Harry Kane": {
+            "Gols": 14,
+            "Assistencias": 3,
+            "Drible": 54
+          },
+          "Cristiano Ronaldo": {
+            "Gols": 7,
+            "Assistencias": 2,
+            "Drible": 25
+          }
+        },
+
+      "goleiros": {
+          "Dominik Livaković": {
+            "Defesas": 25
+          },
+          "Wojciech Szczęsny": {
+            "Defesas": 23
+          
+          },
+          "Andries Noppert": {
+            "Defesas": 18
+          },
+        "Emiliano Martínez": {
+            "Defesas": 17
+          }
+        },
+      "walpaper1": "./assets/images/ArgentinaWalpaper1.png",
+      "walpaper2": "./assets/images/ArgentinaWalpaper2.png"
+    },
+
+
+
+
+
+    "franca": {
+      "vencedor": "FRANÇA",
+      "selecao": "./assets/images/franca_selecao.png",
+      "descricao": "Com garra de veterano e alma de campeão, a jovem França domina o mundo e conquista a glória em 2018",
+      "jogos": "64",
+      "final": "32",
+      "qualificacao": "210",
+      "TotalGols": "169",
+      "GolsJogo": "2.64",
+      "MinutosGol": "34.1",
+      "Banner": "./assets/images/2018Banner.png",
+      "BannerTitle": "Todos os gols de Antoine Griezmann na copa de 2018",
+      "BannerDesc": "Veja todos os gols marcados pelo principal artilheiro da frança na campanha vitoriosa de 2018",
+      "placar": "./assets/images/2018placar.png",
+      "walpaper1": "./assets/images/francaWalpaper1.png",
+      "walpaper2": "./assets/images/francaWalpaper2.png",
+      "Video": "./assets/videos/final2018.mp4",
+      "SobreTitulo": "França conquista o mundo com talento e ousadia e revela Mbappé como novo fenômeno do futebol",
+      "SobreDescricao": "Em final vibrante, franceses vencem a Croácia por 4 a 2, levantam a taça após 20 anos e consagram Mbappé como o astro de uma nova geração",
+      "SobrePlacar": "./assets/images/2018SobrePlacar.png",
+      "ResumoTitulo": "Copa do Mundo 2018: Emoções à Flor da Pele e o Brilho de um Novo Capítulo",
+      "SobreResumo": "A Copa da Rússia foi muito mais que um torneio: foi um mosaico de histórias gravadas em estádios cercados por neve, sob céus que variavam entre o cinza intenso de Moscou e o frio seco de Ecaterimburgo. Em 32 trajetórias distintas, seleções de todos os cantos do planeta entregaram paixões, dribles que faziam o coração acelerar e defesas que arrancavam suspiros. <br> <br>  Entre as arquibancadas, risos, lágrimas e o som inconfundível dos cantos se misturavam ao apito do árbitro, criando um espetáculo inigualável. Logo nas primeiras rodadas, o campeonato mostrou sua face imprevisível: o atual campeão caiu ainda na fase de grupos, derrubado por ousadia e espírito de equipe; a Argentina, carregada de expectativas, encontrou muros onde esperava caminhos; e o Brasil, apesar de sonhos dourados, viu-se limitado diante de rivais determinados.<br> <br> E foi justamente nesse cenário de inesperados que emergiram heróis silenciosos: a Croácia, com viradas emocionantes nos instantes finais, e a Inglaterra, ressurgindo depois de longos anos de frustrações, reacenderam a esperança de suas torcidas. Contudo, quem de fato se destacou foi a França: uma mescla de juventude ousada e experiência calculista, traçando seu caminho até a decisão com elegância e força.",
+      "SobreIMG1": "./assets/images/2018Sobre1.png",
+      "PrimeiroTitulo": "Primeiro Tempo - Choque de Vontades e o Gol que Mudou a Partida",
+      "SobrePrimeiro": "Ao apito inicial no Luzhniki, a Croácia mostrou sede de protagonismo: passes curtos, triangulações e toques de classe que encantaram a todos. Mas, aos 18 minutos, um lance simples virou poesia trágica: um escanteio bem batido encontrou o ombro de Mandžukić, e a bola morreu lentamente no canto da meta. O silêncio na arquibancada croata foi substituído pelo rugido francês. Os croatas, longe de se deixarem abater, redobraram as investidas. Perišić, com um chute potente de fora da área, recolocou o time no jogo, explodindo a torcida em um misto de alívio e esperança. <br> <br> Era o momento de escrevinhar uma virada épica no placar. Porém, a partida ganhou nova dramaticidade quando o árbitro, após consulta ao VAR, apontou pênalti por toque de mão na área. Griezmann, com a frieza de um general, cobrou no canto e recolocou a França à frente. O timer chegou ao intervalo com a vantagem francesa, mas o ar carregava promessas de mais emoção.",
+      "SobreIMG2": "./assets/images/2018Sobre2.png",
+      "SegundoTitulo": "Segundo Tempo - O Rugido Gaulês e o Último Grito da Coragem Croata",
+      "SobreSegundo": "No retorno do intervalo, a Croácia partiu para cima, como quem busca apagar uma dívida com o destino. Os ataques vinham em rajadas, mas a defesa francesa, sólida como muralha, impedia cada investida com vigor tático. Até que, aos 20 minutos, Pogba, carregando a bola pelo meio, soltou uma bomba de fora da área que estufou as redes e ampliou o placar. Foi o momento em que a França fez o estádio vibrar como uma orquestra em seu ápice. <br> <br> Poucos minutos depois, Mbappé, aos 26, aproveitou-se da velocidade surreal para driblar marcadores e decretar o quarto gol, um sprint poético que deixou claro seu talento precoce. A vantagem de 4 a 1 parecia selar o destino, mas a Croácia ainda tinha uma carta dramática na manga: em falha do goleiro, Mandžukić diminuiu o marcador, escrevendo com PURO coração um momento de puro alívio para seu povo. Apesar desse lampejo final, o tempo correu implacável, e o apito ecoou como sinfonia da consagração francesa.",
+      "SobreIMG3": "./assets/images/2018Sobre3.png",
+      "FinalTitulo": "Epílogo - Novos Heróis, Memórias Eternas",
+      "SobreFinal": "Quando a taça ergueu-se no céu de Moscou, não era apenas um troféu: era o coro de um grupo inteiro que, por semanas, vivia e respirava futebol com intensidade máxima. A França conquistou seu segundo título, 20 anos após o primeiro, reafirmando que, no futebol, planejamento e paixão podem caminhar de mãos dadas.<br> <br> A Croácia, embora sem o troféu, partiu com o mundo aos pés. Sua trajetória, repleta de dribles e prorrogações emocionantes, deixou uma marca indelével: mostrar que, mesmo sem favoritismo, a coragem pode levar um time ao ápice. E a Rússia, com seus palcos gelados e ruas históricas, abraçou toda essa energia, provando que um país pode, por um mês, se tornar o coração pulsante do futebol. <br> <br> A Copa de 2018 se encerrou, mas seu eco de emoções permanece vivo em cada replay, em cada lembrança — lembranças que provam que o futebol é, acima de tudo, poesia em movimento.",
+      "SobreIMG4": "./assets/images/2018Sobre4.png",
+      "jogadores": {
+          "Cristiano Ronaldo": {
+            "Gols": 19,
+            "Assistencias": 2,
+            "Drible": 50
+          },
+          "Lionel Messi": {
+            "Gols": 11,
+            "Assistencias": 7,
+            "Drible": 60
+          },
+          "Neymar": {
+            "Gols": 8,
+            "Assistencias": 10,
+            "Drible": 67
+          },
+          "Harry Kane": {
+            "Gols": 11,
+            "Assistencias": 1,
+            "Drible": 28
+          }
+        },
+        
+      "comparacao": {
+          "Brasil": {
+            "Gol": "49",
+            "Assistencias": "31",
+            "Posse": "57.5"
+          },
+          "França": {
+            "Gol": "32",
+            "Assistencias": "22",
+            "Posse": "52.5"
+          },
+          "Alemanha": {
+            "Gol": "45",
+            "Assistencias": "26",
+            "Posse": "63.9"
+          },
+          "Italia": {
+            "Gol": "16",
+            "Assistencias": "10",
+            "Posse": "43.7"
+          },
+          "Argentina": {
+            "Gol": "25",
+            "Assistencias": "15",
+            "Posse": "58.5"
+          }
+        },
+
+      "goleiros": {
+          "Thibaut Courtois ": {
+            "Defesas": 27
+          },
+          "Danijel Subašić": {
+            "Defesas": 23
+          
+          },
+          "Jordan Pickford": {
+            "Defesas": 18
+          },
+        "Hugo Lloris": {
+            "Defesas": 17
+          }
+        }
+      },
+
+
+
+
+      
+    "alemanha": {
+      "vencedor": "ALEMANHA",
+      "selecao": "./assets/images/alemanha_selecao.png",
+      "descricao": "Alemanha Conquista o Mundo em 2014 com Gol Histórico na Prorrogação e Final Épica Contra a Argentina",
+      "jogos": "64",
+      "final": "32",
+      "qualificacao": "203",
+      "TotalGols": "171",
+      "GolsJogo": "2.67",
+      "MinutosGol": "33.7",
+      "Banner": "./assets/images/2014Banner.png",
+      "BannerTitle": "Todos os gols de neymar na copa de 2014",
+      "BannerDesc": "Confira os gols de Neymar que marcaram a participação do Brasil na Copa do Mundo de 2014",
+      "placar": "./assets/images/2014placar.png",
+       "walpaper1": "./assets/images/AlemanhaWalpaper1.png",
+      "walpaper2": "./assets/images/AlemanhaWalpaper2.png",
+      "Video": "./assets/videos/final2014.mp4",
+      "SobreTitulo": "Sob o Céu do Maracanã, um Gol de Ouro: Alemanha Toca a Eternidade e a Argentina Enfrenta o Silêncio da Quase Glória",
+      "SobreDescricao": "Em um torneio marcado pelo 7x1 histórico e pela lesão de Neymar, a Alemanha conquista sua quarta taça, enquanto Messi e a Argentina ficam com a prata. Um torneio de superações e emoções intensas.",
+      "SobrePlacar": "./assets/images/2014SobrePlacar.png",
+      "ResumoTitulo": "Copa do Mundo 2014: Paixão, Superação e Sonhos que Ecoaram no Mundo",
+      "SobreResumo": "Copa do Mundo de 2014 foi uma explosão de cor e emoção, transformando cada cidade-sede do Brasil em um grande palco de celebração. De Fortaleza a Porto Alegre, de Brasília ao Rio de Janeiro, torcidas nacionais e estrangeiras se encontraram em estádios vibrantes e fan fests calorosas. Em meio ao samba, à caipirinha e aos tambores, 32 seleções escreveram capítulos inesquecíveis. <br> <br> O torneio guardou surpresas já na fase de grupos: a Espanha, bicampeã vigente, deu adeus cedo; o Chile, com sua energia vibrante, embalou a torcida com lances ofensivos; o México venceu a campeã da Copa das Confederações sem sofrer gol; e a Austrália resistiu até o fim diante de holandeses afiados. A Costa Rica emergiu como fenômeno, vencendo Uruguai, Itália e Inglaterra em um Grupo da Morte que ninguém apostava. <br> <br> Nas oitavas, brilhou James Rodríguez, autor do gol mais bonito do torneio, e a Colômbia avançou com garra. A Bélgica, com Hazard e De Bruyne, confirmou sua nova safra e eliminou os Estados Unidos. A Arábia Saudita mostrou evolução, a Suíça encantou com organização defensiva, e a Nigéria exibiu velocidade e força. Para o Brasil, a Copa foi um misto de sonho e drama. Neymar tornou-se o símbolo da esperança, com dribles elétricos e gols decisivos. <br> <br>  Mas, nas quartas, uma entrada dura de Zúñiga deixou o craque fora do Mundial, ferindo o coração de milhões de brasileiros. Ainda assim, o time encontrou no espírito coletivo a força para prosseguir. E foi nesse ambiente de superação e paixões à flor da pele que se desenrolou um dos episódios mais marcantes da história do futebol: o 7 a 1 da Alemanha sobre o Brasil, um choque que silenciou o Mineirão e reverberou pelo mundo. Até o gol de Götze, na prorrogação da final, cada momento do torneio provou que o futebol é imprevisível e arrebatador.",
+      "SobreIMG1": "./assets/images/2014Sobre1.png",
+      "PrimeiroTitulo": "Primeiro Tempo da Final - Tática, Talento e o Duelo dos Gigantes",
+      "SobrePrimeiro": "O Maracanã, palco de tantas lendas, recebeu Argentina e Alemanha para um espetáculo de pura estratégia. Do lado argentino, Lionel Messi articulava como maestro: seus dribles curtos desequilibravam, seus passes verticais criavam oportunidades, enquanto Ángel Di María e Gonzalo Higuaín se movimentavam como flechas prontas para atirar. Javier Mascherano corria incansável, interrompendo investidas e recompondo linhas. <br> <br> Do lado alemão, Toni Kroos e Bastian Schweinsteiger formavam uma dupla cerebral que ditava o ritmo no meio-campo, Thomas Müller surgiu em espaços entre as linhas, e Philipp Lahm orquestrava pela lateral com inteligência. E lá atrás, Manuel Neuer, com suas defesas acrobáticas e saídas ousadas, tornava quase impossível passar. Cada troca de passes reverberava no estádio; cada escanteio era tenso; cada chute de longe arrancava suspiros. O primeiro tempo terminou sem gols, mas com a promessa de que o segundo tempo guardava o momento decisivo.",
+      "SobreIMG2": "./assets/images/2014Sobre2.png",
+      "SegundoTitulo": "Segundo Tempo e Prorrogação - O Lance que Quase Mudou Tudo e a Fúria do Gol Solitário",
+      "SobreSegundo": "Na volta, a Argentina voltou disposta a atacar. Messi caía nas pontas, buscando diagonais; Di María invadia o meio; Agüero esperava por um passe preciso. O Brasiliano da Europa agora era aliado de Garay, o xerife que varria a defesa com carrinhos seguros. A Alemanha, em contrapartida, acelerava com Mario Götze e André Schürrle, alternando velocidade e objetividade. Reus oferecia explosão pelo flanco, e Khedira somava pernas no meio. <br> <br> Aos 37 minutos, o coração do Maracanã quase parou: Higuaín tabelou com Messi, e o camisa 10 ficou sozinho diante de Neuer. O chute parecia questão de tempo, mas Neuer reagiu com reflexo de felino e espalmou para escanteio — foi o momento que definiu o jogo. Com o empate sem gols, o relógio estendeu-se para a prorrogação. A fadiga apareceu, mas a vontade incendia <br> <br> Aos 11 minutos do segundo tempo extra, Schürrle arrancou, cruzou com precisão e encontrou Götze, que dominou no peito e finalizou colocado. A bola bateu na rede e silenciou o Brasil; logo depois, o estádio explodiu em aplausos para a nova potência europeia. A Argentina ainda tentou reagir em lampejos de Di María e investidas de Rojo, mas o tempo decretou a vitória alemã.",
+      "SobreIMG3": "./assets/images/2014Sobre3.png",
+      "FinalTitulo": "Epílogo - A Consagração Alemã e o Legado dos Heróis",
+      "SobreFinal": "Quando o apito final soou, a Alemanha, com sua força tática e precisão cirúrgica, ergueu pela quarta vez a taça de campeã do mundo, conquistando o ápice de anos de planejamento e trabalho coletivo. Uma vitória que demonstrou que, no futebol, o coletivo pode ser tão decisivo quanto a genialidade de um único craque. Para a Argentina, restou a tristeza da frustração, mas também o orgulho de uma campanha valente. Messi, como um artista incompreendido, brilhou em lampejos de sua imensa genialidade, mas o destino lhe deu apenas uma medalha de prata. <br> <br> Higuaín e Di María, incansáveis, tentaram o impossível, mas o gol que parecia seu estava distante. Mascherano, guerreiro até o último suspiro, carregou nas costas o peso da seleção com um coração enorme, mas que não pôde impedir a derrota. Messi, mais uma vez, foi feito de esperança e solidão, e teve que esperar mais – quem sabe no próximo ciclo, o futuro traria o que ele mais desejava: a glória eterna. Mas o ano de 2014 trouxe mais do que a dor da perda para os argentinos e o mundo. <br> <br> O Brasil, que via na Copa em casa uma chance única de consagração, foi atingido por um golpe muito mais profundo. O Mineirazo, um dos momentos mais trágicos da história do futebol, silenciou o país. Um 7x1, cruel e devastador, que arrastou os sonhos de milhões com a força de um pesadelo. O Brasil, que sempre viu o futebol como uma celebração da alma, viu seu ídolo, Neymar, cair no campo com uma lesão que parecia um aviso cruel do destino. O jovem craque, que carregava nas costas os sonhos de uma nação, foi arrancado do torneio em plena caminhada. A perda de Neymar foi a ferida aberta, e o 7x1, um choque de realidade que deixou uma cicatriz para sempre. Ainda assim, o futebol brasileiro não perdeu sua essência. <br> <br> Mesmo com a dor do resultado, o país mostrou ao mundo que, mesmo nas adversidades, o futebol é capaz de emocionar. O samba nas arquibancadas, o grito de gol que ecoava a esperança, o silêncio cortante após cada falha, e a explosão de alegria em Berlim após a vitória da Alemanha, criaram uma mistura de emoções que se entrelaçaram e definiram o torneio. A Copa de 2014, marcada por altos e baixos, nos deixou memórias vívidas: a vitória implacável de uma Alemanha imposta pela sua coletividade, mas também a fragilidade de um Brasil ferido, a resiliência de Messi aguardando a hora certa para brilhar e a dor de um povo que viu seu maior ídolo se afastar, deixando um vazio que ecoou por todo o país. Histórias de sofrimento e superação, de derrotas e vitórias, que nos lembram que o futebol, mais que um esporte, é uma emoção coletiva — que faz pulsar o coração de milhões e que, a cada Copa, nos desafia a sonhar mais alto, mais forte e com mais paixão.",
+      "SobreIMG4": "./assets/images/2014Sobre4.png",
+      "goleiros": {
+        "Keylor Navas": {
+          "Defesas": 265
+        },
+        "Manuel Neuer": {
+          "Defesas": 244
+        },
+        "Tim Howard": {
+          "Defesas": 224
+        },
+       "Guillermo Ochoa": {
+          "Defesas": 218
+        }
+      }, 
+      
+      
+      "comparacao": {
+        "Brasil": {
+        "Gol": "11",
+        "Assistencias": "10",
+        "Posse": "54"
+        },
+        "França": {
+          "Gol": "25",
+          "Assistencias": "19",
+          "Posse": "57.5"
+        },
+        "Alemanha": {
+          "Gol": "54",
+          "Assistencias": "39",
+          "Posse": "60"
+        },
+        "Italia": {
+          "Gol": "21",
+          "Assistencias": "16",
+          "Posse": "58.5"
+        },
+        "Argentina": {
+          "Gol": "43",
+          "Assistencias": "33",
+          "Posse": "55.5"
+              }
+            },
+
+        "jogadores": {
+          "James Rodríguez": {
+            "Gols": 13,
+            "Assistencias": 4,
+            "Drible": 15
+          },
+          "Lionel Messi": {
+            "Gols": 10,
+            "Assistencias": 6,
+            "Drible": 39
+          },
+          "Neymar": {
+            "Gols": 9,
+            "Assistencias": 4,
+            "Drible": 33
+          },
+          "Thomas Müller": {
+            "Gols": 13,
+            "Assistencias": 6,
+            "Drible": 8
+          }
+        }
+      }
+    }
+      
+    

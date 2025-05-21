@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Disputa de Pênaltis</title>
+  <link rel="stylesheet" href="jogo.css">
+  <style>
+  </style>
+</head>
+<body>
+
+  
+ 
+  <div class="placares">
+    <div class="placar_player">
+      <div class="jogador">
+         <img src="../assets/images/Jogadores/kaiser.png" alt="">
+        <p>Guilherme</p>
+       
+      </div>
+      <div class="blocos">
+        <div class="bloco" id="div_1">
+          
+        </div>
+        <div  class="bloco" id="div_3">
+          
+        </div>
+        <div  class="bloco" id="div_5">
+          
+        </div>
+        <div  class="bloco" id="div_7">
+          
+        </div>
+        <div  class="bloco" id="div_9">
+          
+        </div>
+      </div>
+     
+    </div>
+
+    <div class="placar_bot">
+      <div class="jogador">
+         <img src="../assets/images/Jogadores/bot.png" alt="">
+        <p>Bot</p>
+       
+      </div>
+      <div class="blocos">
+        <div class="bloco" id="div_2">
+          
+        </div>
+        <div  class="bloco" id="div_4">
+          
+        </div>
+        <div  class="bloco" id="div_6">
+          
+        </div>
+        <div  class="bloco" id="div_8">
+          
+        </div>
+        <div  class="bloco" id="div_10">
+          
+        </div>
+      </div>
+     
+    </div>
+  </div>
+
+
+
+  <!-- DEFESAS Verde -->
+  <img src="./defesas_img/direita.png" id="imagem1" class="image hidden" alt="Imagem 1">
+  <img src="./defesas_img/esquerda.png" id="imagem2" class="image hidden" alt="Imagem 2">
+  <img src="./defesas_img/inicio.png" id="imagem3" class="image hidden" alt="Imagem 3">
+  <img src="./defesas_img/agarrou.png" id="imagem4" class="image hidden" alt="Imagem 4">
+
+  <!-- GOLS verde -->
+  <img src="./gols_img/direita.png" id="imagem5" class="image hidden" alt="Imagem 5">
+  <img src="./gols_img/esquerda.png" id="imagem6" class="image hidden" alt="Imagem 6">
+  <img src="./gols_img/meio_direita.png" id="imagem7" class="image hidden" alt="Imagem 7">
+  <img src="./gols_img/meio_esquerda.png" id="imagem8" class="image hidden" alt="Imagem 8">
+  <img src="./gols_img/esquerda_meio.png" id="imagem17" class="image hidden" alt="Imagem 7">
+  <img src="./gols_img/direita_meio.png" id="imagem18" class="image hidden" alt="Imagem 8">
+    <img src="./gols_img/erro.png" id="imagem21" class="image hidden" alt="Imagem 8">
+
+    <!-- Defesas azul -->
+  <img src="./defesas_azul/direita.png" id="imagem9" class="image hidden" alt="Imagem 9">
+  <img src="./defesas_azul/esquerda.png" id="imagem10" class="image hidden" alt="Imagem 10">
+  <img src="./defesas_azul/inicio.png" id="imagem11" class="image hidden" alt="Imagem 11">
+  <img src="./defesas_azul/agarrou.png" id="imagem12" class="image hidden" alt="Imagem 12">
+
+      <!-- gols azul -->
+  <img src="./gols_azul/direita.png" id="imagem13" class="image hidden" alt="Imagem 13">
+  <img src="./gols_azul/esquerda.png" id="imagem14" class="image hidden" alt="Imagem 14">
+  <img src="./gols_azul/meia_direita.png" id="imagem15" class="image hidden" alt="Imagem 15">
+  <img src="./gols_azul/meia_esquerda.png" id="imagem16" class="image hidden" alt="Imagem 16">
+   <img src="./gols_img/esquerda_meio.png" id="imagem19" class="image hidden" alt="Imagem 7">
+  <img src="./gols_img/direita_meio.png" id="imagem20" class="image hidden" alt="Imagem 8">
+    <img src="./gols_img/erro.png" id="imagem22" class="image hidden" alt="Imagem 8">
+
+      <!-- INICIO -->
+<img src="./defesas_azul/inicio.png" id="imagem23" class="image hidden" alt="Imagem 1">
+  <img src="./defesas_img/inicio.png" id="imagem24" class="image hidden" alt="Imagem 2">
+
+  <!-- FINAL -->
+<img src="./Final/ganhou.png" id="imagem25" class="image hidden" alt="Imagem 1">
+<img src="./Final/perdeu.png" id="imagem26" class="image hidden" alt="Imagem 1">
+<img src="./Final/empate.png" id="imagem27" class="image hidden" alt="Imagem 1">
+
+  <button id="botaoReiniciar" onclick="reiniciarJogo()" style="display:none;">Reiniciar Jogo</button>
+
+  <script>
+      imagem24.classList.remove('hidden');
+    var suaPontuacao = 0;
+    var computadorPontuacao = 0;
+    var rodada = 1;
+    var suaVezDeChutar = true;
+    var emPreparacao = false; 
+
+          
+
+  document.addEventListener('keydown', (event) => {
+  if (event.code === 'Space') {
+    inicio();
+  }
+});
+
+    document.addEventListener('keydown', (event) => {
+      var ladoJogada = 0;
+      if (event.key === 'ArrowLeft') {
+        ladoJogada = 3;
+      } 
+      else if (event.key === 'ArrowDown') {
+        ladoJogada = 1;
+      } 
+      else if (event.key === 'ArrowRight') {
+        ladoJogada = 2;
+      } 
+
+      if (ladoJogada !== 0) penalti(ladoJogada);
+    });
+
+  
+
+    function esconderTodasImagens() {
+      document.querySelectorAll('img.image').forEach(img => img.classList.add('hidden'));
+    }
+
+    function inicio() {
+
+      if (suaVezDeChutar === true) {
+  
+      imagem24.classList.remove('hidden');
+
+       
+      } else if (suaVezDeChutar === false) {
+        
+
+         imagem23.classList.remove('hidden');
+        
+      }
+    }
+
+   function apagarImg() {
+    document.querySelectorAll('img.image').forEach(img => img.classList.add('hidden'));
+      
+    } 
+
+  function penalti(ladoJogada) {
+      esconderTodasImagens();
+      var erro = Math.floor(Math.random() * 10 + 1);
+      var aleatorio = Math.floor(Math.random() * 3 + 1); 
+      var chuteMsg = '';
+      var defendeMsg = '';
+      var lado = ''
+
+      if (suaVezDeChutar == true) {
+        
+
+        if (aleatorio == 1) {
+          lado = 'meio'
+        } else if (aleatorio == 3) {
+          lado = 'esquerda'
+        } else if  (aleatorio == 2) {
+          lado = 'direita'
+        }
+        
+        if (erro == 1) {
+        
+         imagem21.classList.remove('hidden');
+        document.getElementById(`div_${rodada}`).style.backgroundColor = 'red';
+         setTimeout(apagarImg, 2700)
+           setTimeout(inicio, 3000)
+        } else if (ladoJogada == 1 && aleatorio == 1) {
+        
+          imagem4.classList.remove('hidden');
+          document.getElementById(`div_${rodada}`).style.backgroundColor = 'red';
+                   setTimeout(apagarImg, 2700)
+            setTimeout(inicio, 3000)   
+        } else if (ladoJogada == 1 && aleatorio == 3) {
+        
+          imagem8.classList.remove('hidden');
+          document.getElementById(`div_${rodada}`).style.backgroundColor = 'green';
+          suaPontuacao++;
+                   setTimeout(apagarImg, 2700)
+         setTimeout(inicio, 3000)
+        } else if (ladoJogada == 1 && aleatorio == 2) {
+          imagem7.classList.remove('hidden');
+          document.getElementById(`div_${rodada}`).style.backgroundColor = 'green';
+          suaPontuacao++;
+                   setTimeout(apagarImg, 2700)
+          setTimeout(inicio, 3000)
+        }  else if (ladoJogada == 2 && aleatorio == 2) {
+      
+        imagem1.classList.remove('hidden');
+         document.getElementById(`div_${rodada}`).style.backgroundColor = 'green';
+         setTimeout(inicio, 3000) 
+        } else if (ladoJogada == 2 && aleatorio == 3) {
+    
+          suaPontuacao++;
+          imagem5.classList.remove('hidden');
+          document.getElementById(`div_${rodada}`).style.backgroundColor = 'green';
+                   setTimeout(apagarImg, 2700)
+         setTimeout(inicio, 3000) // 
+        } else if (ladoJogada == 2 && aleatorio == 1) {
+      
+          suaPontuacao++;
+          imagem18.classList.remove('hidden');
+          document.getElementById(`div_${rodada}`).style.backgroundColor = 'green';
+                   setTimeout(apagarImg, 2700)
+        setTimeout(inicio, 3000) 
+        }  else if (ladoJogada == 3 && aleatorio == 3) {
+      
+     imagem2.classList.remove('hidden');
+       document.getElementById(`div_${rodada}`).style.backgroundColor = 'red';
+                setTimeout(apagarImg, 2700)
+        setTimeout(inicio, 3000) 
+        } else if (ladoJogada == 3 && aleatorio == 2) {
+         
+          suaPontuacao++;
+          imagem6.classList.remove('hidden');
+          document.getElementById(`div_${rodada}`).style.backgroundColor = 'green';
+                   setTimeout(apagarImg, 2700)
+         setTimeout(inicio, 3000) 
+        } else if (ladoJogada == 3 && aleatorio == 1) {
+         
+          imagem17.classList.remove('hidden');
+          suaPontuacao++;
+          document.getElementById(`div_${rodada}`).style.backgroundColor = 'green';
+                   setTimeout(apagarImg, 2700)
+          setTimeout(inicio, 3000) 
+        } 
+
+      } else {
+        var compChute = aleatorio; 
+
+        if (erro === 1) {
+          
+         imagem22.classList.remove('hidden');
+         document.getElementById(`div_${rodada}`).style.backgroundColor = 'red';
+                  setTimeout(apagarImg, 2700)
+         setTimeout(inicio, 3000)
+        } else if (compChute == 1 && ladoJogada == 1) {
+      
+         imagem12.classList.remove('hidden');
+          document.getElementById(`div_${rodada}`).style.backgroundColor = 'red';
+                   setTimeout(apagarImg, 2700)
+        setTimeout(inicio, 3000) 
+        } else if (compChute == 1 && ladoJogada == 2) {
+     
+          computadorPontuacao++;
+           imagem15.classList.remove('hidden');
+            document.getElementById(`div_${rodada}`).style.backgroundColor = 'green';
+                     setTimeout(apagarImg, 2700)
+                  setTimeout(inicio, 3000) 
+        }else if (compChute == 1 && ladoJogada == 3) {
+         
+          computadorPontuacao++;
+           imagem16.classList.remove('hidden');
+            document.getElementById(`div_${rodada}`).style.backgroundColor = 'green';
+                     setTimeout(apagarImg, 2700)
+          setTimeout(inicio, 3000) 
+        } else if (compChute == 2 && ladoJogada == 2) {
+        
+           imagem9.classList.remove('hidden');
+            document.getElementById(`div_${rodada}`).style.backgroundColor = 'red';
+                     setTimeout(apagarImg, 2700)
+                  setTimeout(inicio, 3000) 
+        }else if (compChute == 2 && ladoJogada == 3) {
+     
+          computadorPontuacao++;
+           imagem13.classList.remove('hidden');
+            document.getElementById(`div_${rodada}`).style.backgroundColor = 'green';
+                     setTimeout(apagarImg, 2700)
+                  setTimeout(inicio, 3000) 
+        }else if (compChute == 2 && ladoJogada == 1) {
+   
+          computadorPontuacao++;
+           imagem15.classList.remove('hidden');
+            document.getElementById(`div_${rodada}`).style.backgroundColor = 'green';
+                     setTimeout(apagarImg, 2700)
+                  setTimeout(inicio, 3000) 
+        } else if (compChute == 3 && ladoJogada == 3) {
+          
+     
+           imagem10.classList.remove('hidden');
+            document.getElementById(`div_${rodada}`).style.backgroundColor = 'red';
+                     setTimeout(apagarImg, 2700)
+                  setTimeout(inicio, 3000) 
+        } else if (compChute == 3 && ladoJogada == 1) {
+        
+          computadorPontuacao++;
+           imagem16.classList.remove('hidden');
+            document.getElementById(`div_${rodada}`).style.backgroundColor = 'green';
+                     setTimeout(apagarImg, 2700)
+                  setTimeout(inicio, 3000) 
+        }else if (compChute == 3 && ladoJogada == 2) {
+        
+          computadorPontuacao++;
+           imagem14.classList.remove('hidden');
+            document.getElementById(`div_${rodada}`).style.backgroundColor = 'green';
+                     setTimeout(apagarImg, 2700)
+                  setTimeout(inicio, 3000) 
+        }
+         
+      }
+      
+    rodada++;
+if (suaVezDeChutar === true) {
+  suaVezDeChutar = false;
+} else {
+  suaVezDeChutar = true;
+}
+
+if (rodada <= 10) {
+  var resultadoFinal = ""; 
+  if (suaVezDeChutar === true) {
+   
+  } else {
+
+  }
+} else {
+  var resultadoFinal = ""; 
+
+  if (suaPontuacao > computadorPontuacao) {
+    resultadoFinal = "ganhou";
+ 
+       imagem25.classList.remove('hidden');
+  } else if (computadorPontuacao > suaPontuacao) {
+    resultadoFinal = "perdeu";
+       imagem26.classList.remove('hidden');
+  } else {
+    resultadoFinal = "empate";
+
+        imagem27.classList.remove('hidden');
+  }
+
+  enviarResultado(resultadoFinal, suaPontuacao, computadorPontuacao, rodada);
+
+    setTimeout(reiniciarJogo, 5000)
+  
+}
+}
+
+      function enviarResultado(resultado, suaPontuacao, computadorPontuacao, rodadaFinal) {
+         const idUsuario = sessionStorage.ID_USUARIOS;
+  if (!resultado || suaPontuacao == null || computadorPontuacao == null || rodadaFinal == null) {
+    console.log("Sem dados");
+    return false;
+  }
+
+  fetch("/api/resultados", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      resultadoServer: resultado,
+      sua_pontuacao: suaPontuacao,
+      computador_pontuacao: computadorPontuacao,
+      rodada_final: rodadaFinal,
+      fk_usuario: idUsuario
+    }),
+  })
+  .then(function(resposta) {
+    console.log("Resposta da API:", resposta);
+    if (resposta.ok) {
+      console.log("Salvooooo!");
+    } else {
+      throw "Erro ao salvar resultado no servidor!";
+    }
+  })
+  .catch(function(erro) {
+    console.error("#ERRO: ", erro);
+  });
+
+  return false;
+}
+
+      function reiniciarJogo() {
+        suaPontuacao = 0;
+        computadorPontuacao = 0;
+        rodada = 1;
+        suaVezDeChutar = true;
+         imagem24.classList.remove('hidden');
+           imagem25.classList.add('hidden');
+            imagem26.classList.add('hidden');
+            imagem27.classList.add('hidden');
+           imagem24.classList.remove('hidden');
+        for (i = 1; i < 11; i++) {
+          document.getElementById(`div_${i}`).style.backgroundColor = '#464646';
+        }
+      }
+
+
+
+    </script>
+  </body>
+  </html>

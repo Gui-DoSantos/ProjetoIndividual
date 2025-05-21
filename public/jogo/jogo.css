@@ -1,0 +1,87 @@
+@font-face {
+    font-family: Champions-sans;
+    src: url(../assets/fonts/Champions-Bold.ttf);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+ 
+}
+
+body {
+     background-color: rgb(221, 221, 221);
+     font-family: Champions-sans;
+}
+
+  .image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    transition: 1s all  ease-in-out;
+    z-index: -1;
+  }
+
+
+.hidden {
+  opacity: 0;
+  z-index: 1;
+  transition: 1s all  ease-in-out;
+  
+}
+
+
+.placares {
+  position: absolute;
+  right: 0;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin: 20px;
+}
+
+.placar_player, .placar_bot {
+  background-color:#ffffff;
+  width: 350px;
+  height: 130px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.blocos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  gap: 20px;
+  border-top: 2px solid #A0A0A0;
+  
+}
+
+.bloco {
+  border-radius: 50%;
+  width: 42px;
+  height: 42px;
+  background-color: #464646;
+}
+
+.jogador {
+  padding: 5px 10px;
+  gap: 5px;
+  display: flex;
+  align-items: center;
+}
+
+.jogador img {
+  width: 40px;
+}
+
+.placares p {
+  font-size: 25px;
+}

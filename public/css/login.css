@@ -1,0 +1,183 @@
+@font-face {
+    font-family: Champions-sans;
+    src: url(../assets/fonts/Champions-Bold.ttf);
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    display: flex; 
+    justify-content: center;
+    align-items: start;
+}
+
+.container_geral {
+    width: 70%;
+    display: flex; 
+    flex-direction: column;
+}
+
+.header{
+    gap: 20px;
+    padding-top: 20px;
+     width: 100%;
+     display: flex;
+     align-items: center;
+}
+
+.header img {
+    width: 150px;
+}
+
+#login_img {
+    width: 40px;
+}
+
+.texto {
+    font-family: Champions-sans;
+    width: 75%;
+}
+
+.texto h1 {
+    color: #2F2F2F;
+}
+
+.texto p {
+    color: #989898;
+}
+
+.conteudo_geral {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+    padding-top: 15px;
+}
+
+.conteudo_jogador img {
+    width: 250px;
+}
+
+.botoes {
+    margin-top: 20px;
+    background-color: #C0C0C0;
+    width: 65%;
+    height: 50px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+  
+}
+
+
+#botoes_cadastro {
+    width: 66%;
+}
+
+.botoes a {
+    color: black;
+    text-decoration: none;
+}
+
+.entrar {
+    width: 49%;
+    height: 90%;
+    background-color: transparent;
+    
+    border-radius: 6px;
+    border: none;
+    font-family: Champions-sans;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.cadastro {
+    width: 49%;
+    height: 90%;
+    border: none;
+    background-color: #C0C0C0;
+    font-family: Champions-sans;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+#logado {
+    background-color: #2A2929;
+    border-radius: 6px;
+    color: white;
+}
+
+.inputs ul  {
+    list-style-type: none;
+}
+
+
+#cabeçada {
+    width: 310px;
+}
+
+.inputs {
+    padding-top: 20px;
+    width: 65%;
+    font-family: "Inter", sans-serif;
+}
+
+#inputs_cadastro {
+    width: 70%;
+}
+
+.inputs ul li {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.inputs ul {
+    width: 94%;
+    display: flex; 
+    flex-direction: column;
+    gap: 10px;
+}
+
+#inputs_login ul {width: 100%;}
+
+.inputs input {
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid;
+    color: #D8D8DC;
+    padding-left: 10px;
+    
+}
+
+.inputs select {
+    height: 40px;
+    border-radius: 5px;
+    border: 1px solid;
+    border: 1px solid #D8D8DC;
+    color: #262628;
+    padding-left: 10px;
+    
+}
+
+.inputs button {
+    width: 100%;
+    height: 40px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    background-color: #C0C0C0;
+}
+
+.senhas {
+    gap: 10px;
+    display: flex;
+    flex-direction: row;
+}

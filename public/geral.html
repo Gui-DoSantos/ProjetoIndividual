@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/6.6.6/css/flag-icons.min.css">
+    <link rel="stylesheet" href="./css/geral.css">
+    <link rel="stylesheet" href="./css/Header.css">
+    <link rel="stylesheet" href="./css/Footer.css">
+</head>
+<body >
+
+      <!-- HEADER -->
+
+      <div class="Header_container">
+        <div class="header_div">
+            <div class="header_1" style="color: white;">
+                <div >
+                    <img  class="globall_logo" src="./assets/images/globall.png" alt="">
+                </div>
+                        <div class="copas_container">
+                    <ul class="copas">
+                        <li><a href="./index.html"><img id="logo_26" src="./assets/images/logo_26.png" alt=""></a></li>
+                        <li><a href="./Geral.html?selecao=argentina"><img src="./assets/images/argentina_pais.png" alt="">2022</a></li>
+                        <li><a href="./Geral.html?selecao=franca"><img src="./assets/images/franca_pais.png" alt="">2018</a></li>
+                        <li><a href="./Geral.html?selecao=alemanha"><img src="./assets/images/alemanha_pais.png" alt="">2014</a></li>
+                    </ul>
+                </div>
+                <div>
+                <a href="./login2.html"><img   class="person_header" src="./assets/images/person.png" alt=""></a>
+                </div>
+            </div>
+
+            <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
+                
+    
+                
+    
+            </div>
+        </div>
+    </div>
+
+    <div class="vencedor">
+        <div class="vencedor_walpaper">
+
+            <img class="vencedor_walpaper_img" id="walpaper1" src="" alt="">
+            <img style="display: none;" class="vencedor_walpaper_img" id="walpaper2" src="" alt="">
+
+            <div style="color: white;" id="selecao_vencedora">
+                <div class="vencedor_detalhe">
+                    <img id="selecao" src="" alt="">
+                    <div>
+                        <h1>VENCEDOR</h1>
+                        <p id="vencedor">ARGENTINA</p>
+                    </div>
+                </div>
+                <div class="vencedor_descrição">
+                    <p id="descricao">Argentina bate França nos pênaltis, conquista o tri e eterniza Messi como o gênio de uma geração</p>
+                </div>
+                <div class="vencedor_botao">
+                    <button class="ativado"><a class="link-dinamico" data-page="geral.html">Geral</a> </button>
+                    <button class="inativo"><a class="link-dinamico" data-page="estat.html">Estat.</a></button>
+                    <button class="inativo"><a class="link-dinamico" data-page="Sobre.html">Sobre</a></button>
+                </div>
+            </div>
+      
+        </div>
+    </div>
+
+    <!-- CONTEUDO -->
+    
+        <div class="container_geral">
+            <div class="conteudo_div" >
+                <div  class="conteudo_Principal">
+                        <div class="imagem_principal_container">
+                            <img id="Banner" class="imagem_principal"  src="./assets/images/2018Banner.png" alt="">
+                            <div class="conteudo_imagem">
+                                <a href="https://www.youtube.com/watch?v=2Gg4OQo7-zA&t=160s" class="botao">Destaque</a>
+                                <h1 id="BannerTitle">Todos os gols d antoine griezmann</h1>
+                                <p id="BannerDesc">Veja todos os golos marcados pela argentina na campanha vitoriosa de 2022</p>
+                            </div>
+                    </div>
+                    <div>
+                        <img id="placar" class="placar_final" src="./assets/images/placar2014.png" alt="">
+                    </div>  
+                </div>
+                   
+            </div>
+
+                <div class="Conteudo_secundario">
+                    <div>
+                        <img src="./assets/images/estastisticas2022.png" alt="">
+                    </div>
+                </div>
+        </div>
+
+        <!-- FOOTER -->
+         <div class="footer_container">
+            <div class="footer_div">
+                <div class="redes_sociais">
+                    <p>Siga-me nas Redes Sociais!</p>
+                    <ul>
+                        <li><img src="./assets/images/X.png" alt=""></li>
+                        <li><img src="./assets/images/instagram.png" alt=""></li>
+                        <li><img src="./assets/images/github_icon.png" alt=""></li>
+                        <li><img src="./assets/images/youtube.png" alt=""></li>
+                        <li><img src="./assets/images/face.png" alt=""></li>
+                    </ul>
+                </div>
+                <div class="politicas">
+                    <ul>
+                        <li><p>Privacidade</p></li>
+                        <li><p>Termos e condições</p></li>
+                        <li><p>Politica de cookies</p></li>
+                    </ul>
+                </div>
+                <div class="footer_final">
+                    <div class="direitos">
+                        <p>© 2025 GLOBALL. Todos os direitos reservados. Este site é destinado exclusivamente a fins educacionais e não possui qualquer finalidade comercial ou lucrativa.
+                            feito por Guilherme dias SPTech</p>
+                    </div>
+                    <div class="taca">
+                        <img src="./assets/images/taca_copa.png" alt="">
+                    </div>  
+                </div>
+            </div>
+        </div>
+</body>
+</html>
+
+<script>
+
+
+
+let divVencedor = document.querySelector("#vencedor");
+let divwalpaper2 = document.querySelector("#walpaper2")
+let divwalpaper1 = document.querySelector("#walpaper1")
+let divDescricao = document.querySelector("#descricao");
+let divselecao = document.querySelector("#selecao");
+let divplacar =  document.querySelector("#placar")
+let divBanner = document.querySelector("#Banner")
+let divBannerTitle =  document.querySelector("#BannerTitle")
+let BannerDesc = document.querySelector("#BannerDesc")
+
+
+const params = new URLSearchParams(window.location.search);
+const selecao = params.get('selecao'); 
+
+if (selecao) {
+    document.querySelectorAll('.link-dinamico').forEach(link => {
+      const page = link.getAttribute('data-page');
+      link.href = `${page}?selecao=${selecao}`;
+    });
+  }
+
+fetch("informacoes.json").then((response) => {
+    response.json().then((dados) => {
+        if (dados[selecao]) {
+            const infoSelecao = dados[selecao];
+
+            
+            divVencedor.innerHTML =  infoSelecao.vencedor;    
+            divDescricao.innerHTML = infoSelecao.descricao;
+            BannerTitle.innerHTML = infoSelecao.BannerTitle
+            BannerDesc.innerHTML = infoSelecao.BannerDesc
+
+            divwalpaper2.src = infoSelecao.walpaper2;
+            divwalpaper1.src = infoSelecao.walpaper1;
+            divselecao.src = infoSelecao.selecao;
+            divplacar.src = infoSelecao.placar;
+            divBanner.src = infoSelecao.Banner;
+
+        }
+            else {
+                divJogos.innerHTML = "Seleção não encontrada.";
+                divVencedor.innerHTML = "";    
+                divFinal.innerHTML = "";
+                divQualificacao.innerHTML = "";
+                divTotalGols.innerHTML = "";
+                divGolsPorJogo.innerHTML = "";
+                divMinutosPorGol.innerHTML = "";
+        }
+    });
+});
+
+
+
+let walpaper1 = document.getElementById('walpaper1');
+let walpaper2 = document.getElementById('walpaper2');
+
+let contador = 0;
+
+function alternarWalpapers() {
+  if (contador % 2 === 0) {
+    walpaper1.style.display = 'none';
+    walpaper2.style.display = 'block';
+  } else {
+    walpaper1.style.display = 'block';
+    walpaper2.style.display = 'none';
+  }
+  contador++;
+}
+
+setInterval(alternarWalpapers, 10000);
+
+        
+</script>
