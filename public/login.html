@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/login.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container_geral">
+        <div class="header">
+            <a href="index.html"><img  id="login_img" src="./assets/images/botao_voltar.png" alt=""></a>
+            <img src="./assets/images/Logo.png" alt="">
+        </div>
+        <div class="conteudo_geral">
+            <div class="conteudo">
+                <div class="texto">
+                    <h1>Crie sua conta ou faça login</h1>
+                    <p>Crie uma conta ou faça login para explorar as os acontecimentos das ultimas copas</p>
+                </div>
+                <div class="botoes">
+                    <button id="logado" class="entrar">Entrar</button>
+                    <button class="cadastro"><a href="./cadastro.html">Cadastrar</a></button>
+                </div>
+                <div class="inputs" id="inputs_login">
+                    <ul>
+                        <li>
+                            <p>E-mail</p>
+                            <input type="text" name="" id="email_input" placeholder="Seu email">
+                        </li>
+                        <li>
+                            <p>Senha</p>
+                            <input type="text" name="" id="senha_input" placeholder="Sua senha">
+                        </li>
+                        <li>
+                            <button onclick="entrar()">Entrar</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="conteudo_jogador">
+                <img src="./assets/images/Recebendo.png" alt="">
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+    <script>
+        
+        function entrar() {
+
+
+            var emailVar = email_input.value;
+            var senhaVar = senha_input.value;
+
+            if (emailVar == "" || senhaVar == "") {
+            
+                alert("Campos em branco")
+                return false;
+            }
+            else {
+                setInterval(5000)
+            }
+
+            console.log("FORM LOGIN: ", emailVar);
+            console.log("FORM SENHA: ", senhaVar);
+
+            fetch("/usuarios/autenticar", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    emailServer: emailVar,
+                    senhaServer: senhaVar
+                })
+            }).then(function (resposta) {
+                console.log("ESTOU NO THEN DO entrar()!")
+
+                if (resposta.ok) {
+                    console.log(resposta);
+
+                    resposta.json().then(json => {
+                        console.log('foi')
+                        console.log(json);
+                        console.log(JSON.stringify(json));
+                        sessionStorage.EMAIL_USUARIO = json.email;
+                        sessionStorage.NOME_USUARIO = json.nome;
+                        sessionStorage.ID_USUARIOS = json.id_usuarios;
+
+                        setTimeout(function () {
+                            alert('VAMOOOO')
+                            
+                            window.location = "index.html";
+                        }, 1000); 
+                    });
+
+                } else {
+
+                    console.log("Houve um erro ao tentar realizar o login!");
+
+                    resposta.text().then(texto => {
+                        console.error(texto);
+                    });
+                }
+
+            }).catch(function (erro) {
+                console.log(erro);
+            })
+
+            return false;
+        }
+
+</script>

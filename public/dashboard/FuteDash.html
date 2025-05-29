@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <title>Resultados do Jogo</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+    <link rel="stylesheet" href="../css/estrutura_usuario.css">  
+    <link rel="stylesheet" href="../css/dashboard.css">
+</head>
+<body>
+
+    
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="jogador.css">
+</head>
+<body>
+    <div class="container_geral">
+        <div class="divisoria_1  ">
+            <div class="header_1">
+                <h1>Dashboard</h1>
+            </div>
+            <div>
+                <div class="botoes_container">
+                    <div class="botoes">
+                        <div class="bola">
+                            <img src="../assets/images/jogadorIMG/bola.png" alt="">
+                        </div>
+                        <a href="/index.html"><button class="botao">
+                            Home
+                        </button></a>
+                        <a href="/jogo/jogo.html"><button class="botao">
+                        Jogar 
+                        </button></a>
+                    </div>
+                 </div>
+            </div>
+            <div class="jogador_images">
+                <img src="../assets/images/jogadorIMG/jogador.png" alt="">
+            </div>
+            <div class="footer_1">
+                    <img src="../assets/images/jogadorIMG/Grama.png" alt="">
+            </div>
+        </div> 
+        <div class="divisoria_2">
+            <div class="header_2">
+                <div>
+                    <p>Bem-vindo</p>
+                </div>
+                <ul>
+                    
+                    <h1>João</h1>
+                    <img src="./jogadorIMG/foto_perfil.png" alt="">
+                </ul>
+                
+            </div>
+            <div class="GraficosArea">
+        <div class="GraficosAreaContainer">
+        
+        <div>
+           <h1>Informações da sua partida</h1> 
+        </div>
+
+        <div class="KPI">
+            <div class="KPI_estatistica">
+                <p>Gols:</p>
+                <div>
+                    <p>Feito:</p>
+                     <div id="GolsFeitos" >0</div>
+                </div>
+                <div>
+                    <p>Tomados:</p>
+                     <div id="GolsTomados">0</div>
+                     <div id="random"></div>
+                </div>
+            </div>
+            <div class="KPIs">
+                <p>Quantidade de vitorias:</p>
+                <div>
+                        
+                    <p id="id_ganhou">0</p>
+                     <img src="../assets/images/GanhouKPI.png" alt="">
+                </div>
+                
+            </div>
+            <div class="KPIs">
+                <p>Quantidade de derrotas:</p>
+                <div>
+                   
+                    <p id="id_perdeu">0</p>
+                     <img src="../assets/images/derrotaKPI.png" alt="">
+                </div>
+                
+            </div>
+            <div class="KPIs">
+                <p>Jogador mais utilizado:</p>
+                <div>
+                  
+                    <p id="utilizado">--</p>
+                      <img class="utilizado" src="../assets/images/pele.png" alt="">
+                </div>
+               
+            </div>
+        </div>
+
+    
+    <p style="display: none;" id="id_empate"></p>
+    <p style="display: none;" id="vitorias"></p>
+    <p style="display: none;" id="derrotas"></p>
+    <p  style="display: none;" id="empate"></p>
+    <p style="display: none;" id="pontuacao"></p>
+    <div class="graficos">
+ <div class="GraficoRosca">
+ <canvas id="graficoRosca" width="300" height="300"></canvas>
+    </div>
+    <div  class="GraficoColuna" >
+ <canvas id="GraficoColuna" width="300" height="300"></canvas>  
+    </div>
+    </div>
+   
+    
+     
+
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+    
+  
+</body>
+</html>
+<script>
+
+
+    var contadorPerdeu = 0;
+    var contadorGanhou = 0;
+    var contadorEmpate = 0;
+    var contadorNomes = {};
+    var maiorAparicao = 0
+    var nomeMaisUsado = ''
+    
+    async function carregarResultados() {
+    const userId = sessionStorage.ID_USUARIOS;
+    if (!userId) {
+        alert("Usuário não identificado.");
+        return;
+    }
+
+    try {
+        const response = await fetch(`/api/resultados?usuario=${userId}`);
+
+
+        const dados = await response.json();
+  
+
+
+    
+
+
+
+
+
+    for (let i = 0; i < dados.length; i++) {
+     
+    const item = dados[i];
+    var nome = dados[i].nome_jogador;
+    var pontuacao = dados[i].sua_pontuacao
+
+   
+
+
+    if (!contadorNomes[nome]) {
+        contadorNomes[nome] = 0;
+    }
+        contadorNomes[nome]++;
+
+        if (contadorNomes[nome] > maiorAparicao) {
+        maiorAparicao = contadorNomes[nome];
+        nomeMaisUsado = nome;
+    }
+
+    utilizado.innerHTML  = `${nomeMaisUsado}`
+  
+
+    if (item.resultado.toLowerCase().includes("ganhou")) {
+        contadorGanhou++;
+        id_ganhou.innerHTML = `${contadorGanhou}`
+    }
+
+    if (item.resultado.toLowerCase().includes("perdeu")) {
+        contadorPerdeu++;
+        id_perdeu.innerHTML = `${contadorPerdeu}`
+    }
+
+    
+    if (item.resultado.toLowerCase().includes("empate")) {
+        contadorEmpate++;
+        id_empate.innerHTML = `${contadorEmpate}`
+    }
+
+
+}
+
+    percentualVitoria =  contadorGanhou / dados.length * 100
+    percentualDerrotas =  contadorPerdeu / dados.length * 100
+    percentualEmpate =  contadorEmpate / dados.length * 100
+
+    vitorias.innerHTML = `${percentualVitoria.toFixed(2)}`
+    derrotas.innerHTML = `${percentualDerrotas.toFixed(2)}`
+    empate.innerHTML = `${percentualEmpate.toFixed(2)}`
+    
+
+  const ctx = document.getElementById('graficoRosca').getContext('2d');
+
+    const graficoRosca = new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Derrotas', 'Vitórias', 'empate' ],
+            datasets: [{
+                label: 'Desempenho',
+                data: [percentualDerrotas, percentualVitoria, percentualEmpate], 
+                backgroundColor: [
+    
+                    'rgba(255, 99, 132, 0.8)' , 
+                       'rgba(75, 192, 192, 0.8)',
+                       'green'  
+                ],
+                borderColor: [
+                    'white'
+                   
+                ],
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                title: {
+                display: true,
+                text: 'Percentual de Desempenho nas Partidas',
+                font: {
+                    size: 20,
+                    weight: 'bold'
+                },
+                color: '#333',
+                padding: {
+                    top: 10,
+                    bottom: 30
+                }
+            },
+                legend: {
+                    position: 'bottom'
+                },
+                
+                 datalabels: {
+                formatter: (value) => value.toFixed(1) + '%', 
+                color: '#fff',
+                font: {
+                    weight: 'bold',
+                    size: 14
+                }
+            },
+            
+            }
+            
+        }, plugins: [ChartDataLabels] 
+    });
+
+
+    } catch (error) {
+        console.error("Erro ao carregar resultados:", error);
+    }
+
+}
+
+ 
+ async function CarregarPlacar() {
+  try {
+    const response = await fetch(`/api/placar`);
+    if (!response.ok) {
+      throw new Error(`Erro na requisição: ${response.status} ${response.statusText}`);
+    }
+    const Placar = await response.json();
+    
+    
+    var primeiroLugar = Placar[0].nome
+    var SegundoLugar = Placar[1].nome
+    var TerceiroLugar = Placar[2].nome
+
+    var PrimeiroLugarValor = Placar[0].quantidadeGanhou
+    var SegundoLugarValor = Placar[1].quantidadeGanhou
+    var TerceiroLugarValor = Placar[2].quantidadeGanhou
+
+
+
+
+  const ctx = document.getElementById('GraficoColuna').getContext('2d');
+
+const GraficoColuna = new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: [primeiroLugar, SegundoLugar, TerceiroLugar],
+        datasets: [{
+            label: 'Jogadores',
+            data: [PrimeiroLugarValor, SegundoLugarValor, TerceiroLugarValor],
+            backgroundColor: 'rgba(54, 162, 235, 0.7)',
+            borderColor: 'rgba(54, 162, 235, 1)',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        plugins: { 
+            title: {
+                display: true,
+                text: 'Top 3 Jogadores com Mais Vitórias',
+                font: {
+                    size: 18,
+                    weight: 'bold'
+                },
+                color: '#333',
+                padding: {
+                    top: 10,
+                    bottom: 20
+                }
+            }
+        },
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        }
+    }
+});
+
+
+
+  } catch (error) {
+    console.error('Falha ao carregar o placar:', error);
+  }
+}
+
+
+
+
+async function dadosGols() {
+    
+ 
+    const userId = sessionStorage.ID_USUARIOS;
+
+    const responseGols = await fetch(`/api/gols?usuario=${userId}`);
+    
+
+   
+
+     const gols = await responseGols.json();
+
+     console.log(gols)
+
+       console.log(gols[0].total_pontuacao)
+       console.log(gols[0].gols_tomados)
+
+       GolsFeitos.innerHTML = `${gols[0].total_pontuacao}`
+       GolsTomados.innerHTML = `${gols[0].gols_tomados}`
+       
+}
+    
+window.onload = function() {
+  carregarResultados();
+  CarregarPlacar();
+  dadosGols();
+};
+  </script>

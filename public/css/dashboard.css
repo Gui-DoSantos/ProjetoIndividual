@@ -1,0 +1,102 @@
+
+
+.GraficosArea {
+    background-color: rgb(255, 255, 255);
+    height: 90.5%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.GraficosAreaContainer {
+    background-color: rgb(255, 255, 255);
+    height: 95%;
+    width: 95%;
+    flex-direction: column;
+    display: flex;
+    gap: 20px;
+}
+
+.KPI {
+    display: flex;
+    justify-content: center;
+     align-items: center;
+    gap: 50px;
+}
+
+.KPIs {
+    background-color: #ececec;
+   border: 1px solid rgb(197, 197, 197);
+    border-radius: 10px;
+    width: 17%;
+    height: 80px;
+    padding: 5px 5px;
+    flex-direction: column;
+    gap: 5px;
+    display: flex;
+}
+
+.KPIs div p {
+    font-size: 25px;
+}
+
+.KPIs div {
+    display: flex;
+    padding-left: 15px;
+    align-items: center;
+    gap: 10px;
+}
+
+.KPI_estatistica {
+    background-color: #ececec;
+   border: 1px solid rgb(197, 197, 197);
+    border-radius: 10px;
+    width: 11%;
+    height: 70px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+}
+
+.graficos {
+    padding-top: 5px;
+    margin: 0px 100px;
+    display: flex;
+    width: 90%;
+    gap: 65px;
+}
+
+.GraficoRosca {
+    padding: 10px;
+    width: 350px;
+    background-color: #ececec;
+  border: 1px solid rgb(197, 197, 197);
+    border-radius: 10px;
+}
+
+.GraficoColuna {
+     background-color: #ececec;
+        padding: 10px;
+     border: 1px solid rgb(197, 197, 197);
+    width: 400px;
+    height: 350px;
+       border-radius: 10px;
+}
+
+.KPI_estatistica div {
+    gap: 5px;
+    display: flex;
+}
+
+.KPIs img {
+    width: 50px;
+    height: 60px;
+}
+
+.utilizado {
+    border-radius: 50%;
+    height: 20px;
+}

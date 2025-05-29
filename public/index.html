@@ -29,8 +29,22 @@
                      
                     </ul>
                 </div>
-                <div>
-                <a href="./login2.html"><img   class="person_header" src="./assets/images/person.png" alt=""></a>
+                <div class="person_drop" >
+                    <img id="person"  class="person_header" src="./assets/images/person.png" alt="">
+                    <div class="dropdown" id="userDropdown" style="display: none;">
+                        <div id="Dropdown_itens_dobra2">
+                              <button>Dashboard</button>
+                        </div>
+                        <div class="Dropdown_itens">
+                              <button>Jogo</button>
+                        </div>
+                         <div class="Dropdown_itens">
+                              <button>Conta</button>
+                        </div>
+                         <div class="Dropdown_itens" id="Dropdown_itens_dobra">
+                            <button>Sair</button>
+                        </div>
+                    </div>
                 </div>
             </div>
 
@@ -263,4 +277,48 @@
 
 <script>
     
-</script>
+      const idUsuario = sessionStorage.ID_USUARIOS;
+
+      
+
+const personImg = document.getElementById("person");
+const dropdown = document.getElementById("userDropdown");
+
+if (idUsuario != undefined) {
+
+  personImg.src = "./assets/images/face.png";
+
+  personImg.addEventListener("click", () => {
+    if (dropdown.style.display == "none") {
+      dropdown.style.display = "block"
+    } else {
+      dropdown.style.display = "none"
+    }
+  })
+} else {
+  personImg.addEventListener("click", () => {
+    window.location.href = "./login.html";
+  });
+}
+
+      
+  function enviar() {
+    const formData = new FormData();
+    formData.append('foto', foto.files[0])
+    formData.append('nome', nome.value)
+    formData.append('email', email.value)
+
+    fetch("/usuarios/cadastro", {
+      method: "POST",
+      body: formData
+    })
+      .then(res => {
+        window.location = "./perfil.html"
+      })
+      .catch(err => {
+        console.log(err);
+      })
+  }
+  
+    
+</script>   
