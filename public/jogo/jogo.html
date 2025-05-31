@@ -43,16 +43,16 @@
                 </div>
                 <ul>
                     
-                    <h1>João</h1>
-                    <img src="./jogadorIMG/foto_perfil.png" alt="">
+                    <h1 id="userNome">João</h1>
+                    <img id="PerfilFoto" >
                 </ul>
             </div>
             <div style="position: relative;">
                 <div class="placares">
     <div class="placar_player">
       <div class="jogador">
-         <img src="../assets/images/Jogadores/kaiser.png" alt="">
-        <p>Guilherme</p>
+         <img id="fotoPlacar" src="../assets/images/Jogadores/kaiser.png" alt="">
+        <p id="nomePlacar">Guilherme</p>
        
       </div>
       <div class="blocos">
@@ -153,6 +153,21 @@
   
 
   <script>
+
+     const imagemPerfil = sessionStorage.IMAGEM;
+    var nomeUsuario = sessionStorage.NOME_USUARIO
+    var userId = sessionStorage.ID_USUARIOS;
+    
+
+    document.getElementById("PerfilFoto").src = `../assets/FotoPerfil/${imagemPerfil}`;
+ 
+      document.getElementById("fotoPlacar").src = `../assets/FotoPerfil/${imagemPerfil}`;
+
+    userNome.innerHTML = `${nomeUsuario}`
+    
+    nomePlacar.innerHTML = `${nomeUsuario}`
+
+
       imagem24.classList.remove('hidden');
     var suaPontuacao = 0;
     var computadorPontuacao = 0;

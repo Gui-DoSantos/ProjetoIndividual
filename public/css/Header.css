@@ -28,6 +28,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-wrap: wrap;
+    align-content: center;
 }
 
 .material-icons {
@@ -56,18 +58,13 @@ body {
     width: 200px;
 }
 
-.person_header {
-    width: 30px;
-}
 
-.arrow {
+.person_header {
+    width: 50px;
+    height: 45px;
+    border-radius: 50%;
+    border: 1px solid rgb(164, 164, 164);
     cursor: pointer;
-    color: white;
-    user-select: none;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
 .copas_container {
@@ -80,6 +77,61 @@ body {
 .copas_container::-webkit-scrollbar {
     display: none; 
   }
+
+
+
+.person_drop {
+    position: relative;
+}
+
+.dropdown {
+    position: absolute;
+    background-color: white;
+    color: black;
+    width: 150px;
+    height: 112px;
+    right: 0;
+    border-radius: 5px;
+    border: 1px solid #D9D9D9;
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    
+
+}
+
+#Dropdown_itens_dobra2 button   {
+    border-radius: 5px 5px 0px 0px;
+}
+
+#Dropdown_itens_dobra button {
+    border-radius: 0px 0px 5px 5px;
+}
+
+.dropdown button {
+    width: 100%;
+    text-align: left;
+    padding-left: 10px;
+    font-size: 16px;
+    background-color: transparent;
+    border: none;
+        font-weight: 400;
+        color: #383B3F;
+        padding-top: 5px;
+         padding-bottom: 5px;
+         transition: all ease-in-out 0.3s;
+         cursor: pointer;
+}
+
+
+.dropdown button:hover {
+    background-color: rgb(0, 0, 0);
+    color: white;
+}
+
+.Dropdown_itens {
+    border-top: 1px solid #D9D9D9;
+}
 
 
 .copas {

@@ -80,6 +80,9 @@ transition: opacity 1s ease-in-out;
 
 .jogador img {
   width: 40px;
+  height: 40px;
+  border: 1px solid black;
+    border-radius: 50%;
 }
 
 .placares p {

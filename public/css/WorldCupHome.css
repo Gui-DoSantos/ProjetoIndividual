@@ -52,29 +52,14 @@ body {
 }
 
 .person_header {
-    width: 30px;
-}
-
-.arrow {
+     width: 50px;
+    height: 45px;
+    border-radius: 50%;
+    border: 1px solid rgb(164, 164, 164);
     cursor: pointer;
-    color: white;
-    user-select: none;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
 }
 
-.copas_container {
-    overflow-x: auto;
-    white-space: nowrap;
-    scroll-behavior: smooth;
-    width: 100%;
-}
 
-.copas_container::-webkit-scrollbar {
-    display: none; 
-  }
 
 
 .copas {
@@ -85,6 +70,13 @@ body {
     padding: 0;
     margin: 0;
     align-items: center;
+}
+
+.copas_container {
+    overflow-x: auto;
+    white-space: nowrap;
+    scroll-behavior: smooth;
+    width: 100%;
 }
 
 .copas li {
@@ -482,13 +474,6 @@ body {
 
 .redes_sociais ul li img {
     width: 20px;
-}
-
-.politicas ul {
-    padding-left: 50px;
-    list-style: none;
-    display: flex;
-    gap: 180px;
 }
 
 .direitos {

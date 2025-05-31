@@ -22,7 +22,7 @@
                     <p>Crie uma conta ou faça login para explorar as os acontecimentos das ultimas copas</p>
                 </div>
                 <div id="botoes_cadastro" class="botoes">
-                    <button  class="entrar"><a href="./login.html">Entrar</a></button>
+                    <button onclick="window.location.href='http:/login.html'"  class="entrar"><a href="./login.html">Entrar</a></button>
                     <button  id="logado" class="cadastro">Cadastrar</button>
                 </div>
                 <div id="inputs_cadastro" class="inputs">
@@ -47,15 +47,7 @@
                                 </div>
                             </div>
                         </li>
-                        <li>
-                            <p>Sua copa favorita</p>
-                            <select name="" id="">
-                                <option value="" selected disabled>Copa favorita:</option>
-                                <option value="">2022</option>
-                                <option value="">2018</option>
-                                <option value="">2014</option>
-                            </select>
-                        </li>
+                        
                         <li>
                             <p>Jogador favorito das copas</p>
                           <select id="fk_jogador_select" name="">
@@ -67,22 +59,18 @@
                             <option value="6">Romário</option>
                             <option value="7">Gerd Müller</option>
                             <option value="8">Johan Cruyff</option>
-                            <option value="9">Just Fontaine</option>
-                            <option value="10">Paolo Rossi</option>
-                            <option value="11">Zinedine Zidane</option>
-                            <option value="12">Andrés Iniesta</option>
-                            <option value="13">Xavi Hernández</option>
-                            <option value="14">Luka Modrić</option>
-                            <option value="15">Garrincha</option>
-                            <option value="16">Didi</option>
-                            <option value="17">Michel Platini</option>
-                            <option value="18">Socrates</option>
-                            <option value="19">Kaká</option>
-                            <option value="20">Paul Pogba</option>
-                            <option value="21">Neymar</option>
-                            <option value="22">Cristiano Ronaldo</option>
-                            <option value="23">Zico</option>
-                            <option value="24">Ronaldinho</option>
+                            <option value="9">Zinedine Zidane</option>
+                            <option value="10">Andrés Iniesta</option>
+                            <option value="11">Xavi Hernández</option>
+                            <option value="12">Luka Modrić</option>
+                            <option value="13">Garrincha</option>
+                            <option value="14">Michel Platini</option>
+                            <option value="15">Socrates</option>
+                            <option value="16">Kaká</option>
+                            <option value="17">Neymar</option>
+                            <option value="18">Cristiano Ronaldo</option>
+                            <option value="19">Zico</option>
+                            <option value="20">Ronaldinho</option>
                           </select>
                         </li>
                         
@@ -113,6 +101,8 @@
       var senhaVar = senha_input.value;
       var confirmacaoSenhaVar = confirmacao_senha_input.value;
       var fk_jogadorVar = fk_jogador_select.value
+      var auto_incrementVar = 0
+     
   
       // Verificando se há algum campo em branco
       if (
@@ -126,6 +116,7 @@
   
         return false;
       } else {
+        auto_incrementVar ++
         setInterval( 5000);
       }
   
@@ -141,7 +132,9 @@
           nomeServer: nomeVar,
           emailServer: emailVar,
           senhaServer: senhaVar, 
-          fk_jogadorServer: fk_jogadorVar,
+          fk_jogadorServer: fk_jogadorVar
+
+          
         }),
       })
         .then(function (resposta) {
@@ -149,9 +142,9 @@
   
           if (resposta.ok) {
             alert('Cadastro realizado com sucesso! Redirecionando para tela de Login...');
-
+           window.location = "login.html";
           setTimeout(() => {
-            window.location = "login2.html";
+            
           }, "2000");
 
         } else {

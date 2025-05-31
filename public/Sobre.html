@@ -27,9 +27,24 @@
                         <li><a href="./Geral.html?selecao=alemanha"><img src="./assets/images/alemanha_pais.png" alt="">2014</a></li>
                     </ul>
                 </div>
-                <div>
-                  <a href="./login.html"><img   class="person_header" src="./assets/images/person.png" alt=""></a>
+                <div class="person_drop" >
+                    <img id="person"  class="person_header" src="./assets/images/person.png" alt="">
+                    <div class="dropdown" id="userDropdown" style="display: none;">
+                        <div id="Dropdown_itens_dobra2">
+                               <a href="./dashboard/FuteDash.html"><button>Dashboard</button></a>
+                        </div>
+                        <div class="Dropdown_itens">
+                              <a href="./jogo/jogo.html"><button>Jogo</button></a>
+                        </div>
+                         <div class="Dropdown_itens">
+                              <a href="./Configuracoes.html"><button>Conta</button></a>
+                        </div>
+                         <div class="Dropdown_itens" id="Dropdown_itens_dobra">
+                            <button onclick="deslogar()">Sair</button>
+                        </div>
+                    </div>
                 </div>
+            </div>
             </div>
 
             <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
@@ -125,33 +140,23 @@
 
      
     
-     <div class="footer_container">
-        <div class="footer_div">
-            <div class="redes_sociais">
-                <p>Siga-me nas Redes Sociais!</p>
-                <ul>
-                    <li><img src="../images/X.png" alt=""></li>
-                    <li><img src="../images/instagram.png" alt=""></li>
-                    <li><img src="../images/github_icon.png" alt=""></li>
-                    <li><img src="../images/youtube.png" alt=""></li>
-                    <li><img src="../images/face.png" alt=""></li>
-                </ul>
-            </div>
-            <div class="politicas">
-                <ul>
-                    <li><p>Privacidade</p></li>
-                    <li><p>Termos e condições</p></li>
-                    <li><p>Politica de cookies</p></li>
-                </ul>
-            </div>
-            <div class="footer_final">
-                <div class="direitos">
-                    <p>© 2025 GLOBALL. Todos os direitos reservados. Este site é destinado exclusivamente a fins educacionais e não possui qualquer finalidade comercial ou lucrativa.
-                        feito por Guilherme dias SPTech</p>
+      <div class="footer_container">
+            <div class="footer_div">
+                <div class="redes_sociais">
+                    <p>Siga-me no Github</p>
+                    <ul>
+                        <li><img src="./assets/images/github_icon.png" alt=""></li>
+                    </ul>
                 </div>
-                <div class="taca">
-                    <img src="./assets/images/taca_copa.png" alt="">
-                </div>  
+                <div class="footer_final">
+                    <div class="direitos">
+                        <p>© 2025 GLOBALL. Todos os direitos reservados. Este site é destinado exclusivamente a fins educacionais e não possui qualquer finalidade comercial ou lucrativa.
+                            feito por Guilherme dias SPTech</p>
+                    </div>
+                    <div class="taca">
+                        <img src="./assets/images/taca_copa.png" alt="">
+                    </div>  
+                </div>
             </div>
         </div>
     </div>
@@ -262,5 +267,37 @@ function alternarWalpapers() {
 }
 
 setInterval(alternarWalpapers, 10000);
+
+
+      const idUsuario = sessionStorage.ID_USUARIOS;
+
+         const imagemPerfil = sessionStorage.IMAGEM;
+
+const personImg = document.getElementById("person");
+const dropdown = document.getElementById("userDropdown");
+
+if (idUsuario != undefined) {
+
+  document.getElementById("person").src = `./assets/FotoPerfil/${imagemPerfil}`;
+
+  personImg.addEventListener("click", () => {
+    if (dropdown.style.display == "none") {
+      dropdown.style.display = "block"
+    } else {
+      dropdown.style.display = "none"
+    }
+  })
+} else {
+  personImg.addEventListener("click", () => {
+    window.location.href = "./login.html";
+  });
+}
+
+   
+
+  function deslogar() {
+    sessionStorage.clear();
+    location.reload();
+  }
 
 </script>

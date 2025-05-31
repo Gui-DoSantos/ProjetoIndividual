@@ -72,7 +72,62 @@ function cadastrar(req, res) {
     }
 }
 
+
+
+function CriarImagem(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var idUsuario = req.body.idUsuarioServer;
+    
+
+    if (idUsuario == undefined) {
+        res.status(400).send("Sua IdUsuario está undefined!");
+    }   else {
+
+      
+        usuarioModel.CriarImagem(idUsuario)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
+function salvar(req, res) {
+  const idUsuario = req.params.idUsuario;
+
+  if (!req.file) {
+    return res.status(400).send("Arquivo de imagem não enviado");
+  }
+
+  const imagem = req.file.filename;
+
+  usuarioModel.salvar({ id_usuario: idUsuario, imagem })
+     .then(() => {
+      // Retorna o nome real da imagem salva
+      res.status(200).json({ imagem: imagem });
+    })
+    .catch(err => {
+      res.status(500).send(err);
+    });
+}
+
+
+
+
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    CriarImagem,
+    salvar
 }

@@ -30,6 +30,8 @@ app.use("/usuarios", usuarioRouter);
 app.use("/api", resultadoRouter);
 
 
+
+
 app.listen(PORTA_APP, function () {
     console.log(`
     ##   ##  ######   #####             ####       ##     ######     ##              ##  ##    ####    ######  

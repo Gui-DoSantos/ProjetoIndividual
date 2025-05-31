@@ -3,27 +3,76 @@ var database = require("../database/config")
 function autenticar(email, senha) {
     console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function entrar(): ", email, senha)
     var instrucaoSql = `
-        SELECT id_usuarios, nome, email FROM usuarios WHERE email = '${email}' AND senha = '${senha}';
+      SELECT 
+    u.id_usuarios, 
+    u.nome, 
+    u.email, 
+    i.caminho_imagem 
+FROM 
+    usuarios u
+LEFT JOIN 
+    imagem i ON u.id_usuarios = i.fk_usuario
+WHERE 
+    u.email = '${email}' AND u.senha = '${senha}';
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
+}
+
+function CriarImagem(idUsuario) {
+
+    const instrucao = `insert into imagem (fk_usuario) values (' ${idUsuario}')`;
+
+     return database.executar(instrucao);
 }
 
 // Coloque os mesmos parâmetros aqui. Vá para a var instrucaoSql
 function cadastrar(nome, email, senha, fk_jogador) {
-    console.log("ACESSEI O USUARIO MODEL \n \n\t\t >> Se aqui der erro de 'Error: connect ECONNREFUSED',\n \t\t >> verifique suas credenciais de acesso ao banco\n \t\t >> e se o servidor de seu BD está rodando corretamente. \n\n function cadastrar():",nome, email, senha, fk_jogador);
-    
-    // Insira exatamente a query do banco aqui, lembrando da nomenclatura exata nos valores
-    //  e na ordem de inserção dos dados.
+    console.log("ACESSEI O USUARIO MODEL", nome, email, senha, fk_jogador);
+
     var instrucaoSql = `
-        INSERT INTO usuarios (nome, email, senha, fk_jogador) VALUES ('${nome}', '${email}',  '${senha}', '${fk_jogador}');
+        INSERT INTO usuarios (nome, email, senha, fk_jogador) 
+        VALUES ('${nome}', '${email}', '${senha}', '${fk_jogador}');
     `;
-    console.log("Executando a instrução SQL: \n" + instrucaoSql);
-    return database.executar(instrucaoSql);
+    
+    return database.executar(instrucaoSql).then(() => {
+        var instrucaoSelect = `
+            SELECT id_usuarios FROM usuarios
+            WHERE email = '${email}'
+            ORDER BY id_usuarios DESC
+            LIMIT 1;
+        `;
+
+        return database.executar(instrucaoSelect);
+    }).then(function(resultado) {
+            var idUsuario = resultado[0].id_usuarios;
+
+            var insertImagem = `
+                INSERT INTO imagem (fk_usuario)
+                VALUES (${idUsuario});
+            `;
+
+            return database.executar(insertImagem);
+        
+    })
 }
+
+function salvar(usuario) {
+  const instrucao = `
+    UPDATE imagem 
+    SET caminho_imagem = '${usuario.imagem}' 
+    WHERE fk_usuario = ${usuario.id_usuario}
+  `;
+  return database.executar(instrucao);
+}
+
+
+
 
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+     CriarImagem, 
+     salvar
 };

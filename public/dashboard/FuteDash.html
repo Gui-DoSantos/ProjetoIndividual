@@ -1,17 +1,4 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8" />
-  <title>Resultados do Jogo</title>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
-    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
-    <link rel="stylesheet" href="../css/estrutura_usuario.css">  
-    <link rel="stylesheet" href="../css/dashboard.css">
-</head>
-<body>
-
-    
-    <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -20,7 +7,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="jogador.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+    <link rel="stylesheet" href="../css/estrutura_usuario.css">  
+    <link rel="stylesheet" href="../css/dashboard.css">
 </head>
 <body>
     <div class="container_geral">
@@ -57,8 +47,8 @@
                 </div>
                 <ul>
                     
-                    <h1>João</h1>
-                    <img src="./jogadorIMG/foto_perfil.png" alt="">
+                    <h1 id="userNome">João</h1>
+                    <img id="PerfilFoto" alt="">
                 </ul>
                 
             </div>
@@ -71,15 +61,14 @@
 
         <div class="KPI">
             <div class="KPI_estatistica">
-                <p>Gols:</p>
                 <div>
-                    <p>Feito:</p>
-                     <div id="GolsFeitos" >0</div>
+                    <p>Gols feito:</p>
+                     <p id="GolsFeitos" >0</p>
                 </div>
                 <div>
-                    <p>Tomados:</p>
-                     <div id="GolsTomados">0</div>
-                     <div id="random"></div>
+                    <p>Gols tomados:</p>
+                     <p id="GolsTomados">0</p>
+                     <p id="random"></p>
                 </div>
             </div>
             <div class="KPIs">
@@ -87,7 +76,6 @@
                 <div>
                         
                     <p id="id_ganhou">0</p>
-                     <img src="../assets/images/GanhouKPI.png" alt="">
                 </div>
                 
             </div>
@@ -96,7 +84,6 @@
                 <div>
                    
                     <p id="id_perdeu">0</p>
-                     <img src="../assets/images/derrotaKPI.png" alt="">
                 </div>
                 
             </div>
@@ -105,7 +92,7 @@
                 <div>
                   
                     <p id="utilizado">--</p>
-                      <img class="utilizado" src="../assets/images/pele.png" alt="">
+                    
                 </div>
                
             </div>
@@ -118,17 +105,13 @@
     <p  style="display: none;" id="empate"></p>
     <p style="display: none;" id="pontuacao"></p>
     <div class="graficos">
- <div class="GraficoRosca">
- <canvas id="graficoRosca" width="300" height="300"></canvas>
-    </div>
-    <div  class="GraficoColuna" >
- <canvas id="GraficoColuna" width="300" height="300"></canvas>  
-    </div>
-    </div>
-   
-    
-     
-
+        <div class="GraficoRosca">
+        <canvas id="graficoRosca" style="width: 400px;"></canvas>
+        </div>
+            <div  class="GraficoColuna" >
+            <canvas id="GraficoColuna" style="width: 550px; height: 355px;"></canvas>  
+                </div>
+            </div>
                 </div>
             </div>
         </div>
@@ -152,7 +135,19 @@
     var nomeMaisUsado = ''
     
     async function carregarResultados() {
-    const userId = sessionStorage.ID_USUARIOS;
+
+    const imagemPerfil = sessionStorage.IMAGEM;
+    var nomeUsuario = sessionStorage.NOME_USUARIO
+    var userId = sessionStorage.ID_USUARIOS;
+
+    
+ 
+    document.getElementById("PerfilFoto").src = `../assets/FotoPerfil/${imagemPerfil}`;
+
+
+    userNome.innerHTML = `${nomeUsuario}`
+    
+
     if (!userId) {
         alert("Usuário não identificado.");
         return;
@@ -163,12 +158,6 @@
 
 
         const dados = await response.json();
-  
-
-
-    
-
-
 
 
 
@@ -209,8 +198,6 @@
         contadorEmpate++;
         id_empate.innerHTML = `${contadorEmpate}`
     }
-
-
 }
 
     percentualVitoria =  contadorGanhou / dados.length * 100
@@ -220,6 +207,12 @@
     vitorias.innerHTML = `${percentualVitoria.toFixed(2)}`
     derrotas.innerHTML = `${percentualDerrotas.toFixed(2)}`
     empate.innerHTML = `${percentualEmpate.toFixed(2)}`
+
+    if (isNaN(percentualDerrotas) || isNaN(percentualVitoria) || isNaN(percentualEmpate))   {
+  percentualVitoria = 0.00000001
+  percentualDerrotas = 0.00000001
+  percentualEmpate = 0.00000001
+}
     
 
   const ctx = document.getElementById('graficoRosca').getContext('2d');
@@ -245,37 +238,40 @@
             }]
         },
         options: {
-            responsive: true,
-            plugins: {
-                title: {
-                display: true,
-                text: 'Percentual de Desempenho nas Partidas',
-                font: {
-                    size: 20,
-                    weight: 'bold'
-                },
-                color: '#333',
-                padding: {
-                    top: 10,
-                    bottom: 30
-                }
+    responsive: true,
+    plugins: {
+        title: {
+            display: true,
+            text: 'Percentual de Desempenho nas Partidas',
+            font: {
+                size: 20,
+                weight: 'bold'
             },
-                legend: {
-                    position: 'bottom'
-                },
-                
-                 datalabels: {
-                formatter: (value) => value.toFixed(1) + '%', 
-                color: '#fff',
-                font: {
-                    weight: 'bold',
-                    size: 14
-                }
-            },
-            
+            color: '#333',
+            padding: {
+                top: 10,
+                bottom: 30
             }
-            
-        }, plugins: [ChartDataLabels] 
+        },
+        legend: {
+            position: 'bottom'
+        },
+        datalabels: {
+            display: true,
+            formatter: (value, ctx) => {
+                const total = ctx.chart._metasets[ctx.datasetIndex].total || 1;
+                const percentage = (value / total) * 100;
+                return `${percentage.toFixed(1)}%`;
+            },
+            color: '#fff',
+            font: {
+                weight: 'bold',
+                size: 14
+            }
+        }
+    }
+},
+plugins: [ChartDataLabels]
     });
 
 
@@ -303,6 +299,8 @@
     var SegundoLugarValor = Placar[1].quantidadeGanhou
     var TerceiroLugarValor = Placar[2].quantidadeGanhou
 
+    
+ 
 
 
 
@@ -360,25 +358,35 @@ async function dadosGols() {
     const userId = sessionStorage.ID_USUARIOS;
 
     const responseGols = await fetch(`/api/gols?usuario=${userId}`);
-    
-
-   
 
      const gols = await responseGols.json();
 
-     console.log(gols)
-
-       console.log(gols[0].total_pontuacao)
-       console.log(gols[0].gols_tomados)
 
        GolsFeitos.innerHTML = `${gols[0].total_pontuacao}`
        GolsTomados.innerHTML = `${gols[0].gols_tomados}`
        
 }
+
+async function JogadorUtilizado() {
+    
+ 
+    const userId = sessionStorage.ID_USUARIOS;
+
+    const responseGols = await fetch(`/api/gols?usuario=${userId}`);
+
+     const gols = await responseGols.json();
+
+
+       GolsFeitos.innerHTML = `${gols[0].total_pontuacao}`
+       GolsTomados.innerHTML = `${gols[0].gols_tomados}`
+       
+}
+   
     
 window.onload = function() {
   carregarResultados();
   CarregarPlacar();
   dadosGols();
+JogadorUtilizado();
 };
   </script>

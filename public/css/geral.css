@@ -121,6 +121,13 @@ body {
     width: 100%;
 }
 
+
+.person_header {
+    width: 50px;
+    border-radius: 50%;
+    border: 1px solid rgb(164, 164, 164);
+}
+
 .conteudo_imagem {
     position: absolute;
     display: flex;

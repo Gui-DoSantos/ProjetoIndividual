@@ -12,4 +12,6 @@ function buscarUsuarioPeloId(id) {
   return database.executar(instrucao);
 }
 
-module.exports = { salvar, buscarUsuarioPeloId }
+
+
+module.exports = { salvar, buscarUsuarioPeloId  }

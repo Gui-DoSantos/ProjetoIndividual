@@ -15,26 +15,31 @@
     width: 95%;
     flex-direction: column;
     display: flex;
-    gap: 20px;
+    gap: 5px;
 }
 
 .KPI {
     display: flex;
-    justify-content: center;
      align-items: center;
-    gap: 50px;
+     gap: 10px;
 }
 
 .KPIs {
-    background-color: #ececec;
+    background-color: #ffffff;
    border: 1px solid rgb(197, 197, 197);
     border-radius: 10px;
-    width: 17%;
-    height: 80px;
+    width: 40%;
+    height: 50px;
     padding: 5px 5px;
-    flex-direction: column;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
     gap: 5px;
     display: flex;
+}
+
+.KPIs p {
+    font-size: 22px;
 }
 
 .KPIs div p {
@@ -43,27 +48,38 @@
 
 .KPIs div {
     display: flex;
-    padding-left: 15px;
     align-items: center;
     gap: 10px;
 }
 
 .KPI_estatistica {
-    background-color: #ececec;
-   border: 1px solid rgb(197, 197, 197);
+    background-color: transparent   ;
     border-radius: 10px;
-    width: 11%;
-    height: 70px;
-    padding: 10px;
+    width: 200px;
     display: flex;
     flex-direction: column;
     gap: 10px;
 
 }
 
+.KPI_estatistica div {
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    display: flex;
+    justify-content: start;
+    border: 1px solid #C5C5C5;
+    align-items: center;
+    height: 5px;
+    border-radius: 7px;
+}
+
+.KPI_estatistica p {
+    font-weight: 100;
+    font-size: 14px;
+}
+
 .graficos {
     padding-top: 5px;
-    margin: 0px 100px;
     display: flex;
     width: 90%;
     gap: 65px;
@@ -71,19 +87,24 @@
 
 .GraficoRosca {
     padding: 10px;
-    width: 350px;
-    background-color: #ececec;
+    background-color: #ffffff;
   border: 1px solid rgb(197, 197, 197);
     border-radius: 10px;
+    width: 500px;
 }
 
+
 .GraficoColuna {
-     background-color: #ececec;
+     background-color: #ffffff;
         padding: 10px;
      border: 1px solid rgb(197, 197, 197);
-    width: 400px;
-    height: 350px;
+    height: 400px;
        border-radius: 10px;
+}
+
+#GraficoColuna {
+    width: 100%;
+    height: 100%;
 }
 
 .KPI_estatistica div {
@@ -99,4 +120,11 @@
 .utilizado {
     border-radius: 50%;
     height: 20px;
+}
+
+#PerfilFoto {
+        height: 40px;
+        width: 45px;
+        border-radius: 50%;
+        border: 1px solid gray
 }

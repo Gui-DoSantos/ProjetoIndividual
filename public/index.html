@@ -33,16 +33,16 @@
                     <img id="person"  class="person_header" src="./assets/images/person.png" alt="">
                     <div class="dropdown" id="userDropdown" style="display: none;">
                         <div id="Dropdown_itens_dobra2">
-                              <button>Dashboard</button>
+                               <a href="./dashboard/FuteDash.html"><button>Dashboard</button></a>
                         </div>
                         <div class="Dropdown_itens">
-                              <button>Jogo</button>
+                              <a href="./jogo/jogo.html"><button>Jogo</button></a>
                         </div>
                          <div class="Dropdown_itens">
-                              <button>Conta</button>
+                              <a href="./Configuracoes.html"><button>Conta</button></a>
                         </div>
                          <div class="Dropdown_itens" id="Dropdown_itens_dobra">
-                            <button>Sair</button>
+                            <button onclick="deslogar()">Sair</button>
                         </div>
                     </div>
                 </div>
@@ -245,20 +245,9 @@
          <div class="footer_container">
             <div class="footer_div">
                 <div class="redes_sociais">
-                    <p>Siga-me nas Redes Sociais!</p>
+                    <p>Siga-me no GitHub</p>
                     <ul>
-                        <li><img src="./assets/images/X.png" alt=""></li>
-                        <li><img src="./assets/images/instagram.png" alt=""></li>
                         <li><img src="./assets/images/github_icon.png" alt=""></li>
-                        <li><img src="./assets/images/youtube.png" alt=""></li>
-                        <li><img src="./assets/images/face.png" alt=""></li>
-                    </ul>
-                </div>
-                <div class="politicas">
-                    <ul>
-                        <li><p>Privacidade</p></li>
-                        <li><p>Termos e condições</p></li>
-                        <li><p>Politica de cookies</p></li>
                     </ul>
                 </div>
                 <div class="footer_final">
@@ -279,14 +268,14 @@
     
       const idUsuario = sessionStorage.ID_USUARIOS;
 
-      
+         const imagemPerfil = sessionStorage.IMAGEM;
 
 const personImg = document.getElementById("person");
 const dropdown = document.getElementById("userDropdown");
 
 if (idUsuario != undefined) {
 
-  personImg.src = "./assets/images/face.png";
+  document.getElementById("person").src = `./assets/FotoPerfil/${imagemPerfil}`;
 
   personImg.addEventListener("click", () => {
     if (dropdown.style.display == "none") {
@@ -301,24 +290,16 @@ if (idUsuario != undefined) {
   });
 }
 
-      
-  function enviar() {
-    const formData = new FormData();
-    formData.append('foto', foto.files[0])
-    formData.append('nome', nome.value)
-    formData.append('email', email.value)
+   
 
-    fetch("/usuarios/cadastro", {
-      method: "POST",
-      body: formData
-    })
-      .then(res => {
-        window.location = "./perfil.html"
-      })
-      .catch(err => {
-        console.log(err);
-      })
+  function deslogar() {
+    sessionStorage.clear();
+    location.reload();
   }
+
+
   
-    
+
+        
+
 </script>   

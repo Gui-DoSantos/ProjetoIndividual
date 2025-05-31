@@ -61,6 +61,8 @@ body {
 
 .conteudo_jogador img {
     width: 250px;
+    position: absolute;
+    right: 350px;
 }
 
 .botoes {
@@ -120,7 +122,7 @@ body {
 
 
 #cabeçada {
-    width: 310px;
+    width: 330px;
 }
 
 .inputs {

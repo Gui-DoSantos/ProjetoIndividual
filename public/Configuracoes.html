@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Upload</title>
+  <link rel="stylesheet" href="./css/configuracoes.css">
+</head>
+
+<body>
+
+    <div class="container">
+      <div class="sessao1">
+        <img src="./assets/images/configuracoesBanner.png" alt="">
+      </div>
+      <div class="sessao2">
+          <div class="introducao">
+            <p>
+              Olá guilherme, altere seus dados pessoais
+          </p>
+        </div>
+         <div class="campo_informacao">
+         <div class="img_user">
+                <label for="foto">
+                    <img  id="img" alt="Foto do usuário" />
+                </label>
+                <input style="display: none;" name="foto" id="foto" type="file" accept="image/*" />
+            </div>
+      
+          
+            <input type="text" name="" id="" placeholder="Nome:">
+          <div>
+            <input type="text" placeholder="Senha atual">
+            <input type="text" placeholder="Senha nova">]
+          </div>
+         
+          <select  id="fk_jogador_select" name="">
+                            <option value="1">Pelé</option>
+                            <option  value="2">Diego Maradona</option>
+                            <option value="3">Ronaldo Fenômeno</option>
+                            <option value="4">Lionel Messi</option>
+                            <option value="5">Kylian Mbappé</option>
+                            <option value="6">Romário</option>
+                            <option value="7">Gerd Müller</option>
+                            <option value="8">Johan Cruyff</option>
+                            <option value="11">Zinedine Zidane</option>
+                            <option value="12">Andrés Iniesta</option>
+                            <option value="13">Xavi Hernández</option>
+                            <option value="14">Luka Modrić</option>
+                            <option value="15">Garrincha</option>
+                            <option value="16">Didi</option>
+                            <option value="17">Michel Platini</option>
+                            <option value="18">Socrates</option>
+                            <option value="19">Kaká</option>
+                            <option value="20">Paul Pogba</option>
+                            <option value="21">Neymar</option>
+                            <option value="22">Cristiano Ronaldo</option>
+                            <option value="23">Zico</option>
+                            <option value="24">Ronaldinho</option>
+                          </select>
+            <button onclick="salvar()">Salvar</button>
+         </div>
+         <div class="sair">
+            <a href="index.html"><p>Sair</p></a>
+         </div>
+      </div>
+    </div>
+
+  <!-- <div>
+    <input name="nome" id="nome" type="text" />
+    <input name="email" id="email" type="url" />
+    <input name="foto" id="foto" type="file" />
+    <button onclick="enviar()">Enviar</button>
+  </div>
+
+  <div id="container"></div> -->
+</body>
+
+</html>
+
+<script>
+
+  const idUsuario = sessionStorage.ID_USUARIOS;
+
+function salvar() {
+   const idUsuario = sessionStorage.ID_USUARIOS;
+  const formData = new FormData();
+  const fotoFile = foto.files[0];
+
+  if (!fotoFile) {
+    alert("Selecione uma foto para atualizar.");
+    return;
+  }
+
+  formData.append('foto', fotoFile);
+
+  fetch(`/usuarios/salvar/${idUsuario}`, {
+    method: "PUT",
+    body: formData
+  }).then(res => res.json())
+    .then(data => {
+      const novoNomeImagem = data.imagem;
+
+      // Atualiza sessionStorage com o nome real do arquivo
+      sessionStorage.IMAGEM = novoNomeImagem;
+
+
+
+      alert("Imagem atualizada com sucesso!");
+    })
+    .catch(err => {
+      console.error("Erro ao atualizar imagem:", err);
+      alert("Erro ao atualizar imagem.");
+    });
+}
+foto.addEventListener('change', function () {
+  const arquivo = foto.files[0];
+
+  if (arquivo) {
+    const reader = new FileReader();
+
+    reader.onload = function (e) {
+      img.src = e.target.result;
+    };
+
+    reader.readAsDataURL(arquivo);
+  }
+});
+
+
+const personImg = document.getElementById("img");
+
+     const imagemPerfil = sessionStorage.IMAGEM;
+
+      personImg.src = `./assets/FotoPerfil/${imagemPerfil}`;
+</script>
