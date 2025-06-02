@@ -218,12 +218,6 @@
         
       }
     }
-
-   function apagarImg() {
-    document.querySelectorAll('img.image').forEach(img => img.classList.add('hidden'));
-      
-    } 
-
   function penalti(ladoJogada) {
       esconderTodasImagens();
       var erro = Math.floor(Math.random() * 10 + 1);
@@ -271,7 +265,7 @@
         }  else if (ladoJogada == 2 && aleatorio == 2) {
       
         imagem1.classList.remove('hidden');
-         document.getElementById(`div_${rodada}`).style.backgroundColor = 'green';
+         document.getElementById(`div_${rodada}`).style.backgroundColor = 'red';
          setTimeout(inicio, 2700) 
         } else if (ladoJogada == 2 && aleatorio == 3) {
     
@@ -422,6 +416,7 @@ if (rodada <= 10) {
 
       function enviarResultado(resultado, suaPontuacao, computadorPontuacao, rodadaFinal) {
          const idUsuario = sessionStorage.ID_USUARIOS;
+         const fkJogador = sessionStorage.JOGADOR;
   if (!resultado || suaPontuacao == null || computadorPontuacao == null || rodadaFinal == null) {
     console.log("Sem dados");
     return false;
@@ -437,7 +432,8 @@ if (rodada <= 10) {
       sua_pontuacao: suaPontuacao,
       computador_pontuacao: computadorPontuacao,
       rodada_final: rodadaFinal,
-      fk_usuario: idUsuario
+      fk_usuario: idUsuario,
+      fk_jogador: fkJogador
     }),
   })
   .then(function(resposta) {

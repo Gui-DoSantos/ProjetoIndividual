@@ -7,24 +7,19 @@ function autenticar(email, senha) {
     u.id_usuarios, 
     u.nome, 
     u.email, 
-    i.caminho_imagem 
+    i.caminho_imagem, 
+    u.senha,
+    j.id_jogador as id_jogador
 FROM 
     usuarios u
 LEFT JOIN 
-    imagem i ON u.id_usuarios = i.fk_usuario
+    imagem i ON u.id_usuarios = i.fk_usuario join jogador j  on j.id_jogador = fk_jogador
 WHERE 
     u.email = '${email}' AND u.senha = '${senha}';
     `;
 
     console.log("Executando a instrução SQL: \n" + instrucaoSql);
     return database.executar(instrucaoSql);
-}
-
-function CriarImagem(idUsuario) {
-
-    const instrucao = `insert into imagem (fk_usuario) values (' ${idUsuario}')`;
-
-     return database.executar(instrucao);
 }
 
 // Coloque os mesmos parâmetros aqui. Vá para a var instrucaoSql
@@ -64,7 +59,15 @@ function salvar(usuario) {
     SET caminho_imagem = '${usuario.imagem}' 
     WHERE fk_usuario = ${usuario.id_usuario}
   `;
-  return database.executar(instrucao);
+  return database.executar(instrucao).then(() => {
+        var instrucaoSelect = `
+  UPDATE usuarios 
+  SET nome = '${usuario.nome}', senha = '${usuario.senha}', fk_jogador = ${usuario.jogador}
+  WHERE id_usuarios = ${usuario.id_usuario};
+`;
+
+        return database.executar(instrucaoSelect);
+    })
 }
 
 
@@ -73,6 +76,5 @@ function salvar(usuario) {
 module.exports = {
     autenticar,
     cadastrar,
-     CriarImagem, 
      salvar
 };

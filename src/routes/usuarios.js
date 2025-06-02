@@ -18,7 +18,6 @@ router.post("/autenticar", function (req, res) {
 });
 
 
-
 router.put('/salvar/:idUsuario', upload.single('foto'), usuarioController.salvar);
 
 

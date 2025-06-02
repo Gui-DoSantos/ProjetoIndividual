@@ -1,8 +1,8 @@
 var database = require("../database/config");
 
-async function salvar(resultado, suaPontuacao, computadorPontuacao, rodadaFinal, fk_usuario) {
-    const query = `INSERT INTO resultados_jogo (resultado, sua_pontuacao, computador_pontuacao, rodada_final, fk_usuario)
-                   VALUES ('${resultado}', ${suaPontuacao}, ${computadorPontuacao}, ${rodadaFinal}, ${fk_usuario})`;
+async function salvar(resultado, suaPontuacao, computadorPontuacao, rodadaFinal, fk_usuario, fk_jogador) {
+    const query = `INSERT INTO resultados_jogo (resultado, sua_pontuacao, computador_pontuacao, rodada_final, fk_usuario, fk_jogador)
+                   VALUES ('${resultado}', ${suaPontuacao}, ${computadorPontuacao}, ${rodadaFinal}, ${fk_usuario}, '${fk_jogador}')`;
 
     try {
         const result = await database.executar(query);
@@ -69,10 +69,61 @@ async function listarGols(userId) {
 }
 
 
+async function listarPlacar() {
+
+    const query = `    
+    SELECT 
+  u.nome AS nome_usuario,
+  j.nome AS nome_jogador,
+  COUNT(r.id_jogo) AS partidas_utilizadas
+FROM jogador j
+JOIN usuarios u ON j.id_jogador = u.fk_jogador
+LEFT JOIN resultados_jogo r ON u.id_usuarios = r.fk_usuario
+GROUP BY u.id_usuarios, u.nome, j.id_jogador, j.nome
+ORDER BY partidas_utilizadas DESC;
+    `;
+
+    try {
+        const dados = await database.executar(query);
+        return dados;
+    } catch (error) {
+        throw error;
+    }
+}
+
+
+
+async function Utilizado(userId) {
+
+    const query = `  SELECT 
+  j.nome AS nome_jogador,
+  COUNT(*) AS total_utilizacoes
+FROM 
+  resultados_jogo r
+JOIN 
+  jogador j ON r.fk_jogador = j.id_jogador
+WHERE 
+  r.fk_usuario = ${userId}
+GROUP BY 
+  r.fk_jogador
+ORDER BY 
+  total_utilizacoes DESC
+LIMIT 1;
+    `;
+
+    try {
+        const dados = await database.executar(query);
+        return dados;
+    } catch (error) {
+        throw error;
+    }
+}
+
 
 module.exports = {
     salvar,
     listarTudo,
     listarPlacar,
-    listarGols
+    listarGols,
+    Utilizado
 };

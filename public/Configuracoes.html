@@ -17,50 +17,49 @@
       </div>
       <div class="sessao2">
           <div class="introducao">
-            <p>
+            <p id="bem_vindo">
               Olá guilherme, altere seus dados pessoais
           </p>
         </div>
          <div class="campo_informacao">
-         <div class="img_user">
+            <div class="img_user">
                 <label for="foto">
                     <img  id="img" alt="Foto do usuário" />
                 </label>
-                <input style="display: none;" name="foto" id="foto" type="file" accept="image/*" />
+                <input  style="display: none;" name="foto" id="foto" type="file" accept="image/*" />
             </div>
       
           
-            <input type="text" name="" id="" placeholder="Nome:">
+            <input onblur="validacao_nome()" type="text"  name="" id="nome" placeholder="Nome:">
           <div>
-            <input type="text" placeholder="Senha atual">
-            <input type="text" placeholder="Senha nova">]
+            <input  id="input_senhaAtualUser"  type="text" placeholder="Senha atual">
+            <input onblur="validacao_senha()" type="text" id="senha" placeholder="Senha nova">
           </div>
          
           <select  id="fk_jogador_select" name="">
                             <option value="1">Pelé</option>
-                            <option  value="2">Diego Maradona</option>
+                            <option value="2">Diego Maradona</option>
                             <option value="3">Ronaldo Fenômeno</option>
                             <option value="4">Lionel Messi</option>
                             <option value="5">Kylian Mbappé</option>
                             <option value="6">Romário</option>
                             <option value="7">Gerd Müller</option>
                             <option value="8">Johan Cruyff</option>
-                            <option value="11">Zinedine Zidane</option>
-                            <option value="12">Andrés Iniesta</option>
-                            <option value="13">Xavi Hernández</option>
-                            <option value="14">Luka Modrić</option>
-                            <option value="15">Garrincha</option>
-                            <option value="16">Didi</option>
-                            <option value="17">Michel Platini</option>
-                            <option value="18">Socrates</option>
-                            <option value="19">Kaká</option>
-                            <option value="20">Paul Pogba</option>
-                            <option value="21">Neymar</option>
-                            <option value="22">Cristiano Ronaldo</option>
-                            <option value="23">Zico</option>
-                            <option value="24">Ronaldinho</option>
+                            <option value="9">Zinedine Zidane</option>
+                            <option value="10">Andrés Iniesta</option>
+                            <option value="11">Xavi Hernández</option>
+                            <option value="12">Luka Modrić</option>
+                            <option value="13">Garrincha</option>
+                            <option value="14">Michel Platini</option>
+                            <option value="15">Socrates</option>
+                            <option value="16">Kaká</option>
+                            <option value="17">Neymar</option>
+                            <option value="18">Cristiano Ronaldo</option>
+                            <option value="19">Zico</option>
+                            <option value="20">Ronaldinho</option>
                           </select>
-            <button onclick="salvar()">Salvar</button>
+                          <div id="div_mensagem"></div>
+            <button onclick="validacao()">Salvar</button>
          </div>
          <div class="sair">
             <a href="index.html"><p>Sair</p></a>
@@ -68,33 +67,108 @@
       </div>
     </div>
 
-  <!-- <div>
-    <input name="nome" id="nome" type="text" />
-    <input name="email" id="email" type="url" />
-    <input name="foto" id="foto" type="file" />
-    <button onclick="enviar()">Enviar</button>
-  </div>
-
-  <div id="container"></div> -->
 </body>
 
 </html>
 
 <script>
 
-  const idUsuario = sessionStorage.ID_USUARIOS;
+
+
+  bem_vindo.innerHTML = `Olá, ${sessionStorage.NOME_USUARIO}, altere seus dados pessoais.` 
+
+    document.getElementById("nome").value = `${sessionStorage.NOME_USUARIO}`;
+        document.getElementById("fk_jogador_select").value = `${sessionStorage.JOGADOR}`;
+
+   const idUsuario = sessionStorage.ID_USUARIOS;
+
+  var NomeValidado = false
+
+  var SenhaValidada = false
+
+      function validacao_nome() {
+        var nomeNovo = nome.value
+        if (nomeNovo == '') {
+            div_mensagem.innerHTML = 'Campo nome é obrigatório.*'
+            nome.style.borderColor = 'red';
+        } else if (nomeNovo.toUpperCase() == nomeNovo.toLowerCase()) {
+            div_mensagem.innerHTML = 'Nome inválido*'
+            nome.style.borderColor = 'red';
+            
+        } else if (nomeNovo.length < 3) {
+            div_mensagem.innerHTML = 'Nome inválido: Mínimo de 3 caracteres *'
+            nome.style.borderColor = 'red';
+        } else {
+            div_mensagem.innerHTML = ''
+            nome.style.borderColor = '';
+            NomeValidado = true
+            console.log('oi')
+        }
+    }
+
+
+    // funcao validação senha quando desfocado 
+
+    function validacao_senha() {
+        var senhaNova = senha.value
+        if (senhaNova == '') {
+            div_mensagem.innerHTML = 'Campo senha é obrigatório.*'
+            senha.style.borderColor = 'red';
+            senha.style.borderColor = 'red';
+        }
+        else if (senhaNova.toLowerCase() == senhaNova || senhaNova.length < 8 || senhaNova.toUpperCase() == senhaNova) {
+            div_mensagem.innerHTML = `
+            Senha deve conter: Mínimo de 8 caracteres <br>
+            Pelo menos 1 letra maiúscula <br>
+            Pelo menos 1 letra minúscula <br>`
+            senha.style.borderColor = 'red';
+            senha.style.borderColor = 'red';
+        } else {
+             div_mensagem.innerHTML = ''
+             senha.style.borderColor = '';
+             SenhaValidada = true
+             console.log('oi')
+        }
+        
+    }
+
+    function validacao() {
+      var senhaAtualUser = input_senhaAtualUser.value
+        var senhaLocal = sessionStorage.SENHA;
+        validacao_senha();
+        validacao_nome()
+        if (senhaLocal == senhaAtualUser) { 
+            if (NomeValidado == true && SenhaValidada == true) {
+              salvar()
+        
+            }
+        } else {
+            div_mensagem.innerHTML = 'Senha atual digitada não é valida'
+            senha_input.style.borderColor = 'red';
+            input_senha_repetida.style.borderColor = 'red';
+        }
+        
+    }
 
 function salvar() {
-   const idUsuario = sessionStorage.ID_USUARIOS;
-  const formData = new FormData();
-  const fotoFile = foto.files[0];
+   var idUsuario = sessionStorage.ID_USUARIOS;
+  var novoNome = nome.value
+  var novaSenha = senha.value
+  var novoJogador = fk_jogador_select.value
+  var formData = new FormData();
+  var fotoFile = foto.files[0];
 
-  if (!fotoFile) {
-    alert("Selecione uma foto para atualizar.");
-    return;
+  if (fotoFile == undefined) {
+    fotoFile = sessionStorage.IMAGEM
   }
 
+
   formData.append('foto', fotoFile);
+  formData.append('nome', novoNome);
+  formData.append('senha', novaSenha);
+  formData.append('jogador', novoJogador);
+  
+  
 
   fetch(`/usuarios/salvar/${idUsuario}`, {
     method: "PUT",
@@ -102,13 +176,20 @@ function salvar() {
   }).then(res => res.json())
     .then(data => {
       const novoNomeImagem = data.imagem;
+      const nomeAtualizado = data.nome;
+      const senhaAtualizada = data.senha;
+      const jogadorAtualizado = data.jogador;
+      
 
-      // Atualiza sessionStorage com o nome real do arquivo
       sessionStorage.IMAGEM = novoNomeImagem;
+      sessionStorage.NOME_USUARIO = nomeAtualizado;
+      sessionStorage.JOGADOR = jogadorAtualizado;
+      sessionStorage.SENHA = novaSenha;
+      
 
 
 
-      alert("Imagem atualizada com sucesso!");
+      window.location = "index.html";
     })
     .catch(err => {
       console.error("Erro ao atualizar imagem:", err);

@@ -117,8 +117,43 @@ body {
     position: relative;
 }
 
-.placar_final {
+
+.placar {
     width: 100%;
+    height: 150px;
+    background-color: rgb(255, 255, 255);
+    display: flex; 
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: 2px solid #DCDEE9;
+}
+
+.placar_container {
+    background-color: #E8EAF3;
+    width: 92%;
+    height: 70%;
+    border-radius: 10px;
+    box-shadow: 0 2px 2px rgb(172, 172, 172);
+    display: flex;
+    justify-content: center; 
+    align-items: center;
+    gap: 20px;
+}
+
+.placar_container div {
+    gap: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.placar_container p {
+    font-size: 30px;
+}
+
+.placar_container img {
+    width: 40px;
 }
 
 
@@ -166,14 +201,12 @@ body {
     flex-direction: column;
     background-color: transparent;
     border-radius: 15px;
-    height: 500px;
-    
+    height: 575px;
+    width: 400px;
+    background-color: white;
+    border: 2px solid #DCDEE9;
 }
-.Conteudo_secundario img {
-    height: 580px;
 
-    
-}
 
 
 
@@ -182,9 +215,42 @@ body {
     font-weight: 600;
     font-size: 26px;
     color: #1A313C;
-    border-bottom: 3px solid #DBDDE9;
+
 }
 
+.Conteudo_secundario_container ul div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.Conteudo_secundario_container {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.imagem_jogador {
+    width: 50px;
+    border: 1px solid #DCDEE9;
+    border-radius: 50%;
+}
+
+.Conteudo_secundario ul {
+    display: flex;
+    list-style: none;  
+    align-items: center;
+    gap: 15px;
+    padding: 0px 20px;
+    justify-content: space-between;
+    font-size: 16px;
+}
+
+
+.Conteudo_secundario h2 {
+    border-top: 2px solid #DCDEE9;
+    
+}
 
 .Conteudo_secundario h2 {
     padding: 10px;

@@ -35,12 +35,14 @@ CREATE TABLE resultados_jogo (
   rodada_final INT NOT NULL,
   data_hora DATETIME DEFAULT CURRENT_TIMESTAMP,
   fk_usuario INT NOT NULL,
+  fk_jogador int, 
+   FOREIGN KEY (fk_jogador) REFERENCES jogador(id_jogador)
   FOREIGN KEY (fk_usuario) REFERENCES usuarios(id_usuarios)
 );
 
 CREATE TABLe imagem (
 	id_imagem int primary key auto_increment,
-    caminho_imagem varchar(400),
+    caminho_imagem varchar(400) DEFAULT 'foto_padrao.png',
     fk_usuario int,
     foreign key (fk_usuario) references usuarios(id_usuarios)
 

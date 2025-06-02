@@ -73,48 +73,24 @@ function cadastrar(req, res) {
 }
 
 
-
-function CriarImagem(req, res) {
-    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
-    var idUsuario = req.body.idUsuarioServer;
-    
-
-    if (idUsuario == undefined) {
-        res.status(400).send("Sua IdUsuario está undefined!");
-    }   else {
-
-      
-        usuarioModel.CriarImagem(idUsuario)
-            .then(
-                function (resultado) {
-                    res.json(resultado);
-                }
-            ).catch(
-                function (erro) {
-                    console.log(erro);
-                    console.log(
-                        "\nHouve um erro ao realizar o cadastro! Erro: ",
-                        erro.sqlMessage
-                    );
-                    res.status(500).json(erro.sqlMessage);
-                }
-            );
-    }
-}
-
 function salvar(req, res) {
   const idUsuario = req.params.idUsuario;
+const novoNome = req.body.nome;
+const novaSenha = req.body.senha;
+const novoJogador = req.body.jogador;
 
-  if (!req.file) {
-    return res.status(400).send("Arquivo de imagem não enviado");
-  }
+  if (!req.file && !novoNome && !novaSenha && novoJogador) {
+  return res.status(400).send("Nenhum dado enviado para atualização");
+}
 
-  const imagem = req.file.filename;
 
-  usuarioModel.salvar({ id_usuario: idUsuario, imagem })
+
+  const imagem = req.file ? req.file.filename : null;
+
+  usuarioModel.salvar({ id_usuario: idUsuario, imagem, nome: novoNome, senha: novaSenha, jogador: novoJogador })
      .then(() => {
-      // Retorna o nome real da imagem salva
-      res.status(200).json({ imagem: imagem });
+    
+      res.status(200).json({ imagem: imagem,  nome: novoNome, senha: novaSenha,  jogador: novoJogador  });
     })
     .catch(err => {
       res.status(500).send(err);
@@ -128,6 +104,5 @@ function salvar(req, res) {
 module.exports = {
     autenticar,
     cadastrar,
-    CriarImagem,
     salvar
 }

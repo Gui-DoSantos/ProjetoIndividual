@@ -155,8 +155,12 @@ body {
     border-radius: 5px;
     border: 1px solid;
     color: #D8D8DC;
-    padding-left: 10px;
+    padding-left: 6px;
     
+}
+
+.validacao_estilo {
+    font-size: 10px;
 }
 
 .inputs select {
@@ -176,6 +180,12 @@ body {
     border-radius: 5px;
     color: white;
     background-color: #C0C0C0;
+    cursor: pointer;
+    transition: all ease-in-out 0.2s;
+}
+
+.inputs button:hover {
+    background-color: rgb(45, 45, 45);
 }
 
 .senhas {

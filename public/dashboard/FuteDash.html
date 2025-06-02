@@ -372,13 +372,12 @@ async function JogadorUtilizado() {
  
     const userId = sessionStorage.ID_USUARIOS;
 
-    const responseGols = await fetch(`/api/gols?usuario=${userId}`);
+    const ResponseUtilizado = await fetch(`/api/utilizado?usuario=${userId}`);
 
-     const gols = await responseGols.json();
+     const Utilizado = await  ResponseUtilizado.json();
 
 
-       GolsFeitos.innerHTML = `${gols[0].total_pontuacao}`
-       GolsTomados.innerHTML = `${gols[0].gols_tomados}`
+       utilizado.innerHTML = `${Utilizado[0].nome_jogador}`
        
 }
    

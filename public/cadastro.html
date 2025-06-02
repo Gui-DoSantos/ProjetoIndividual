@@ -19,7 +19,7 @@
             <div class="conteudo">
                 <div class="texto">
                     <h1>Crie sua conta ou faça login</h1>
-                    <p>Crie uma conta ou faça login para explorar as os acontecimentos das ultimas copas</p>
+                    <p>Crie uma conta ou faça login para explorar os acontecimentos das últimas Copas</p>
                 </div>
                 <div id="botoes_cadastro" class="botoes">
                     <button onclick="window.location.href='http:/login.html'"  class="entrar"><a href="./login.html">Entrar</a></button>
@@ -28,28 +28,28 @@
                 <div id="inputs_cadastro" class="inputs">
                     <ul>
                       <li>
-                        <p>nome</p>
-                        <input type="text" id="input_nome" placeholder="Seu email">
+                        <p>Nome</p>
+                        <input onblur="validacao_nome()" type="text" id="input_nome" placeholder="Seu Nome">
                     </li>
                         <li>
                             <p>E-mail</p>
-                            <input type="text" id="email_input" placeholder="Seu email">
+                            <input onblur="validacao_email()" type="text" id="email_input" placeholder="Seu E-mail">
                         </li>
                         <li>
                             <div class="senhas">
                                 <div>
                                     <p>Senha</p>
-                                    <input type="text"  id="senha_input" placeholder="Sua senha">
+                                    <input onblur="validacao_senha()" type="text"  id="senha_input" placeholder="Sua senha">
                                 </div>
                                 <div>
                                     <p>Repita a senha</p>
-                                    <input type="text"  id="confirmacao_senha_input" placeholder="Sua senha">
+                                    <input type="text"  id="input_senha_repetida" placeholder="Repita a senha">
                                 </div>
                             </div>
                         </li>
                         
                         <li>
-                            <p>Jogador favorito das copas</p>
+                            <p>Jogador favorito das Copas</p>
                           <select id="fk_jogador_select" name="">
                             <option value="1">Pelé</option>
                             <option value="2">Diego Maradona</option>
@@ -73,10 +73,11 @@
                             <option value="20">Ronaldinho</option>
                           </select>
                         </li>
-                        
+                           <div class="validacao_estilo" id="div_mensagem"></div>
                         <li>
-                            <button onclick="cadastrar()"> Entrar</button>
+                            <button onclick="validacao()"> Entrar</button>
                         </li>
+                        
                     </ul>
                 </div>
             </div>
@@ -89,6 +90,99 @@
 </html>
 <script>
 
+  var NomeValidado = false
+  var EmailValidado = false
+  var SenhaValidada = false
+  // funcao validação nome quando desfocado 
+
+      function validacao_nome() {
+        var nome = input_nome.value
+        if (nome == '') {
+            div_mensagem.innerHTML = 'Campo nome é obrigatório.*'
+            input_nome.style.borderColor = 'red';
+        } else if (nome.toUpperCase() == nome.toLowerCase()) {
+            div_mensagem.innerHTML = 'Nome inválido*'
+            input_nome.style.borderColor = 'red';
+            
+        } else if (nome.length < 3) {
+            div_mensagem.innerHTML = 'Nome inválido: Mínimo de 3 caracteres *'
+            input_nome.style.borderColor = 'red';
+        } else {
+            div_mensagem.innerHTML = ''
+            input_nome.style.borderColor = '';
+            NomeValidado = true
+        }
+    }
+
+
+      // funcao validação email quando desfocado 
+
+    function validacao_email() {
+        var email = email_input.value 
+        if (email.includes("@") && (email.includes('.com')) && email[0] != '@') {
+            email_input.style.borderColor = '';
+            div_mensagem.innerHTML = ''
+             EmailValidado = true
+        } else if (email == '')  {
+            email_input.style.borderColor = 'red';
+            div_mensagem.innerHTML = 'Campo e-mail é obrigatório.*'
+        } else {
+            email_input.style.borderColor = 'red';
+            div_mensagem.innerHTML = 'Endereço de e-mail inválido*'
+           
+        }
+    }
+
+    // funcao validação senha quando desfocado 
+
+    function validacao_senha() {
+        var senha = senha_input.value
+        var senha_repetida = senha_input.value
+
+        if (senha == '') {
+            div_mensagem.innerHTML = 'Campo senha é obrigatório.*'
+            senha_input.style.borderColor = 'red';
+            senha_input.style.borderColor = 'red';
+        }
+        else if (senha.toLowerCase() == senha || senha.length < 8 || senha.toUpperCase() == senha) {
+            div_mensagem.innerHTML = `
+            Senha deve conter: Mínimo de 8 caracteres <br>
+            Pelo menos 1 letra maiúscula <br>
+            Pelo menos 1 letra minúscula <br>`
+            senha_input.style.borderColor = 'red';
+            senha_input.style.borderColor = 'red';
+        } else {
+             div_mensagem.innerHTML = ''
+             senha_input.style.borderColor = '';
+             SenhaValidada = true
+        }
+        
+    }
+
+    function validacao() {
+        var senha = senha_input.value
+        var senha_repetida = input_senha_repetida.value
+
+        if (senha == senha_repetida) { 
+            div_mensagem.innerHTML = 'igual'
+            senha_input.style.borderColor = '';
+            input_senha_repetida.style.borderColor = '';
+
+            if (NomeValidado == true && EmailValidado == true && SenhaValidada == true) {
+              cadastrar()
+              
+            }
+        } else {
+            div_mensagem.innerHTML = 'As senhas não coincidem*'
+            senha_input.style.borderColor = 'red';
+            input_senha_repetida.style.borderColor = 'red';
+        }
+
+        validacao_email();
+        validacao_senha();
+        validacao_nome()
+    }
+
     // Array para armazenar empresas cadastradas para validação de código de ativação 
   
     function cadastrar() {
@@ -99,7 +193,6 @@
       var nomeVar = input_nome.value;
       var emailVar = email_input.value;
       var senhaVar = senha_input.value;
-      var confirmacaoSenhaVar = confirmacao_senha_input.value;
       var fk_jogadorVar = fk_jogador_select.value
       var auto_incrementVar = 0
      
@@ -109,7 +202,6 @@
         nomeVar == "" ||
         emailVar == "" ||
         senhaVar == "" ||
-        confirmacaoSenhaVar == "" ||
         fk_jogadorVar == ''
       ) {
        alert('campos em branco');

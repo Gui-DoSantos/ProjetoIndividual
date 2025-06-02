@@ -99,17 +99,95 @@
                                 <p id="BannerDesc">Veja todos os golos marcados pela argentina na campanha vitoriosa de 2022</p>
                             </div>
                     </div>
-                    <div>
-                        <img id="placar" class="placar_final" src="./assets/images/placar2014.png" alt="">
-                    </div>  
+                   <div class="placar">
+                        <div class="placar_container">
+                            <div>
+                                <p id="Vencedor"></p>
+                                <img id="VencedorIMG" src="" alt="">
+                            </div>
+                            <div class="Placar_final">
+                                <p id="Vencedor_placar"></p>
+                                <p>X</p>
+                                <p id="Perdedor_placar"></p>
+                            </div>
+                            <div>
+                                <img id="PerdedorIMG" src="" alt="">
+                                <p id="Perdedor"></p>
+                            </div>
+                        </div>
+                   </div>
                 </div>
                    
             </div>
 
                 <div class="Conteudo_secundario">
-                    <div>
-                        <img src="./assets/images/estatisticas2022.png" alt="">
-                    </div>
+                    
+                      <div>
+                        <h1>Números da competição</h1>
+                      </div>
+                      <div class="Conteudo_secundario_container">
+                        <h2>Melhores goleadores</h2>
+                        <ul>
+                            <div>
+                                <li ><img class="imagem_jogador" id="goleador1IMG" src="" alt=""></li>
+                                <li id="goleador1">mbappe</li>
+                            </div>
+                            <div>
+                                 <li id="goleador1GOLS">8</li>
+                            </div>     
+                        </ul>
+                        <ul>
+                            <div>
+                                 <li><img class="imagem_jogador" id="goleador2IMG" src="" alt=""></li>
+                                <li id="goleador2">mbappe</li>
+                            </div>
+                          <div>
+                                <li id="goleador2GOLS">8</li>
+                          </div>
+                            
+                        </ul>
+                        <ul>
+                            <div>
+                                <li ><img class="imagem_jogador" id="goleador3IMG" src="" alt=""></li>
+                                <li id="goleador3">mbappe</li>
+                            </div>
+                           <div>
+                                <li id="goleador3GOLS">8</li>
+                           </div>
+                        </ul>
+                      </div>
+                      <div class="Conteudo_secundario_container">
+                        <h2>Melhores assistentes</h2>
+                        <ul>
+                            <div>
+                                 <li><img class="imagem_jogador" id="asistente1IMG" src="" alt=""></li>
+                                <li id="asistente1">mbappe</li>
+                            </div>
+                            <div>
+                                  <li id="asistente1ASSIS">8</li>
+                            </div>
+                        </ul>
+                        <ul>
+                            <div>
+                                 <li><img class="imagem_jogador" id="asistente2IMG" src="" alt=""></li>
+                                <li  id="asistente2">mbappe</li>
+                            </div>
+                           <div>
+                              <li  id="asistente2ASSIS">8</li>
+                           </div>
+                          
+                        </ul>
+                        <ul>
+                            <div>
+                            <li><img class="imagem_jogador"  id="asistente3IMG" src="" alt=""></li>
+                            <li  id="asistente3">mbappe</li>
+                            </div>
+                           <div>
+                            <li id="asistente3ASSIS">8</li>
+                           </div>
+                        </ul>
+                      </div>
+                    
                 </div>
         </div>
 
@@ -138,21 +216,138 @@
 
 <script>
 
+    
+const params = new URLSearchParams(window.location.search);
+const selecao = params.get('selecao'); 
 
+console.log(selecao)
+
+
+
+// LISTA
+const informacoes_geral = {
+    "argentina": {
+        VencedorTime: [
+            { nome: "Argentina", gols: 3, img: './assets/images/ArgentinaSelecao.png' },
+        ],
+        PerdedorTime: [
+            { nome: "França", gols: 3, img: './assets/images/franca_selecao.png'},
+        ],
+        maioresGoleadores: [
+            { nome: "Kylian Mbappé", gols: 8, img: './assets/IMAGEM_JOGADORES_C/mbappe.png' },
+            { nome: "Lionel Messi", gols: 7, img: './assets/IMAGEM_JOGADORES_C/messi.png' },
+            { nome: "Julián Álvarez", gols: 4, img: './assets/IMAGEM_JOGADORES_C/alvarez.png' }
+        ],
+        maioresAssistentes: [
+            { nome: "Lionel Messi", assistencias: 3, img: './assets/IMAGEM_JOGADORES_C/messi.png'  },
+            { nome: "Harry kane", assistencias: 3,img: './assets/IMAGEM_JOGADORES_C/kane.png'  },
+            { nome: "Antoine Griezmann", assistencias: 3,img: './assets/IMAGEM_JOGADORES_C/griezmann.png' }
+        ]
+    },
+    "franca": {
+        VencedorTime: [
+            { nome: "França", gols: 4, img: './assets/images/franca_selecao.png' },
+        ],
+        PerdedorTime: [
+            { nome: "Croácia", gols: 2, img: './assets/images/croacia_selecao.png' },
+        ],
+        maioresGoleadores: [
+            { nome: "Harry Kane", gols: 6,  img: './assets/IMAGEM_JOGADORES_C/kane.png'  },
+            { nome: "Antoine Griezmann", gols: 4,  img: './assets/IMAGEM_JOGADORES_C/griezmann.png'  },
+            { nome: "Kylian Mbappé", gols: 4,  img: './assets/IMAGEM_JOGADORES_C/mbappe.png'  }
+        ],
+        maioresAssistentes: [
+            { nome: "Messi", assistencias: 2, img: './assets/IMAGEM_JOGADORES_C/messi.png'  },
+            { nome: "Antoine Griezmann", assistencias: 2,  img: './assets/IMAGEM_JOGADORES_C/griezmann.png'  },
+            { nome: "James Rodríguez", assistencias: 2, img: './assets/IMAGEM_JOGADORES_C/james.png'  }
+        ]
+    },
+    "alemanha": {
+        VencedorTime: [
+            { nome: "Alemanha", gols: 1, img: './assets/images/Alemanha_selecao.png' },
+        ],
+        PerdedorTime: [
+            { nome: "Argentina", gols: 0, img: './assets/images/ArgentinaSelecao.png' },
+        ],
+        maioresGoleadores: [
+            { nome: "James Rodríguez", gols: 6,  img: './assets/IMAGEM_JOGADORES_C/james.png' },
+            { nome: "Thomas Müller", gols: 5,  img: './assets/IMAGEM_JOGADORES_C/muller.png' },
+            { nome: "Lionel Messi", gols: 4,  img: './assets/IMAGEM_JOGADORES_C/messi.png' }
+        ],
+        maioresAssistentes: [
+            { nome: "Juan Cuadrado", assistencias: 4,img: './assets/IMAGEM_JOGADORES_C/juan.png'},
+            { nome: "Toni Kroos", assistencias: 3, img: './assets/IMAGEM_JOGADORES_C/toni.png' },
+            { nome: "Thomas Müller", assistencias: 3,img: './assets/IMAGEM_JOGADORES_C/muller.png' }
+        ]
+    }
+};
+
+// PLACAR FINAL
+
+
+PerdedorIMG.src = informacoes_geral[selecao].PerdedorTime[0].img;
+VencedorIMG.src = informacoes_geral[selecao].VencedorTime[0].img;
+
+
+Vencedor_placar.innerHTML = informacoes_geral[selecao].VencedorTime[0].gols;
+Perdedor_placar.innerHTML = informacoes_geral[selecao].PerdedorTime[0].gols;
+
+
+
+Vencedor.innerHTML = informacoes_geral[selecao].VencedorTime[0].nome;
+Perdedor.innerHTML = informacoes_geral[selecao].PerdedorTime[0].nome;
+
+
+
+//NUMEROS COMPETIÇÂO
+
+// GOLS
+
+goleador1.innerHTML = informacoes_geral[selecao].maioresGoleadores[0].nome;
+goleador1GOLS.innerHTML = informacoes_geral[selecao].maioresGoleadores[0].gols;
+
+goleador2.innerHTML = informacoes_geral[selecao].maioresGoleadores[1].nome;
+goleador2GOLS.innerHTML = informacoes_geral[selecao].maioresGoleadores[1].gols;
+
+goleador3.innerHTML = informacoes_geral[selecao].maioresGoleadores[2].nome;
+goleador3GOLS.innerHTML = informacoes_geral[selecao].maioresGoleadores[2].gols;
+
+
+// ASSISTENCIAS
+
+asistente1.innerHTML = informacoes_geral[selecao].maioresAssistentes[0].nome;
+asistente1ASSIS.innerHTML = informacoes_geral[selecao].maioresAssistentes[0].assistencias;
+
+
+asistente2.innerHTML = informacoes_geral[selecao].maioresAssistentes[1].nome;
+asistente2ASSIS.innerHTML = informacoes_geral[selecao].maioresAssistentes[1].assistencias;
+
+asistente3.innerHTML = informacoes_geral[selecao].maioresAssistentes[2].nome;
+asistente3ASSIS.innerHTML = informacoes_geral[selecao].maioresAssistentes[2].assistencias;
+
+
+
+// IMAGENS
+
+goleador1IMG.src = informacoes_geral[selecao].maioresGoleadores[0].img;
+goleador2IMG.src = informacoes_geral[selecao].maioresGoleadores[1].img;
+goleador3IMG.src = informacoes_geral[selecao].maioresGoleadores[2].img;
+
+
+asistente1IMG.src = informacoes_geral[selecao].maioresAssistentes[0].img;
+asistente2IMG.src = informacoes_geral[selecao].maioresAssistentes[1].img;
+asistente3IMG.src = informacoes_geral[selecao].maioresAssistentes[2].img;
 
 let divVencedor = document.querySelector("#vencedor");
 let divwalpaper2 = document.querySelector("#walpaper2")
 let divwalpaper1 = document.querySelector("#walpaper1")
 let divDescricao = document.querySelector("#descricao");
 let divselecao = document.querySelector("#selecao");
-let divplacar =  document.querySelector("#placar")
 let divBanner = document.querySelector("#Banner")
 let divBannerTitle = document.querySelector("#BannerTitle")
 let BannerDesc = document.querySelector("#BannerDesc")
 
 
-const params = new URLSearchParams(window.location.search);
-const selecao = params.get('selecao'); 
 
 if (selecao) {
     document.querySelectorAll('.link-dinamico').forEach(link => {
@@ -175,7 +370,6 @@ fetch("informacoes.json").then((response) => {
             divwalpaper2.src = infoSelecao.walpaper2;
             divwalpaper1.src = infoSelecao.walpaper1;
             divselecao.src = infoSelecao.selecao;
-            divplacar.src = infoSelecao.placar;
             divBanner.src = infoSelecao.Banner;
 
         }
@@ -214,9 +408,9 @@ setInterval(alternarWalpapers, 10000);
 
 
     
-      const idUsuario = sessionStorage.ID_USUARIOS;
+const idUsuario = sessionStorage.ID_USUARIOS;
 
-         const imagemPerfil = sessionStorage.IMAGEM;
+ const imagemPerfil = sessionStorage.IMAGEM;
 
 const personImg = document.getElementById("person");
 const dropdown = document.getElementById("userDropdown");
@@ -237,8 +431,6 @@ if (idUsuario != undefined) {
     window.location.href = "./login.html";
   });
 }
-
-   
 
   function deslogar() {
     sessionStorage.clear();
