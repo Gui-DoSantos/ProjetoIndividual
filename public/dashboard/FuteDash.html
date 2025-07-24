@@ -72,7 +72,7 @@
                 </div>
             </div>
             <div class="KPIs">
-                <p>Quantidade de vitorias:</p>
+                <p>Quantidade de vitórias:</p>
                 <div>
                         
                     <p id="id_ganhou">0</p>
@@ -136,7 +136,7 @@
     
     async function carregarResultados() {
 
-    const imagemPerfil = sessionStorage.IMAGEM;
+    var imagemPerfil = sessionStorage.IMAGEM;
     var nomeUsuario = sessionStorage.NOME_USUARIO
     var userId = sessionStorage.ID_USUARIOS;
 
@@ -149,39 +149,26 @@
     
 
     if (!userId) {
-        alert("Usuário não identificado.");
+        alert("Usuario não identificado.");
         return;
     }
 
     try {
-        const response = await fetch(`/api/resultados?usuario=${userId}`);
+        var response = await fetch(`/api/resultados?usuario=${userId}`);
 
 
-        const dados = await response.json();
+        var dados = await response.json();
 
 
 
-    for (let i = 0; i < dados.length; i++) {
+    for (var i = 0; i < dados.length; i++) {
      
-    const item = dados[i];
+    var item = dados[i];
     var nome = dados[i].nome_jogador;
     var pontuacao = dados[i].sua_pontuacao
 
-   
-
-
-    if (!contadorNomes[nome]) {
-        contadorNomes[nome] = 0;
-    }
-        contadorNomes[nome]++;
-
-        if (contadorNomes[nome] > maiorAparicao) {
-        maiorAparicao = contadorNomes[nome];
-        nomeMaisUsado = nome;
-    }
-
-    utilizado.innerHTML  = `${nomeMaisUsado}`
-  
+  console.log(dados[i])
+  console.log(dados)
 
     if (item.resultado.toLowerCase().includes("ganhou")) {
         contadorGanhou++;
@@ -209,9 +196,9 @@
     empate.innerHTML = `${percentualEmpate.toFixed(2)}`
 
     if (isNaN(percentualDerrotas) || isNaN(percentualVitoria) || isNaN(percentualEmpate))   {
-  percentualVitoria = 0.00000001
-  percentualDerrotas = 0.00000001
-  percentualEmpate = 0.00000001
+  percentualVitoria = 0.00001
+  percentualDerrotas = 0.000001
+  percentualEmpate = 0.0000001
 }
     
 
@@ -388,4 +375,6 @@ window.onload = function() {
   dadosGols();
 JogadorUtilizado();
 };
+
+
   </script>

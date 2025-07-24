@@ -38,11 +38,10 @@ function cadastrar(nome, email, senha, fk_jogador) {
             ORDER BY id_usuarios DESC
             LIMIT 1;
         `;
-
+        
         return database.executar(instrucaoSelect);
     }).then(function(resultado) {
             var idUsuario = resultado[0].id_usuarios;
-
             var insertImagem = `
                 INSERT INTO imagem (fk_usuario)
                 VALUES (${idUsuario});

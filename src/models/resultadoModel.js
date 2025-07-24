@@ -37,9 +37,20 @@ async function listarTudo(userId) {
 async function listarPlacar() {
 
     const query = `    
-    SELECT COUNT(*) as quantidadeGanhou, usuarios.nome as nome
-    FROM resultados_jogo join usuarios on id_usuarios = fk_usuario
-    WHERE resultado = 'ganhou' group by usuarios.nome limit 3;
+   SELECT 
+  u.nome AS nome,
+  COUNT(*) AS quantidadeGanhou
+FROM 
+  resultados_jogo r
+JOIN 
+  usuarios u ON u.id_usuarios = r.fk_usuario
+WHERE 
+  r.resultado = 'ganhou'
+GROUP BY 
+  u.id_usuarios, u.nome
+ORDER BY
+  quantidadeGanhou DESC
+LIMIT 3;
     `;
 
     try {
@@ -68,28 +79,6 @@ async function listarGols(userId) {
     }
 }
 
-
-async function listarPlacar() {
-
-    const query = `    
-    SELECT 
-  u.nome AS nome_usuario,
-  j.nome AS nome_jogador,
-  COUNT(r.id_jogo) AS partidas_utilizadas
-FROM jogador j
-JOIN usuarios u ON j.id_jogador = u.fk_jogador
-LEFT JOIN resultados_jogo r ON u.id_usuarios = r.fk_usuario
-GROUP BY u.id_usuarios, u.nome, j.id_jogador, j.nome
-ORDER BY partidas_utilizadas DESC;
-    `;
-
-    try {
-        const dados = await database.executar(query);
-        return dados;
-    } catch (error) {
-        throw error;
-    }
-}
 
 
 

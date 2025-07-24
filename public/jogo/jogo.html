@@ -237,7 +237,7 @@
           lado = 'direita'
         }
         
-        if (erro == 1) {
+        if (erro == 'a') {
         
          imagem21.classList.remove('hidden');
         document.getElementById(`div_${rodada}`).style.backgroundColor = 'red';
@@ -306,7 +306,7 @@
       } else {
         var compChute = aleatorio; 
 
-        if (erro === 1) {
+        if (erro === 'a') {
           
          imagem22.classList.remove('hidden');
          document.getElementById(`div_${rodada}`).style.backgroundColor = 'red';
@@ -401,7 +401,7 @@ if (rodada <= 10) {
   } else if (computadorPontuacao > suaPontuacao) {
     resultadoFinal = "perdeu";
        imagem26.classList.remove('hidden');
-  } else {
+  } else if (computadorPontuacao == suaPontuacao) {
     resultadoFinal = "empate";
 
         imagem27.classList.remove('hidden');
